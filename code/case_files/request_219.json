@@ -1,0 +1,526 @@
+{
+  "request": {
+    "request_id": "request_219",
+    "user_id": "user_219",
+    "request_date": "2026-04-04",
+    "request_type": "education",
+    "requested_amount": "1673.1",
+    "desired_completion_date": "2026-06-13",
+    "allows_partial_payment": "True",
+    "request_text": "Would paying the course fee now leave enough for my regular commitments? I need to decide by 13 June 2026. I need EUR 1,673.10 for the course fee."
+  },
+  "profile": {
+    "home_currency": "EUR",
+    "balance": 2815.51,
+    "minimum_balance": 1100.0,
+    "methods": [
+      "installments"
+    ],
+    "max_installment_months": 5.0,
+    "protected": [
+      "groceries",
+      "rent",
+      "utilities"
+    ],
+    "reducible": [
+      "streaming"
+    ],
+    "stoppable": []
+  },
+  "capacity_frozen": {
+    "amount_safe_to_pay": 711.17,
+    "earliest_date_for_full_payment": "2026-05-15",
+    "lowest_projected_balance": 1811.17,
+    "binding_constraint": {
+      "date": "2026-04-14",
+      "flow": "shopping:debit:*"
+    }
+  },
+  "recurring_series": [
+    {
+      "key": "cloud_storage:debit:*",
+      "cadence": "monthly",
+      "last": "2026-03-14",
+      "amount": 14.0,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_20156"
+    },
+    {
+      "key": "dining:debit:*",
+      "cadence": "every_21_days",
+      "last": "2026-03-25",
+      "amount": 46.04,
+      "occurrences": 9,
+      "flexibility": "fixed",
+      "latest_event": "event_20194"
+    },
+    {
+      "key": "groceries:debit:*",
+      "cadence": "every_10_days",
+      "last": "2026-03-30",
+      "amount": 90.33,
+      "occurrences": 18,
+      "flexibility": "fixed",
+      "latest_event": "event_20176"
+    },
+    {
+      "key": "rent:debit:*",
+      "cadence": "monthly",
+      "last": "2026-03-04",
+      "amount": 650.1,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_20154"
+    },
+    {
+      "key": "shopping:debit:*",
+      "cadence": "monthly",
+      "last": "2026-03-14",
+      "amount": 83.75,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_20158"
+    },
+    {
+      "key": "streaming:debit:*",
+      "cadence": "monthly",
+      "last": "2026-03-11",
+      "amount": 53.0,
+      "occurrences": 5,
+      "flexibility": "reducible",
+      "latest_event": "event_20157"
+    },
+    {
+      "key": "transport:debit:*",
+      "cadence": "every_21_days",
+      "last": "2026-03-29",
+      "amount": 47.62,
+      "occurrences": 9,
+      "flexibility": "fixed",
+      "latest_event": "event_20185"
+    },
+    {
+      "key": "utilities:debit:*",
+      "cadence": "monthly",
+      "last": "2026-03-08",
+      "amount": 113.16,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_20155"
+    }
+  ],
+  "evidence": [
+    {
+      "message_id": "message_170",
+      "intent": "salary_resumes",
+      "amount": 1914.0,
+      "currency": "EUR",
+      "date": "2026-04-15"
+    }
+  ],
+  "trace": [
+    "series cloud_storage:debit:*: monthly last=2026-03-14 amount=14.00 n=5 flex=fixed",
+    "series dining:debit:*: every_21_days last=2026-03-25 amount=46.04 n=9 flex=fixed",
+    "series groceries:debit:*: every_10_days last=2026-03-30 amount=90.33 n=18 flex=fixed",
+    "series rent:debit:*: monthly last=2026-03-04 amount=650.10 n=5 flex=fixed",
+    "series shopping:debit:*: monthly last=2026-03-14 amount=83.75 n=5 flex=fixed",
+    "series streaming:debit:*: monthly last=2026-03-11 amount=53.00 n=5 flex=reducible",
+    "series transport:debit:*: every_21_days last=2026-03-29 amount=47.62 n=9 flex=fixed",
+    "series utilities:debit:*: monthly last=2026-03-08 amount=113.16 n=5 flex=fixed",
+    "message_170 salary_resumes: salary 1914.0 monthly from 2026-04-15"
+  ],
+  "projected_flows": [
+    {
+      "date": "2026-04-04",
+      "amount": -650.1,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2026-04-08",
+      "amount": -113.16,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2026-04-09",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-04-11",
+      "amount": -53.0,
+      "kind": "recurring",
+      "label": "streaming:debit:*"
+    },
+    {
+      "date": "2026-04-14",
+      "amount": -14.0,
+      "kind": "recurring",
+      "label": "cloud_storage:debit:*"
+    },
+    {
+      "date": "2026-04-14",
+      "amount": -83.75,
+      "kind": "recurring",
+      "label": "shopping:debit:*"
+    },
+    {
+      "date": "2026-04-15",
+      "amount": -46.04,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2026-04-15",
+      "amount": 1914.0,
+      "kind": "evidence",
+      "label": "salary (resumed)"
+    },
+    {
+      "date": "2026-04-19",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-04-19",
+      "amount": -47.62,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-04-29",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-05-04",
+      "amount": -650.1,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2026-05-06",
+      "amount": -46.04,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2026-05-08",
+      "amount": -113.16,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2026-05-09",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-05-10",
+      "amount": -47.62,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-05-11",
+      "amount": -53.0,
+      "kind": "recurring",
+      "label": "streaming:debit:*"
+    },
+    {
+      "date": "2026-05-14",
+      "amount": -14.0,
+      "kind": "recurring",
+      "label": "cloud_storage:debit:*"
+    },
+    {
+      "date": "2026-05-14",
+      "amount": -83.75,
+      "kind": "recurring",
+      "label": "shopping:debit:*"
+    },
+    {
+      "date": "2026-05-15",
+      "amount": 1914.0,
+      "kind": "evidence",
+      "label": "salary (resumed)"
+    },
+    {
+      "date": "2026-05-19",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-05-27",
+      "amount": -46.04,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2026-05-29",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-05-31",
+      "amount": -47.62,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-06-04",
+      "amount": -650.1,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2026-06-08",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-06-08",
+      "amount": -113.16,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2026-06-11",
+      "amount": -53.0,
+      "kind": "recurring",
+      "label": "streaming:debit:*"
+    },
+    {
+      "date": "2026-06-14",
+      "amount": -14.0,
+      "kind": "recurring",
+      "label": "cloud_storage:debit:*"
+    },
+    {
+      "date": "2026-06-14",
+      "amount": -83.75,
+      "kind": "recurring",
+      "label": "shopping:debit:*"
+    },
+    {
+      "date": "2026-06-15",
+      "amount": 1914.0,
+      "kind": "evidence",
+      "label": "salary (resumed)"
+    },
+    {
+      "date": "2026-06-17",
+      "amount": -46.04,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2026-06-18",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-06-21",
+      "amount": -47.62,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-06-28",
+      "amount": -90.33,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    }
+  ],
+  "candidate_plans": [
+    {
+      "method": "full_payment",
+      "option": "",
+      "total_paid": 1673.1,
+      "schedule": [
+        [
+          "2026-04-04",
+          1673.1
+        ]
+      ],
+      "eligible": false,
+      "safe": false,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "user does not consider full_payment"
+      ]
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_628",
+      "total_paid": 1740.03,
+      "schedule": [
+        [
+          "2026-04-07",
+          580.01
+        ],
+        [
+          "2026-05-07",
+          580.01
+        ],
+        [
+          "2026-06-06",
+          580.01
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_630",
+      "total_paid": 1907.28,
+      "schedule": [
+        [
+          "2026-04-11",
+          105.96
+        ],
+        [
+          "2026-05-12",
+          105.96
+        ],
+        [
+          "2026-06-12",
+          105.96
+        ],
+        [
+          "2026-07-13",
+          105.96
+        ],
+        [
+          "2026-08-13",
+          105.96
+        ],
+        [
+          "2026-09-13",
+          105.96
+        ],
+        [
+          "2026-10-14",
+          105.96
+        ],
+        [
+          "2026-11-14",
+          105.96
+        ],
+        [
+          "2026-12-15",
+          105.96
+        ],
+        [
+          "2027-01-15",
+          105.96
+        ],
+        [
+          "2027-02-15",
+          105.96
+        ],
+        [
+          "2027-03-18",
+          105.96
+        ],
+        [
+          "2027-04-18",
+          105.96
+        ],
+        [
+          "2027-05-19",
+          105.96
+        ],
+        [
+          "2027-06-19",
+          105.96
+        ],
+        [
+          "2027-07-20",
+          105.96
+        ],
+        [
+          "2027-08-20",
+          105.96
+        ],
+        [
+          "2027-09-20",
+          105.96
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": [
+        "18 payments exceed max_installment_months=5 (R35)"
+      ]
+    },
+    {
+      "method": "partial_payment",
+      "option": "",
+      "total_paid": 1673.1,
+      "schedule": [
+        [
+          "2026-04-04",
+          711.17
+        ],
+        [
+          "2026-05-15",
+          961.93
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "method": "wait",
+      "option": "",
+      "total_paid": 1673.1,
+      "schedule": [
+        [
+          "2026-05-15",
+          1673.1
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "wait requires full_payment acceptance"
+      ]
+    }
+  ],
+  "output_row": {
+    "request_id": "request_219",
+    "amount_safe_to_pay": "711.17",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2026-04-07:580.01|2026-05-07:580.01|2026-06-06:580.01",
+    "earliest_date_for_full_payment": "2026-05-15",
+    "spending_changes_needed": "none",
+    "decision_explanation": "Use 3 installments of EUR 580.01, starting 7 April 2026. This leaves at least EUR 1,100 available."
+  },
+  "verification_errors": []
+}

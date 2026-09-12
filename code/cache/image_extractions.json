@@ -1,0 +1,570 @@
+{
+  "image_01": {
+    "_usage": {
+      "input_tokens": 3770,
+      "model": "claude-opus-5",
+      "output_tokens": 168
+    },
+    "amount": 4365000,
+    "confidence": "high",
+    "currency": "IDR",
+    "document_date": "2019-08-31",
+    "document_type": "payslip",
+    "other_amounts": [
+      {
+        "amount": 4780800,
+        "label": "Subtotal Earnings"
+      },
+      {
+        "amount": 4780800,
+        "label": "Total Earnings"
+      },
+      {
+        "amount": 415800,
+        "label": "Subtotal Deductions"
+      },
+      {
+        "amount": 415800,
+        "label": "Total Deductions"
+      },
+      {
+        "amount": 4500000,
+        "label": "Salary"
+      },
+      {
+        "amount": 0,
+        "label": "Tax"
+      }
+    ]
+  },
+  "image_02": {
+    "_usage": {
+      "input_tokens": 2895,
+      "model": "claude-opus-5",
+      "output_tokens": 194
+    },
+    "amount": 100000,
+    "confidence": "medium",
+    "currency": "INR",
+    "document_date": "2023-08-11",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 180000,
+        "label": "Rent & Maintanance"
+      },
+      {
+        "amount": 5000,
+        "label": "Water Charges"
+      },
+      {
+        "amount": 5000,
+        "label": "Rental Tax"
+      },
+      {
+        "amount": 10000,
+        "label": "Electrical Charges"
+      },
+      {
+        "amount": 200000,
+        "label": "Total Amount to be Received"
+      },
+      {
+        "amount": 100000,
+        "label": "Amount Received"
+      }
+    ]
+  },
+  "image_03": {
+    "_usage": {
+      "input_tokens": 1809,
+      "model": "claude-opus-5",
+      "output_tokens": 97
+    },
+    "amount": 41272.0,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2026-02-27",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 41272.0,
+        "label": "Net Amount"
+      },
+      {
+        "amount": 41272.0,
+        "label": "Cash Paid"
+      }
+    ]
+  },
+  "image_04": {
+    "_usage": {
+      "input_tokens": 1614,
+      "model": "claude-opus-5",
+      "output_tokens": 590
+    },
+    "amount": 2854,
+    "confidence": "medium",
+    "currency": "INR",
+    "document_date": "",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 2854,
+        "label": "Item Bill"
+      },
+      {
+        "amount": 95,
+        "label": "[Combo] Nissin Cup Noodles Mazedaar Masala (1x)"
+      },
+      {
+        "amount": 531,
+        "label": "The Whole Truth 20G Protein Bars No Added (1x)"
+      },
+      {
+        "amount": 0,
+        "label": "Flyer - Nubu (1x)"
+      },
+      {
+        "amount": 186,
+        "label": "[Combo] The Whole Truth 13G Protein Millet Bar (1x)"
+      },
+      {
+        "amount": 122,
+        "label": "[Combo] O'Cean Fruit Water Mango & Passion (1x)"
+      },
+      {
+        "amount": 464,
+        "label": "[Combo] The Whole Truth Double Cocoa Prote (2x)"
+      },
+      {
+        "amount": 184,
+        "label": "[Combo] The Whole Truth Almond Choco Fudg (1x)"
+      },
+      {
+        "amount": 144,
+        "label": "Nissin Cup Noodles Mazedaar Masala (3x)"
+      },
+      {
+        "amount": 75,
+        "label": "Wickedgud Instant Masala Cup Noodles (3x)"
+      },
+      {
+        "amount": 366,
+        "label": "[Combo] O'Cean Peach & Passion Fruit Juice (3x)"
+      },
+      {
+        "amount": 190,
+        "label": "[Combo] The Whole Truth Protein Bar Orange (1x)"
+      },
+      {
+        "amount": 121,
+        "label": "The Whole Truth Protein Bar Hazelnut Cocoa No (1x)"
+      },
+      {
+        "amount": 376,
+        "label": "[Combo] Nissin Cup Noodles Spiced Chicken (2x)"
+      }
+    ]
+  },
+  "image_05": {
+    "_usage": {
+      "input_tokens": 2683,
+      "model": "claude-opus-5",
+      "output_tokens": 171
+    },
+    "amount": 704.05,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2026-02-06",
+    "document_type": "bill",
+    "other_amounts": [
+      {
+        "amount": 3543.54,
+        "label": "Previous balance"
+      },
+      {
+        "amount": 3543.54,
+        "label": "Payments"
+      },
+      {
+        "amount": 822.05,
+        "label": "Amount due after 06-Feb-2026"
+      },
+      {
+        "amount": 580.65,
+        "label": "Rentals"
+      },
+      {
+        "amount": 16.0,
+        "label": "Usage charges"
+      },
+      {
+        "amount": 107.4,
+        "label": "Taxes"
+      }
+    ]
+  },
+  "image_06": {
+    "_usage": {
+      "input_tokens": 2434,
+      "model": "claude-opus-5",
+      "output_tokens": 110
+    },
+    "amount": 1995.0,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "",
+    "document_type": "invoice",
+    "other_amounts": [
+      {
+        "amount": 47.49,
+        "label": "CGST (INR) total"
+      },
+      {
+        "amount": 47.49,
+        "label": "SGST (INR) total"
+      },
+      {
+        "amount": 7,
+        "label": "Total quantity"
+      }
+    ]
+  },
+  "image_07": {
+    "_usage": {
+      "input_tokens": 1469,
+      "model": "claude-opus-5",
+      "output_tokens": 133
+    },
+    "amount": 8528,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2025-10-29",
+    "document_type": "invoice",
+    "other_amounts": [
+      {
+        "amount": 8122,
+        "label": "SubTotal"
+      },
+      {
+        "amount": 203.05,
+        "label": "SGST 2.50 %"
+      },
+      {
+        "amount": 203.05,
+        "label": "CGST 2.50 %"
+      },
+      {
+        "amount": 8528.1,
+        "label": "Total"
+      }
+    ]
+  },
+  "image_08": {
+    "_usage": {
+      "input_tokens": 2783,
+      "model": "claude-opus-5",
+      "output_tokens": 154
+    },
+    "amount": 15339.0,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2026-07-24",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 13880.0,
+        "label": "Maintenance - April to June-2026"
+      },
+      {
+        "amount": 1050.0,
+        "label": "Club House Charges - April to June-2026"
+      },
+      {
+        "amount": 409.0,
+        "label": "Infrastructure Expenses"
+      },
+      {
+        "amount": 0.0,
+        "label": "Convenience Fee"
+      }
+    ]
+  },
+  "image_09": {
+    "_usage": {
+      "input_tokens": 2196,
+      "model": "claude-opus-5",
+      "output_tokens": 112
+    },
+    "amount": 723.0,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2026-06-07",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 723.0,
+        "label": "Charged Amount"
+      },
+      {
+        "amount": 723.0,
+        "label": "Amount"
+      },
+      {
+        "amount": 0.0,
+        "label": "Convenience Fee"
+      }
+    ]
+  },
+  "image_10": {
+    "_usage": {
+      "input_tokens": 2513,
+      "model": "claude-opus-5",
+      "output_tokens": 190
+    },
+    "amount": 79679.26,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "",
+    "document_type": "invoice",
+    "other_amounts": [
+      {
+        "amount": 72045.0,
+        "label": "Sub Total"
+      },
+      {
+        "amount": 1513.13,
+        "label": "CGST2.5 (2.5%)"
+      },
+      {
+        "amount": 1513.13,
+        "label": "SGST2.5 (2.5%)"
+      },
+      {
+        "amount": 2304.0,
+        "label": "CGST20 (20%)"
+      },
+      {
+        "amount": 2304.0,
+        "label": "SGST20 (20%)"
+      },
+      {
+        "amount": 79679.26,
+        "label": "Balance Due"
+      }
+    ]
+  },
+  "image_11": {
+    "_usage": {
+      "input_tokens": 2525,
+      "model": "claude-opus-5",
+      "output_tokens": 164
+    },
+    "amount": 3650,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2023-01-19",
+    "document_type": "bill",
+    "other_amounts": [
+      {
+        "amount": 3650,
+        "label": "Total Bill Amount"
+      },
+      {
+        "amount": 0,
+        "label": "Amount Paid"
+      },
+      {
+        "amount": 3650,
+        "label": "Balance"
+      },
+      {
+        "amount": 1650,
+        "label": "Room & Nursing Charges"
+      },
+      {
+        "amount": 1000,
+        "label": "OT Charges"
+      },
+      {
+        "amount": 1000,
+        "label": "Professional Fees"
+      }
+    ]
+  },
+  "image_12": {
+    "_usage": {
+      "input_tokens": 1541,
+      "model": "claude-opus-5",
+      "output_tokens": 173
+    },
+    "amount": 33.5,
+    "confidence": "high",
+    "currency": "USD",
+    "document_date": "2025-01-10",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 28.5,
+        "label": "Ride Distance: 12.3 miles"
+      },
+      {
+        "amount": 5.0,
+        "label": "Airport Surcharge"
+      },
+      {
+        "amount": 33.5,
+        "label": "Subtotal"
+      },
+      {
+        "amount": 0.0,
+        "label": "Tax"
+      },
+      {
+        "amount": 40.0,
+        "label": "Cash Paid"
+      },
+      {
+        "amount": 6.5,
+        "label": "Change"
+      }
+    ]
+  },
+  "image_13": {
+    "_usage": {
+      "input_tokens": 2413,
+      "model": "claude-opus-5",
+      "output_tokens": 148
+    },
+    "amount": 2298,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 2298,
+        "label": "Item Total (2 items)"
+      },
+      {
+        "amount": 0,
+        "label": "Delivery (Free)"
+      },
+      {
+        "amount": 699,
+        "label": "DailyObjects Mumbai City Tote Bag"
+      },
+      {
+        "amount": 1599,
+        "label": "Ivory - Navy All Time Tote Bag"
+      }
+    ]
+  },
+  "image_14": {
+    "_usage": {
+      "input_tokens": 1258,
+      "model": "claude-opus-5",
+      "output_tokens": 222
+    },
+    "amount": 4543,
+    "confidence": "medium",
+    "currency": "INR",
+    "document_date": "",
+    "document_type": "receipt",
+    "other_amounts": [
+      {
+        "amount": 1500,
+        "label": "Samhan (qty 2)"
+      },
+      {
+        "amount": 724,
+        "label": "Moov spray (qty 2)"
+      },
+      {
+        "amount": 796,
+        "label": "Axe oil (qty 1)"
+      },
+      {
+        "amount": 550,
+        "label": "Stayfree (qty 2)"
+      },
+      {
+        "amount": 303,
+        "label": "Benadryl (qty 2)"
+      },
+      {
+        "amount": 670,
+        "label": "Line item (unlabelled)"
+      }
+    ]
+  },
+  "image_15": {
+    "_usage": {
+      "input_tokens": 3219,
+      "model": "claude-opus-5",
+      "output_tokens": 216
+    },
+    "amount": 9968.0,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2026-06-07",
+    "document_type": "invoice",
+    "other_amounts": [
+      {
+        "amount": 9124.0,
+        "label": "Taxable Value (Grand Total)"
+      },
+      {
+        "amount": 388.0,
+        "label": "NonTaxable/Exempted Value"
+      },
+      {
+        "amount": 9512.0,
+        "label": "Total before taxes"
+      },
+      {
+        "amount": 228.0,
+        "label": "CGST"
+      },
+      {
+        "amount": 228.0,
+        "label": "SGST/UGST"
+      },
+      {
+        "amount": 9580.0,
+        "label": "Air Travel and related charges (incl taxes)"
+      },
+      {
+        "amount": 388.0,
+        "label": "Airport Charges"
+      }
+    ]
+  },
+  "image_16": {
+    "_usage": {
+      "input_tokens": 2803,
+      "model": "claude-opus-5",
+      "output_tokens": 117
+    },
+    "amount": 393.22,
+    "confidence": "high",
+    "currency": "INR",
+    "document_date": "2026-09-03",
+    "document_type": "invoice",
+    "other_amounts": [
+      {
+        "amount": 333.24,
+        "label": "Energy charge amount"
+      },
+      {
+        "amount": 29.99,
+        "label": "CGST 9 %"
+      },
+      {
+        "amount": 29.99,
+        "label": "SGST 9 %"
+      }
+    ]
+  }
+}

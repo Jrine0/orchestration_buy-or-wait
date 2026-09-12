@@ -1,0 +1,493 @@
+{
+  "request": {
+    "request_id": "request_233",
+    "user_id": "user_233",
+    "request_date": "2025-11-07",
+    "request_type": "housing",
+    "requested_amount": "6241000.0",
+    "desired_completion_date": "2025-12-17",
+    "allows_partial_payment": "True",
+    "request_text": "Would paying the full deposit leave enough for my other commitments? The landlord has asked for a deposit of IDR 6,241,000."
+  },
+  "profile": {
+    "home_currency": "IDR",
+    "balance": 19341300.0,
+    "minimum_balance": 10365700.0,
+    "methods": [
+      "installments",
+      "partial_payment"
+    ],
+    "max_installment_months": 9.0,
+    "protected": [
+      "debt_repayment",
+      "education",
+      "groceries",
+      "rent"
+    ],
+    "reducible": [],
+    "stoppable": [
+      "delivery_membership",
+      "music_subscription"
+    ]
+  },
+  "capacity_frozen": {
+    "amount_safe_to_pay": 0.0,
+    "earliest_date_for_full_payment": "None",
+    "lowest_projected_balance": -6285144.14,
+    "binding_constraint": {
+      "date": "2026-02-04",
+      "flow": "groceries:debit:*"
+    }
+  },
+  "recurring_series": [
+    {
+      "key": "debt_repayment:debit:*",
+      "cadence": "monthly",
+      "last": "2025-10-11",
+      "amount": 2099500.0,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21437"
+    },
+    {
+      "key": "delivery_membership:debit:*",
+      "cadence": "monthly",
+      "last": "2025-10-13",
+      "amount": 277400.0,
+      "occurrences": 5,
+      "flexibility": "stoppable",
+      "latest_event": "event_21439"
+    },
+    {
+      "key": "dining:debit:*",
+      "cadence": "every_14_days",
+      "last": "2025-10-31",
+      "amount": 557605.13,
+      "occurrences": 13,
+      "flexibility": "fixed",
+      "latest_event": "event_21506"
+    },
+    {
+      "key": "education:debit:*",
+      "cadence": "monthly",
+      "last": "2025-10-08",
+      "amount": 1027900.0,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21436"
+    },
+    {
+      "key": "groceries:debit:*",
+      "cadence": "every_7_days",
+      "last": "2025-11-05",
+      "amount": 752369.71,
+      "occurrences": 26,
+      "flexibility": "fixed",
+      "latest_event": "event_21467"
+    },
+    {
+      "key": "music_subscription:debit:*",
+      "cadence": "monthly",
+      "last": "2025-10-11",
+      "amount": 102600.0,
+      "occurrences": 5,
+      "flexibility": "stoppable",
+      "latest_event": "event_21438"
+    },
+    {
+      "key": "rent:debit:*",
+      "cadence": "monthly",
+      "last": "2025-11-02",
+      "amount": 3895000.0,
+      "occurrences": 6,
+      "flexibility": "fixed",
+      "latest_event": "event_21440"
+    },
+    {
+      "key": "transport:debit:*",
+      "cadence": "every_7_days",
+      "last": "2025-11-06",
+      "amount": 419891.09,
+      "occurrences": 26,
+      "flexibility": "fixed",
+      "latest_event": "event_21493"
+    },
+    {
+      "key": "utilities:debit:*",
+      "cadence": "monthly",
+      "last": "2025-11-06",
+      "amount": 1082057.05,
+      "occurrences": 6,
+      "flexibility": "fixed",
+      "latest_event": "event_21441"
+    }
+  ],
+  "evidence": [
+    {
+      "message_id": "message_182",
+      "intent": "first_salary",
+      "amount": 16910000.0,
+      "currency": "IDR",
+      "date": "2025-11-15"
+    }
+  ],
+  "trace": [
+    "series debt_repayment:debit:*: monthly last=2025-10-11 amount=2099500.00 n=5 flex=fixed",
+    "series delivery_membership:debit:*: monthly last=2025-10-13 amount=277400.00 n=5 flex=stoppable",
+    "series dining:debit:*: every_14_days last=2025-10-31 amount=557605.13 n=13 flex=fixed",
+    "series education:debit:*: monthly last=2025-10-08 amount=1027900.00 n=5 flex=fixed",
+    "series groceries:debit:*: every_7_days last=2025-11-05 amount=752369.71 n=26 flex=fixed",
+    "series music_subscription:debit:*: monthly last=2025-10-11 amount=102600.00 n=5 flex=stoppable",
+    "series rent:debit:*: monthly last=2025-11-02 amount=3895000.00 n=6 flex=fixed",
+    "series transport:debit:*: every_7_days last=2025-11-06 amount=419891.09 n=26 flex=fixed",
+    "series utilities:debit:*: monthly last=2025-11-06 amount=1082057.05 n=6 flex=fixed",
+    "message_182 first_salary: confirmed salary 16910000.00 on 2025-11-15 (R8)"
+  ],
+  "projected_flows": [
+    {
+      "date": "2025-11-08",
+      "amount": -1027900.0,
+      "kind": "recurring",
+      "label": "education:debit:*"
+    },
+    {
+      "date": "2025-11-11",
+      "amount": -2099500.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2025-11-11",
+      "amount": -102600.0,
+      "kind": "recurring",
+      "label": "music_subscription:debit:*"
+    },
+    {
+      "date": "2025-11-12",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-11-13",
+      "amount": -277400.0,
+      "kind": "recurring",
+      "label": "delivery_membership:debit:*"
+    },
+    {
+      "date": "2025-11-13",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-11-14",
+      "amount": -557605.13,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2025-11-15",
+      "amount": 16910000.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_182)"
+    },
+    {
+      "date": "2025-11-19",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-11-20",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-11-26",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-11-27",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-11-28",
+      "amount": -557605.13,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2025-12-02",
+      "amount": -3895000.0,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2025-12-03",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-12-04",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-12-06",
+      "amount": -1082057.05,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2025-12-08",
+      "amount": -1027900.0,
+      "kind": "recurring",
+      "label": "education:debit:*"
+    },
+    {
+      "date": "2025-12-10",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-12-11",
+      "amount": -2099500.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2025-12-11",
+      "amount": -102600.0,
+      "kind": "recurring",
+      "label": "music_subscription:debit:*"
+    },
+    {
+      "date": "2025-12-11",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-12-12",
+      "amount": -557605.13,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2025-12-13",
+      "amount": -277400.0,
+      "kind": "recurring",
+      "label": "delivery_membership:debit:*"
+    },
+    {
+      "date": "2025-12-17",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-12-18",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-12-24",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-12-25",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-12-26",
+      "amount": -557605.13,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2025-12-31",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-01-01",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-01-02",
+      "amount": -3895000.0,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2026-01-06",
+      "amount": -1082057.05,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2026-01-07",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-01-08",
+      "amount": -1027900.0,
+      "kind": "recurring",
+      "label": "education:debit:*"
+    },
+    {
+      "date": "2026-01-08",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-01-09",
+      "amount": -557605.13,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2026-01-11",
+      "amount": -2099500.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2026-01-11",
+      "amount": -102600.0,
+      "kind": "recurring",
+      "label": "music_subscription:debit:*"
+    },
+    {
+      "date": "2026-01-13",
+      "amount": -277400.0,
+      "kind": "recurring",
+      "label": "delivery_membership:debit:*"
+    },
+    {
+      "date": "2026-01-14",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-01-15",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-01-21",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-01-22",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-01-23",
+      "amount": -557605.13,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2026-01-28",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2026-01-29",
+      "amount": -419891.09,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2026-02-02",
+      "amount": -3895000.0,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2026-02-04",
+      "amount": -752369.71,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    }
+  ],
+  "candidate_plans": [
+    {
+      "method": "full_payment",
+      "option": "",
+      "total_paid": 6241000.0,
+      "schedule": [
+        [
+          "2025-11-07",
+          6241000.0
+        ]
+      ],
+      "eligible": false,
+      "safe": false,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "user does not consider full_payment"
+      ]
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_673",
+      "total_paid": 6490640.0,
+      "schedule": [
+        [
+          "2025-11-14",
+          3245320.0
+        ],
+        [
+          "2025-12-15",
+          3245320.0
+        ]
+      ],
+      "eligible": true,
+      "safe": false,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
+    }
+  ],
+  "output_row": {
+    "request_id": "request_233",
+    "amount_safe_to_pay": "0",
+    "affordability_status": "not_affordable",
+    "recommended_payment_method": "not_recommended",
+    "payment_plan": "none",
+    "earliest_date_for_full_payment": "",
+    "spending_changes_needed": "none",
+    "decision_explanation": "Do not make this payment by 17 December 2025. None of the available options keeps the IDR 10,365,700 minimum protected."
+  },
+  "verification_errors": []
+}

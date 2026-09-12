@@ -1,0 +1,740 @@
+{
+  "request": {
+    "request_id": "request_244",
+    "user_id": "user_244",
+    "request_date": "2024-06-04",
+    "request_type": "family_transfer",
+    "requested_amount": "49918.0",
+    "desired_completion_date": "2024-07-16",
+    "allows_partial_payment": "False",
+    "request_text": "I want to send ZAR 49,918 to my family. Would sending the money now leave enough for my upcoming expenses?"
+  },
+  "profile": {
+    "home_currency": "ZAR",
+    "balance": 126279.2,
+    "minimum_balance": 45900.0,
+    "methods": [
+      "full_payment",
+      "installments",
+      "partial_payment"
+    ],
+    "max_installment_months": 6.0,
+    "protected": [
+      "debt_repayment",
+      "education",
+      "groceries",
+      "rent"
+    ],
+    "reducible": [
+      "dining"
+    ],
+    "stoppable": [
+      "delivery_membership"
+    ]
+  },
+  "capacity_frozen": {
+    "amount_safe_to_pay": 49918.0,
+    "earliest_date_for_full_payment": "2024-06-04",
+    "lowest_projected_balance": 106761.24,
+    "binding_constraint": {
+      "date": "2024-06-12",
+      "flow": "delivery_membership:debit:*"
+    }
+  },
+  "recurring_series": [
+    {
+      "key": "debt_repayment:debit:*",
+      "cadence": "monthly",
+      "last": "2024-05-10",
+      "amount": 3289.0,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_22393"
+    },
+    {
+      "key": "delivery_membership:debit:*",
+      "cadence": "monthly",
+      "last": "2024-05-12",
+      "amount": 534.6,
+      "occurrences": 5,
+      "flexibility": "stoppable",
+      "latest_event": "event_22395"
+    },
+    {
+      "key": "dining:debit:*",
+      "cadence": "every_14_days",
+      "last": "2024-05-27",
+      "amount": 2363.81,
+      "occurrences": 13,
+      "flexibility": "reducible",
+      "latest_event": "event_22461"
+    },
+    {
+      "key": "education:debit:*",
+      "cadence": "monthly",
+      "last": "2024-05-07",
+      "amount": 2945.8,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_22392"
+    },
+    {
+      "key": "groceries:debit:*",
+      "cadence": "every_7_days",
+      "last": "2024-06-01",
+      "amount": 2144.11,
+      "occurrences": 26,
+      "flexibility": "fixed",
+      "latest_event": "event_22422"
+    },
+    {
+      "key": "music_subscription:debit:*",
+      "cadence": "monthly",
+      "last": "2024-05-10",
+      "amount": 441.1,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_22394"
+    },
+    {
+      "key": "rent:debit:*",
+      "cadence": "monthly",
+      "last": "2024-06-01",
+      "amount": 18106.0,
+      "occurrences": 6,
+      "flexibility": "fixed",
+      "latest_event": "event_22396"
+    },
+    {
+      "key": "transport:debit:*",
+      "cadence": "every_7_days",
+      "last": "2024-06-02",
+      "amount": 1370.03,
+      "occurrences": 26,
+      "flexibility": "fixed",
+      "latest_event": "event_22448"
+    },
+    {
+      "key": "utilities:debit:*",
+      "cadence": "monthly",
+      "last": "2024-05-05",
+      "amount": 2911.72,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_22391"
+    }
+  ],
+  "evidence": [],
+  "trace": [
+    "series debt_repayment:debit:*: monthly last=2024-05-10 amount=3289.00 n=5 flex=fixed",
+    "series delivery_membership:debit:*: monthly last=2024-05-12 amount=534.60 n=5 flex=stoppable",
+    "series dining:debit:*: every_14_days last=2024-05-27 amount=2363.81 n=13 flex=reducible",
+    "series education:debit:*: monthly last=2024-05-07 amount=2945.80 n=5 flex=fixed",
+    "series groceries:debit:*: every_7_days last=2024-06-01 amount=2144.11 n=26 flex=fixed",
+    "series music_subscription:debit:*: monthly last=2024-05-10 amount=441.10 n=5 flex=fixed",
+    "series rent:debit:*: monthly last=2024-06-01 amount=18106.00 n=6 flex=fixed",
+    "series transport:debit:*: every_7_days last=2024-06-02 amount=1370.03 n=26 flex=fixed",
+    "series utilities:debit:*: monthly last=2024-05-05 amount=2911.72 n=5 flex=fixed",
+    "reserved scheduled debit event_22462 3517.80 on 2024-06-11 (R7)",
+    "confirmed salary event_22463 56760.00 on 2024-06-15, continued monthly (R8)"
+  ],
+  "projected_flows": [
+    {
+      "date": "2024-06-05",
+      "amount": -2911.72,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2024-06-07",
+      "amount": -2945.8,
+      "kind": "recurring",
+      "label": "education:debit:*"
+    },
+    {
+      "date": "2024-06-08",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-06-09",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-06-10",
+      "amount": -3289.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2024-06-10",
+      "amount": -2363.81,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2024-06-10",
+      "amount": -441.1,
+      "kind": "recurring",
+      "label": "music_subscription:debit:*"
+    },
+    {
+      "date": "2024-06-11",
+      "amount": -3517.8,
+      "kind": "scheduled",
+      "label": "Scheduled school fee"
+    },
+    {
+      "date": "2024-06-12",
+      "amount": -534.6,
+      "kind": "recurring",
+      "label": "delivery_membership:debit:*"
+    },
+    {
+      "date": "2024-06-15",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-06-15",
+      "amount": 56760.0,
+      "kind": "evidence",
+      "label": "Next confirmed salary"
+    },
+    {
+      "date": "2024-06-16",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-06-22",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-06-23",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-06-24",
+      "amount": -2363.81,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2024-06-29",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-06-30",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-07-01",
+      "amount": -18106.0,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2024-07-05",
+      "amount": -2911.72,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2024-07-06",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-07-07",
+      "amount": -2945.8,
+      "kind": "recurring",
+      "label": "education:debit:*"
+    },
+    {
+      "date": "2024-07-07",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-07-08",
+      "amount": -2363.81,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2024-07-10",
+      "amount": -3289.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2024-07-10",
+      "amount": -441.1,
+      "kind": "recurring",
+      "label": "music_subscription:debit:*"
+    },
+    {
+      "date": "2024-07-12",
+      "amount": -534.6,
+      "kind": "recurring",
+      "label": "delivery_membership:debit:*"
+    },
+    {
+      "date": "2024-07-13",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-07-14",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-07-15",
+      "amount": 56760.0,
+      "kind": "evidence",
+      "label": "Next confirmed salary"
+    },
+    {
+      "date": "2024-07-20",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-07-21",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-07-22",
+      "amount": -2363.81,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2024-07-27",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-07-28",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-08-01",
+      "amount": -18106.0,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2024-08-03",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-08-04",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-08-05",
+      "amount": -2363.81,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2024-08-05",
+      "amount": -2911.72,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2024-08-07",
+      "amount": -2945.8,
+      "kind": "recurring",
+      "label": "education:debit:*"
+    },
+    {
+      "date": "2024-08-10",
+      "amount": -3289.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2024-08-10",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-08-10",
+      "amount": -441.1,
+      "kind": "recurring",
+      "label": "music_subscription:debit:*"
+    },
+    {
+      "date": "2024-08-11",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-08-12",
+      "amount": -534.6,
+      "kind": "recurring",
+      "label": "delivery_membership:debit:*"
+    },
+    {
+      "date": "2024-08-15",
+      "amount": 56760.0,
+      "kind": "evidence",
+      "label": "Next confirmed salary"
+    },
+    {
+      "date": "2024-08-17",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-08-18",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-08-19",
+      "amount": -2363.81,
+      "kind": "recurring",
+      "label": "dining:debit:*"
+    },
+    {
+      "date": "2024-08-24",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-08-25",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2024-08-31",
+      "amount": -2144.11,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2024-09-01",
+      "amount": -18106.0,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2024-09-01",
+      "amount": -1370.03,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    }
+  ],
+  "candidate_plans": [
+    {
+      "method": "full_payment",
+      "option": "",
+      "total_paid": 49918.0,
+      "schedule": [
+        [
+          "2024-06-04",
+          49918.0
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_705",
+      "total_paid": 58903.32,
+      "schedule": [
+        [
+          "2024-06-18",
+          2804.92
+        ],
+        [
+          "2024-07-16",
+          2804.92
+        ],
+        [
+          "2024-08-13",
+          2804.92
+        ],
+        [
+          "2024-09-10",
+          2804.92
+        ],
+        [
+          "2024-10-08",
+          2804.92
+        ],
+        [
+          "2024-11-05",
+          2804.92
+        ],
+        [
+          "2024-12-03",
+          2804.92
+        ],
+        [
+          "2024-12-31",
+          2804.92
+        ],
+        [
+          "2025-01-28",
+          2804.92
+        ],
+        [
+          "2025-02-25",
+          2804.92
+        ],
+        [
+          "2025-03-25",
+          2804.92
+        ],
+        [
+          "2025-04-22",
+          2804.92
+        ],
+        [
+          "2025-05-20",
+          2804.92
+        ],
+        [
+          "2025-06-17",
+          2804.92
+        ],
+        [
+          "2025-07-15",
+          2804.92
+        ],
+        [
+          "2025-08-12",
+          2804.92
+        ],
+        [
+          "2025-09-09",
+          2804.92
+        ],
+        [
+          "2025-10-07",
+          2804.92
+        ],
+        [
+          "2025-11-04",
+          2804.92
+        ],
+        [
+          "2025-12-02",
+          2804.92
+        ],
+        [
+          "2025-12-30",
+          2804.92
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": [
+        "21 payments exceed max_installment_months=6 (R35)"
+      ]
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_706",
+      "total_paid": 53911.44,
+      "schedule": [
+        [
+          "2024-06-04",
+          8985.24
+        ],
+        [
+          "2024-07-04",
+          8985.24
+        ],
+        [
+          "2024-08-03",
+          8985.24
+        ],
+        [
+          "2024-09-02",
+          8985.24
+        ],
+        [
+          "2024-10-02",
+          8985.24
+        ],
+        [
+          "2024-11-01",
+          8985.24
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": []
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_707",
+      "total_paid": 60900.0,
+      "schedule": [
+        [
+          "2024-06-07",
+          2537.5
+        ],
+        [
+          "2024-07-08",
+          2537.5
+        ],
+        [
+          "2024-08-08",
+          2537.5
+        ],
+        [
+          "2024-09-08",
+          2537.5
+        ],
+        [
+          "2024-10-09",
+          2537.5
+        ],
+        [
+          "2024-11-09",
+          2537.5
+        ],
+        [
+          "2024-12-10",
+          2537.5
+        ],
+        [
+          "2025-01-10",
+          2537.5
+        ],
+        [
+          "2025-02-10",
+          2537.5
+        ],
+        [
+          "2025-03-13",
+          2537.5
+        ],
+        [
+          "2025-04-13",
+          2537.5
+        ],
+        [
+          "2025-05-14",
+          2537.5
+        ],
+        [
+          "2025-06-14",
+          2537.5
+        ],
+        [
+          "2025-07-15",
+          2537.5
+        ],
+        [
+          "2025-08-15",
+          2537.5
+        ],
+        [
+          "2025-09-15",
+          2537.5
+        ],
+        [
+          "2025-10-16",
+          2537.5
+        ],
+        [
+          "2025-11-16",
+          2537.5
+        ],
+        [
+          "2025-12-17",
+          2537.5
+        ],
+        [
+          "2026-01-17",
+          2537.5
+        ],
+        [
+          "2026-02-17",
+          2537.5
+        ],
+        [
+          "2026-03-20",
+          2537.5
+        ],
+        [
+          "2026-04-20",
+          2537.5
+        ],
+        [
+          "2026-05-21",
+          2537.5
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": [
+        "24 payments exceed max_installment_months=6 (R35)"
+      ]
+    }
+  ],
+  "output_row": {
+    "request_id": "request_244",
+    "amount_safe_to_pay": "49918",
+    "affordability_status": "affordable_now",
+    "recommended_payment_method": "full_payment",
+    "payment_plan": "2024-06-04:49918",
+    "earliest_date_for_full_payment": "2024-06-04",
+    "spending_changes_needed": "none",
+    "decision_explanation": "Pay ZAR 49,918 today. This leaves at least ZAR 45,900 available over the next 90 days."
+  },
+  "verification_errors": []
+}

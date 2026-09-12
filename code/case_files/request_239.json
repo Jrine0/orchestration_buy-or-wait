@@ -1,0 +1,536 @@
+{
+  "request": {
+    "request_id": "request_239",
+    "user_id": "user_239",
+    "request_date": "2025-05-04",
+    "request_type": "investment",
+    "requested_amount": "642.0",
+    "desired_completion_date": "2025-05-24",
+    "allows_partial_payment": "False",
+    "request_text": "Would investing this amount leave my upcoming bills covered? I need to decide by 24 May 2025. I have an opportunity to invest USD 642."
+  },
+  "profile": {
+    "home_currency": "USD",
+    "balance": 1988.9,
+    "minimum_balance": 600.0,
+    "methods": [
+      "full_payment",
+      "installments"
+    ],
+    "max_installment_months": 6.0,
+    "protected": [
+      "family_support",
+      "groceries",
+      "healthcare",
+      "rent"
+    ],
+    "reducible": [
+      "shopping"
+    ],
+    "stoppable": []
+  },
+  "capacity_frozen": {
+    "amount_safe_to_pay": 642.0,
+    "earliest_date_for_full_payment": "2025-05-04",
+    "lowest_projected_balance": 1296.44,
+    "binding_constraint": {
+      "date": "2025-05-14",
+      "flow": "shopping:debit:*"
+    }
+  },
+  "recurring_series": [
+    {
+      "key": "cloud_storage:debit:*",
+      "cadence": "monthly",
+      "last": "2025-04-14",
+      "amount": 7.0,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21991"
+    },
+    {
+      "key": "debt_repayment:debit:*",
+      "cadence": "monthly",
+      "last": "2025-04-13",
+      "amount": 82.0,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21988"
+    },
+    {
+      "key": "family_support:debit:*",
+      "cadence": "monthly",
+      "last": "2025-04-15",
+      "amount": 91.0,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21990"
+    },
+    {
+      "key": "groceries:debit:*",
+      "cadence": "every_7_days",
+      "last": "2025-04-27",
+      "amount": 47.56,
+      "occurrences": 25,
+      "flexibility": "fixed",
+      "latest_event": "event_22017"
+    },
+    {
+      "key": "healthcare:debit:*",
+      "cadence": "monthly",
+      "last": "2025-04-12",
+      "amount": 72.6,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21989"
+    },
+    {
+      "key": "rent:debit:*",
+      "cadence": "monthly",
+      "last": "2025-04-04",
+      "amount": 321.6,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21986"
+    },
+    {
+      "key": "shopping:debit:*",
+      "cadence": "monthly",
+      "last": "2025-04-14",
+      "amount": 23.34,
+      "occurrences": 5,
+      "flexibility": "reducible",
+      "latest_event": "event_21992"
+    },
+    {
+      "key": "transport:debit:*",
+      "cadence": "every_14_days",
+      "last": "2025-04-28",
+      "amount": 22.01,
+      "occurrences": 13,
+      "flexibility": "fixed",
+      "latest_event": "event_22030"
+    },
+    {
+      "key": "utilities:debit:*",
+      "cadence": "monthly",
+      "last": "2025-04-08",
+      "amount": 68.79,
+      "occurrences": 5,
+      "flexibility": "fixed",
+      "latest_event": "event_21987"
+    }
+  ],
+  "evidence": [],
+  "trace": [
+    "series cloud_storage:debit:*: monthly last=2025-04-14 amount=7.00 n=5 flex=fixed",
+    "series debt_repayment:debit:*: monthly last=2025-04-13 amount=82.00 n=5 flex=fixed",
+    "series family_support:debit:*: monthly last=2025-04-15 amount=91.00 n=5 flex=fixed",
+    "series groceries:debit:*: every_7_days last=2025-04-27 amount=47.56 n=25 flex=fixed",
+    "series healthcare:debit:*: monthly last=2025-04-12 amount=72.60 n=5 flex=fixed",
+    "series rent:debit:*: monthly last=2025-04-04 amount=321.60 n=5 flex=fixed",
+    "series shopping:debit:*: monthly last=2025-04-14 amount=23.34 n=5 flex=reducible",
+    "series transport:debit:*: every_14_days last=2025-04-28 amount=22.01 n=13 flex=fixed",
+    "series utilities:debit:*: monthly last=2025-04-08 amount=68.79 n=5 flex=fixed",
+    "confirmed salary event_22031 1020.00 on 2025-05-15, continued monthly (R8)"
+  ],
+  "projected_flows": [
+    {
+      "date": "2025-05-04",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-05-04",
+      "amount": -321.6,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2025-05-08",
+      "amount": -68.79,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2025-05-11",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-05-12",
+      "amount": -72.6,
+      "kind": "recurring",
+      "label": "healthcare:debit:*"
+    },
+    {
+      "date": "2025-05-12",
+      "amount": -22.01,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-05-13",
+      "amount": -82.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2025-05-14",
+      "amount": -7.0,
+      "kind": "recurring",
+      "label": "cloud_storage:debit:*"
+    },
+    {
+      "date": "2025-05-14",
+      "amount": -23.34,
+      "kind": "recurring",
+      "label": "shopping:debit:*"
+    },
+    {
+      "date": "2025-05-15",
+      "amount": -91.0,
+      "kind": "recurring",
+      "label": "family_support:debit:*"
+    },
+    {
+      "date": "2025-05-15",
+      "amount": 1020.0,
+      "kind": "evidence",
+      "label": "Next confirmed salary"
+    },
+    {
+      "date": "2025-05-18",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-05-25",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-05-26",
+      "amount": -22.01,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-06-01",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-06-04",
+      "amount": -321.6,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2025-06-08",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-06-08",
+      "amount": -68.79,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2025-06-09",
+      "amount": -22.01,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-06-12",
+      "amount": -72.6,
+      "kind": "recurring",
+      "label": "healthcare:debit:*"
+    },
+    {
+      "date": "2025-06-13",
+      "amount": -82.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2025-06-14",
+      "amount": -7.0,
+      "kind": "recurring",
+      "label": "cloud_storage:debit:*"
+    },
+    {
+      "date": "2025-06-14",
+      "amount": -23.34,
+      "kind": "recurring",
+      "label": "shopping:debit:*"
+    },
+    {
+      "date": "2025-06-15",
+      "amount": -91.0,
+      "kind": "recurring",
+      "label": "family_support:debit:*"
+    },
+    {
+      "date": "2025-06-15",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-06-15",
+      "amount": 1020.0,
+      "kind": "evidence",
+      "label": "Next confirmed salary"
+    },
+    {
+      "date": "2025-06-22",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-06-23",
+      "amount": -22.01,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-06-29",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-07-04",
+      "amount": -321.6,
+      "kind": "recurring",
+      "label": "rent:debit:*"
+    },
+    {
+      "date": "2025-07-06",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-07-07",
+      "amount": -22.01,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-07-08",
+      "amount": -68.79,
+      "kind": "recurring",
+      "label": "utilities:debit:*"
+    },
+    {
+      "date": "2025-07-12",
+      "amount": -72.6,
+      "kind": "recurring",
+      "label": "healthcare:debit:*"
+    },
+    {
+      "date": "2025-07-13",
+      "amount": -82.0,
+      "kind": "recurring",
+      "label": "debt_repayment:debit:*"
+    },
+    {
+      "date": "2025-07-13",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-07-14",
+      "amount": -7.0,
+      "kind": "recurring",
+      "label": "cloud_storage:debit:*"
+    },
+    {
+      "date": "2025-07-14",
+      "amount": -23.34,
+      "kind": "recurring",
+      "label": "shopping:debit:*"
+    },
+    {
+      "date": "2025-07-15",
+      "amount": -91.0,
+      "kind": "recurring",
+      "label": "family_support:debit:*"
+    },
+    {
+      "date": "2025-07-15",
+      "amount": 1020.0,
+      "kind": "evidence",
+      "label": "Next confirmed salary"
+    },
+    {
+      "date": "2025-07-20",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    },
+    {
+      "date": "2025-07-21",
+      "amount": -22.01,
+      "kind": "recurring",
+      "label": "transport:debit:*"
+    },
+    {
+      "date": "2025-07-27",
+      "amount": -47.56,
+      "kind": "recurring",
+      "label": "groceries:debit:*"
+    }
+  ],
+  "candidate_plans": [
+    {
+      "method": "full_payment",
+      "option": "",
+      "total_paid": 642.0,
+      "schedule": [
+        [
+          "2025-05-04",
+          642.0
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_690",
+      "total_paid": 706.2,
+      "schedule": [
+        [
+          "2025-05-11",
+          47.08
+        ],
+        [
+          "2025-06-10",
+          47.08
+        ],
+        [
+          "2025-07-10",
+          47.08
+        ],
+        [
+          "2025-08-09",
+          47.08
+        ],
+        [
+          "2025-09-08",
+          47.08
+        ],
+        [
+          "2025-10-08",
+          47.08
+        ],
+        [
+          "2025-11-07",
+          47.08
+        ],
+        [
+          "2025-12-07",
+          47.08
+        ],
+        [
+          "2026-01-06",
+          47.08
+        ],
+        [
+          "2026-02-05",
+          47.08
+        ],
+        [
+          "2026-03-07",
+          47.08
+        ],
+        [
+          "2026-04-06",
+          47.08
+        ],
+        [
+          "2026-05-06",
+          47.08
+        ],
+        [
+          "2026-06-05",
+          47.08
+        ],
+        [
+          "2026-07-05",
+          47.08
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": [
+        "15 payments exceed max_installment_months=6 (R35)"
+      ]
+    },
+    {
+      "method": "installments",
+      "option": "payment_option_691",
+      "total_paid": 693.36,
+      "schedule": [
+        [
+          "2025-05-18",
+          115.56
+        ],
+        [
+          "2025-06-18",
+          115.56
+        ],
+        [
+          "2025-07-19",
+          115.56
+        ],
+        [
+          "2025-08-19",
+          115.56
+        ],
+        [
+          "2025-09-19",
+          115.56
+        ],
+        [
+          "2025-10-20",
+          115.56
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": []
+    }
+  ],
+  "output_row": {
+    "request_id": "request_239",
+    "amount_safe_to_pay": "642",
+    "affordability_status": "affordable_now",
+    "recommended_payment_method": "full_payment",
+    "payment_plan": "2025-05-04:642",
+    "earliest_date_for_full_payment": "2025-05-04",
+    "spending_changes_needed": "none",
+    "decision_explanation": "Pay USD 642 today. This leaves at least USD 600 available over the next 90 days."
+  },
+  "verification_errors": []
+}
