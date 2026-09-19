@@ -4,9 +4,9 @@
     "user_id": "user_202",
     "request_date": "2024-12-05",
     "request_type": "family_transfer",
-    "requested_amount": "123900.0",
+    "requested_amount": 123900.0,
     "desired_completion_date": "2025-01-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I want to send INR 123,900 to my family. I need to complete it by 14 January 2025. Can I make the full transfer without falling short on my own bills?"
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2024-12-05",
     "lowest_projected_balance": 290545.66,
     "binding_constraint": {
-      "date": "2024-12-14",
-      "flow": "family_support:debit:*"
+      "summary": "2024-12-05→2024-12-15 pre-payday run, 75,519.34 of bills",
+      "low_point_date": "2024-12-14",
+      "bills_window_start": "2024-12-05",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 75519.34,
+      "last_debit_before_low": "family_support:debit:*"
     }
   },
   "recurring_series": [
@@ -404,18 +408,14 @@
       "amount": -8024.59,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -58300.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 123900.0,
       "schedule": [
         [
@@ -430,6 +430,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_580",
       "total_paid": 146202.0,
@@ -528,6 +529,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_581",
       "total_paid": 133812.0,
@@ -566,6 +568,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_582",
       "total_paid": 151158.0,

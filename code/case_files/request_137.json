@@ -4,9 +4,9 @@
     "user_id": "user_137",
     "request_date": "2025-11-05",
     "request_type": "purchase",
-    "requested_amount": "80100.0",
+    "requested_amount": 80100.0,
     "desired_completion_date": "2026-01-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I make this purchase without dipping into the balance I want to keep? The laptop comes to INR 80,100."
   },
   "profile": {
@@ -33,11 +33,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 24172.14,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": "2026-01-15",
     "lowest_projected_balance": 95972.14,
     "binding_constraint": {
-      "date": "2026-01-13",
-      "flow": "transport:debit:*"
+      "summary": "2025-12-15→2026-01-15 pre-payday run, 118,621.85 of bills",
+      "low_point_date": "2026-01-13",
+      "bills_window_start": "2025-12-15",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 118621.85,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -152,7 +156,7 @@
     "series streaming:debit:*: monthly last=2025-10-09 amount=3200.00 n=5 flex=stoppable",
     "series transport:debit:*: every_7_days last=2025-11-04 amount=2658.10 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2025-10-06 amount=7743.38 n=5 flex=fixed",
-    "message_105 rent_increase: 3 projected rent payments raised 12.0%"
+    "message_105 rent_increase: 2 projected rent payments raised 12.0%"
   ],
   "projected_flows": [
     {
@@ -454,24 +458,14 @@
       "amount": -2658.1,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-02-02",
-      "amount": -5075.27,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-02-02",
-      "amount": -41776.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 80100.0,
       "schedule": [
         [
@@ -486,6 +480,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_391",
       "total_paid": 88110.0,
@@ -552,23 +547,63 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "15 payments exceed max_installment_months=4 (R35)"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 80100.0,
+      "schedule": [
+        [
+          "2025-11-05",
+          24172.14
+        ],
+        [
+          "2026-01-15",
+          55927.86
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "request does not allow partial payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 80100.0,
+      "schedule": [
+        [
+          "2026-01-15",
+          80100.0
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_137",
     "amount_safe_to_pay": "24172.14",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2026-01-15:80100",
+    "earliest_date_for_full_payment": "2026-01-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the INR 80,100 request. Although INR 24,172.14 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Pay INR 80,100 in full on 15 January 2026. Paying earlier would take the balance below the INR 71,800 minimum."
   },
   "verification_errors": []
 }

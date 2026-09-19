@@ -4,9 +4,9 @@
     "user_id": "user_213",
     "request_date": "2026-01-07",
     "request_type": "family_transfer",
-    "requested_amount": "3362.4",
+    "requested_amount": 3362.4,
     "desired_completion_date": "2026-03-22",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I complete this family transfer and still keep my minimum balance? I need to make a family transfer of USD 3,362.40."
   },
   "profile": {
@@ -31,12 +31,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 2496.44,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 4596.44,
+    "amount_safe_to_pay": 2693.73,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 4793.73,
     "binding_constraint": {
-      "date": "2026-04-06",
-      "flow": "utilities:debit:*"
+      "summary": "2026-01-07→end of forecast run to end of forecast with no further income, 7,258.21 of bills",
+      "low_point_date": "2026-04-02",
+      "bills_window_start": "2026-01-07",
+      "next_credit": null,
+      "bills_in_window": 7258.21,
+      "last_debit_before_low": "rent:debit:*"
     }
   },
   "recurring_series": [
@@ -517,24 +521,47 @@
       "amount": -842.4,
       "kind": "recurring",
       "label": "rent:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 668.67,
+      "low_point": "2026-04-02",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-04-06",
-      "amount": -69.67,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "stop:event_19548",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 66.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 66.0,
+      "chosen": false
     },
     {
-      "date": "2026-04-06",
-      "amount": -127.63,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
+      "change": "stop:event_19549",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 156.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 156.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_19550:34.80",
+      "series": "shopping:debit:*",
+      "description": "Household shopping",
+      "freed_before_low_point": 159.92,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 159.92,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3362.4,
       "schedule": [
         [
@@ -551,6 +578,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_610",
       "total_paid": 3496.89,
@@ -575,6 +603,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_612",
       "total_paid": 3833.1,
@@ -663,13 +692,13 @@
   ],
   "output_row": {
     "request_id": "request_213",
-    "amount_safe_to_pay": "2496.44",
+    "amount_safe_to_pay": "2693.73",
     "affordability_status": "not_affordable",
     "recommended_payment_method": "not_recommended",
     "payment_plan": "none",
     "earliest_date_for_full_payment": "",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the USD 3,362.40 request. Although USD 2,496.44 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Do not proceed with the USD 3,362.40 request. Although USD 2,693.73 is available today, the full amount cannot be completed safely within 90 days."
   },
   "verification_errors": []
 }

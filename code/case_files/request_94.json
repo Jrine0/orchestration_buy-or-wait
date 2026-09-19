@@ -4,9 +4,9 @@
     "user_id": "user_94",
     "request_date": "2024-12-04",
     "request_type": "housing",
-    "requested_amount": "572.0",
+    "requested_amount": 572.0,
     "desired_completion_date": "2024-12-22",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The deposit on the place comes to EUR 572. I need to complete it by 22 December 2024. Can I cover this deposit without putting rent and regular bills at risk?"
   },
   "profile": {
@@ -34,10 +34,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 572.0,
     "earliest_date_for_full_payment": "2024-12-04",
-    "lowest_projected_balance": 1702.92,
+    "lowest_projected_balance": 1990.02,
     "binding_constraint": {
-      "date": "2025-03-03",
-      "flow": "rent:debit:*"
+      "summary": "2024-12-15→end of forecast run to end of forecast with no further income, 1,419.19 of bills",
+      "low_point_date": "2025-02-26",
+      "bills_window_start": "2024-12-15",
+      "next_credit": null,
+      "bills_in_window": 1419.19,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -326,18 +330,14 @@
       "amount": -42.46,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -287.1,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 572.0,
       "schedule": [
         [
@@ -352,6 +352,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_264",
       "total_paid": 674.94,
@@ -450,6 +451,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_265",
       "total_paid": 617.76,
@@ -488,6 +490,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_266",
       "total_paid": 697.92,

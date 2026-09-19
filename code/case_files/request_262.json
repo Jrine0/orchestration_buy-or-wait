@@ -4,9 +4,9 @@
     "user_id": "user_262",
     "request_date": "2024-12-05",
     "request_type": "education",
-    "requested_amount": "9236000.0",
+    "requested_amount": 9236000.0,
     "desired_completion_date": "2025-01-24",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The course I want to take is IDR 9,236,000. I need to complete it by 24 January 2025. Can I pay for the course before enrolment closes?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2024-12-05",
     "lowest_projected_balance": 40781540.74,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "transport:debit:*"
+      "summary": "2025-01-15→2025-02-15 pre-payday run, 44,288,384.27 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-01-15",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 44288384.27,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -478,18 +482,14 @@
       "amount": -1080602.88,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -13452000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 9236000.0,
       "schedule": [
         [
@@ -504,6 +504,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_755",
       "total_paid": 9559260.06,
@@ -602,6 +603,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_756",
       "total_paid": 9697800.0,

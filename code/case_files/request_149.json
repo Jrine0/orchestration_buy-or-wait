@@ -4,9 +4,9 @@
     "user_id": "user_149",
     "request_date": "2025-11-04",
     "request_type": "travel",
-    "requested_amount": "36652.0",
+    "requested_amount": 36652.0,
     "desired_completion_date": "2026-01-19",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "How much can I safely put toward the booking today? The current quote for the trip is ZAR 36,652."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-12-15",
     "lowest_projected_balance": 64164.81,
     "binding_constraint": {
-      "date": "2025-11-13",
-      "flow": "family_support:debit:*"
+      "summary": "2025-11-04→2025-11-15 pre-payday run, 20,193.57 of bills",
+      "low_point_date": "2025-11-13",
+      "bills_window_start": "2025-11-04",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 20193.57,
+      "last_debit_before_low": "family_support:debit:*"
     }
   },
   "recurring_series": [
@@ -394,18 +398,29 @@
       "amount": -1822.87,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 14587.19,
+      "low_point": "2025-11-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-02-01",
-      "amount": -1822.87,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_13702",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 366.3,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1098.9,
+      "chosen": true
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 36652.0,
       "schedule": [
         [
@@ -422,6 +437,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_424",
       "total_paid": 38118.09,
@@ -446,6 +462,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_426",
       "total_paid": 40317.15,
@@ -520,8 +537,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 36652.0,
       "schedule": [
         [
@@ -542,8 +560,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 36652.0,
       "schedule": [
         [
@@ -560,6 +579,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_424",
       "total_paid": 38118.09,

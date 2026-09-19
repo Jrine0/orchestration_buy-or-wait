@@ -4,9 +4,9 @@
     "user_id": "user_159",
     "request_date": "2026-01-04",
     "request_type": "investment",
-    "requested_amount": "13398.0",
+    "requested_amount": 13398.0,
     "desired_completion_date": "2026-03-20",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would investing this amount leave my upcoming bills covered? I need to decide by 20 March 2026. The investment I'm considering is ZAR 13,398."
   },
   "profile": {
@@ -29,12 +29,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 376.62,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 9076.62,
+    "amount_safe_to_pay": 805.89,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 9505.89,
     "binding_constraint": {
-      "date": "2026-04-02",
-      "flow": "dining:debit:*"
+      "summary": "2026-01-04→end of forecast run to end of forecast with no further income, 30,777.31 of bills",
+      "low_point_date": "2026-03-30",
+      "bills_window_start": "2026-01-04",
+      "next_credit": null,
+      "bills_in_window": 30777.31,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -441,18 +445,29 @@
       "amount": -296.53,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 12592.11,
+      "low_point": "2026-03-30",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-04-02",
-      "amount": -429.27,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "stop:event_14619",
+      "series": "music_subscription:debit:*",
+      "description": "Music subscription",
+      "freed_before_low_point": 237.6,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 237.6,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 13398.0,
       "schedule": [
         [
@@ -467,6 +482,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_453",
       "total_paid": 15273.72,
@@ -555,13 +571,13 @@
   ],
   "output_row": {
     "request_id": "request_159",
-    "amount_safe_to_pay": "376.62",
+    "amount_safe_to_pay": "805.89",
     "affordability_status": "not_affordable",
     "recommended_payment_method": "not_recommended",
     "payment_plan": "none",
     "earliest_date_for_full_payment": "",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the ZAR 13,398 request. Although ZAR 376.62 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Do not proceed with the ZAR 13,398 request. Although ZAR 805.89 is available today, the full amount cannot be completed safely within 90 days."
   },
   "verification_errors": []
 }

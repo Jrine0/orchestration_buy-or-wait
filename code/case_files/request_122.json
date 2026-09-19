@@ -4,9 +4,9 @@
     "user_id": "user_122",
     "request_date": "2025-08-05",
     "request_type": "other",
-    "requested_amount": "20558000.0",
+    "requested_amount": 20558000.0,
     "desired_completion_date": "2025-10-02",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The membership fee is IDR 20,558,000 for the year. I need to complete it by 2 October 2025. Would committing to the membership leave enough for my upcoming bills?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-08-05",
     "lowest_projected_balance": 56063106.51,
     "binding_constraint": {
-      "date": "2025-08-07",
-      "flow": "utilities:debit:*"
+      "summary": "2025-08-05→2025-08-08 pre-payday run, 764,138.48 of bills",
+      "low_point_date": "2025-08-07",
+      "bills_window_start": "2025-08-05",
+      "next_credit": "2025-08-08",
+      "bills_in_window": 764138.48,
+      "last_debit_before_low": "utilities:debit:*"
     }
   },
   "recurring_series": [
@@ -362,10 +366,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 20558000.0,
       "schedule": [
         [
@@ -382,6 +388,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_347",
       "total_paid": 21380319.99,
@@ -406,6 +413,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_349",
       "total_paid": 22613800.05,

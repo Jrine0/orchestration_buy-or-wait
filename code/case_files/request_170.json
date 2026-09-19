@@ -4,9 +4,9 @@
     "user_id": "user_170",
     "request_date": "2025-08-06",
     "request_type": "other",
-    "requested_amount": "36936000.0",
+    "requested_amount": 36936000.0,
     "desired_completion_date": "2025-10-04",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The annual membership costs IDR 36,936,000. I need to complete it by 4 October 2025. Can I pay for the annual membership now without affecting my regular expenses?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2025-09-15",
     "lowest_projected_balance": 54582630.93,
     "binding_constraint": {
-      "date": "2025-08-14",
-      "flow": "dining:debit:*"
+      "summary": "2025-08-06→2025-08-15 pre-payday run, 14,864,367.47 of bills",
+      "low_point_date": "2025-08-14",
+      "bills_window_start": "2025-08-06",
+      "next_credit": "2025-08-15",
+      "bills_in_window": 14864367.47,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -461,18 +465,14 @@
       "amount": -739708.81,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-11-03",
-      "amount": -10507000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 36936000.0,
       "schedule": [
         [
@@ -489,6 +489,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_483",
       "total_paid": 38413440.0,
@@ -513,6 +514,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_485",
       "total_paid": 40629600.0,
@@ -587,8 +589,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 36936000.0,
       "schedule": [
         [
@@ -609,8 +612,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 36936000.0,
       "schedule": [
         [

@@ -84,6 +84,7 @@ class Flow:
     series_key: str = ""
     event_id: str = ""
     essential: bool = True
+    monthly: bool = True          # False for every-k-days variable spending (groceries, dining, transport)
 
 
 def _regular(dates: list[date], s: Settings) -> Optional[tuple[str, int]]:
@@ -194,6 +195,8 @@ def project_amount(sr: Series, s: Settings) -> float:
     if s.variable_amount == "recent_mean":
         w = a[-s.recent_window:]
         return sum(w) / len(w)
+    if s.variable_amount == "recent_median":
+        return statistics.median(a[-s.recent_window:])
     if s.variable_amount == "recent_max":
         return max(a[-s.recent_window:])
     if s.variable_amount == "median":

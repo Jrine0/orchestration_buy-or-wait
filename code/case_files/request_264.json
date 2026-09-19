@@ -4,9 +4,9 @@
     "user_id": "user_264",
     "request_date": "2026-04-04",
     "request_type": "emergency_expense",
-    "requested_amount": "111300.0",
+    "requested_amount": 111300.0,
     "desired_completion_date": "2026-06-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've received a repair quote for INR 111,300. Would paying the repair bill today take me below the balance I need to keep?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-06-15",
     "lowest_projected_balance": 82992.15,
     "binding_constraint": {
-      "date": "2026-04-11",
-      "flow": "Scheduled insurance payment"
+      "summary": "2026-04-04→2026-04-15 pre-payday run, 21,382.85 of bills",
+      "low_point_date": "2026-04-11",
+      "bills_window_start": "2026-04-04",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 21382.85,
+      "last_debit_before_low": "Scheduled insurance payment"
     }
   },
   "recurring_series": [
@@ -356,18 +360,14 @@
       "amount": -3834.96,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-07-01",
-      "amount": -20400.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 111300.0,
       "schedule": [
         [
@@ -382,6 +382,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_760",
       "total_paid": 126882.0,
@@ -468,6 +469,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_761",
       "total_paid": 135786.0,
@@ -578,8 +580,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 111300.0,
       "schedule": [
         [
@@ -600,8 +603,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 111300.0,
       "schedule": [
         [

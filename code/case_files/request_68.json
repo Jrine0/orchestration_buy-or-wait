@@ -4,9 +4,9 @@
     "user_id": "user_68",
     "request_date": "2025-02-07",
     "request_type": "debt_repayment",
-    "requested_amount": "2091.6",
+    "requested_amount": 2091.6,
     "desired_completion_date": "2025-04-16",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The extra repayment I'm considering is USD 2,091.60. How much extra can I put toward the loan today?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-03-15",
     "lowest_projected_balance": 2833.62,
     "binding_constraint": {
-      "date": "2025-02-18",
-      "flow": "groceries:debit:*"
+      "summary": "2025-02-07→2025-02-23 pre-payday run, 824.21 of bills",
+      "low_point_date": "2025-02-18",
+      "bills_window_start": "2025-02-07",
+      "next_credit": "2025-02-23",
+      "bills_in_window": 824.21,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -400,30 +404,14 @@
       "amount": -750.0,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2025-05-05",
-      "amount": -164.85,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
-    },
-    {
-      "date": "2025-05-06",
-      "amount": -111.3,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-05-07",
-      "amount": -68.5,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2091.6,
       "schedule": [
         [
@@ -440,6 +428,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_187",
       "total_paid": 2175.27,
@@ -464,6 +453,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_189",
       "total_paid": 2300.7,
@@ -538,8 +528,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2091.6,
       "schedule": [
         [
@@ -560,8 +551,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 2091.6,
       "schedule": [
         [

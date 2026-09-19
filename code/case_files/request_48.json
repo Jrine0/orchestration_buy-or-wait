@@ -4,9 +4,9 @@
     "user_id": "user_48",
     "request_date": "2026-07-25",
     "request_type": "family_transfer",
-    "requested_amount": "45700.0",
+    "requested_amount": 45700.0,
     "desired_completion_date": "2026-08-24",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I want to send INR 45,700 to my family. Can I complete this family transfer and still keep my minimum balance?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2026-07-25",
     "lowest_projected_balance": 122583.19,
     "binding_constraint": {
-      "date": "2026-08-14",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-25→2026-08-15 pre-payday run, 65,481.81 of bills",
+      "low_point_date": "2026-08-14",
+      "bills_window_start": "2026-07-25",
+      "next_credit": "2026-08-15",
+      "bills_in_window": 65481.81,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -534,18 +538,14 @@
       "amount": -1646.99,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-10-21",
-      "amount": -1646.99,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 45700.0,
       "schedule": [
         [
@@ -560,6 +560,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_130",
       "total_paid": 52097.94,
@@ -646,6 +647,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_131",
       "total_paid": 49356.0,
@@ -684,6 +686,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_132",
       "total_paid": 55753.92,

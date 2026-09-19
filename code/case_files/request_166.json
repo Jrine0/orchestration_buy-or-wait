@@ -4,9 +4,9 @@
     "user_id": "user_166",
     "request_date": "2024-12-03",
     "request_type": "other",
-    "requested_amount": "2907.6",
+    "requested_amount": 2907.6,
     "desired_completion_date": "2025-02-05",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering a yearly membership for USD 2,907.60. I need to complete it by 5 February 2025. How much can I safely pay toward the membership now?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-12-03",
     "lowest_projected_balance": 7276.42,
     "binding_constraint": {
-      "date": "2025-02-25",
-      "flow": "groceries:debit:*"
+      "summary": "2024-12-15→end of forecast run to end of forecast with no further income, 3,093.42 of bills",
+      "low_point_date": "2025-02-25",
+      "bills_window_start": "2024-12-15",
+      "next_credit": null,
+      "bills_in_window": 3093.42,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -333,10 +337,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2907.6,
       "schedule": [
         [
@@ -353,6 +359,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_471",
       "total_paid": 3023.91,
@@ -377,6 +384,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_473",
       "total_paid": 3430.98,

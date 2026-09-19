@@ -4,9 +4,9 @@
     "user_id": "user_269",
     "request_date": "2025-11-04",
     "request_type": "family_transfer",
-    "requested_amount": "15490.0",
+    "requested_amount": 15490.0,
     "desired_completion_date": "2026-01-02",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would sending the money now leave enough for my upcoming expenses? I need to make a family transfer of ZAR 15,490."
   },
   "profile": {
@@ -32,12 +32,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": -1442.21,
+    "amount_safe_to_pay": 9921.59,
+    "earliest_date_for_full_payment": "2025-12-15",
+    "lowest_projected_balance": 33021.59,
     "binding_constraint": {
-      "date": "2026-02-01",
-      "flow": "groceries:debit:*"
+      "summary": "2025-11-04→2025-11-15 pre-payday run, 12,286.31 of bills",
+      "low_point_date": "2025-11-13",
+      "bills_window_start": "2025-11-04",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 12286.31,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -142,7 +146,7 @@
     "series rent:debit:*: monthly last=2025-11-02 amount=11484.00 n=6 flex=fixed",
     "series transport:debit:*: every_7_days last=2025-11-03 amount=930.66 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2025-10-06 amount=1771.18 n=5 flex=fixed",
-    "message_210 first_salary: confirmed salary 38280.00 on 2025-11-15 (R8)"
+    "message_210 first_salary: confirmed salary 38280.00 on 2025-11-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -308,6 +312,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2025-12-15",
+      "amount": 38280.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_210)"
+    },
+    {
       "date": "2025-12-21",
       "amount": -1361.96,
       "kind": "recurring",
@@ -404,6 +414,12 @@
       "label": "delivery_membership:debit:*"
     },
     {
+      "date": "2026-01-15",
+      "amount": 38280.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_210)"
+    },
+    {
       "date": "2026-01-18",
       "amount": -1361.96,
       "kind": "recurring",
@@ -432,18 +448,14 @@
       "amount": -930.66,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-02-01",
-      "amount": -1361.96,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 15490.0,
       "schedule": [
         [
@@ -458,6 +470,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_774",
       "total_paid": 16032.15,
@@ -524,23 +537,63 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "15 payments exceed max_installment_months=10 (R35)"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 15490.0,
+      "schedule": [
+        [
+          "2025-11-04",
+          9921.59
+        ],
+        [
+          "2025-12-15",
+          5568.41
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 15490.0,
+      "schedule": [
+        [
+          "2025-12-15",
+          15490.0
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_269",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "9921.59",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2025-12-15:15490",
+    "earliest_date_for_full_payment": "2025-12-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 2 January 2026. None of the available options keeps the ZAR 23,100 minimum protected."
+    "decision_explanation": "Pay ZAR 15,490 in full on 15 December 2025. Paying earlier would take the balance below the ZAR 23,100 minimum."
   },
   "verification_errors": []
 }

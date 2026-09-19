@@ -4,9 +4,9 @@
     "user_id": "user_235",
     "request_date": "2024-09-06",
     "request_type": "education",
-    "requested_amount": "967.2",
+    "requested_amount": 967.2,
     "desired_completion_date": "2024-10-25",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "How much of the course fee can I manage without cutting into essentials? I need to decide by 25 October 2024. I've been quoted USD 967.20 for the course."
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2024-09-06",
     "lowest_projected_balance": 1787.81,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "shopping:debit:*"
+      "summary": "2024-09-06→2024-09-15 pre-payday run, 298.47 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-06",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 298.47,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -537,24 +541,14 @@
       "amount": -24.5,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-03",
-      "amount": -37.62,
-      "kind": "recurring",
-      "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-12-04",
-      "amount": -224.4,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 967.2,
       "schedule": [
         [
@@ -569,6 +563,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_678",
       "total_paid": 1141.35,
@@ -667,6 +662,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_679",
       "total_paid": 1044.6,

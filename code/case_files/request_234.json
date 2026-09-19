@@ -4,9 +4,9 @@
     "user_id": "user_234",
     "request_date": "2026-07-04",
     "request_type": "debt_repayment",
-    "requested_amount": "1213.3",
+    "requested_amount": 1213.3,
     "desired_completion_date": "2026-09-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering paying an extra EUR 1,213.30 off the loan. I need to complete it by 15 September 2026. Would paying this much toward the loan leave enough for the rest of the month?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-09-15",
     "lowest_projected_balance": 883.19,
     "binding_constraint": {
-      "date": "2026-07-12",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-04→2026-07-15 pre-payday run, 391.06 of bills",
+      "low_point_date": "2026-07-12",
+      "bills_window_start": "2026-07-04",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 391.06,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -387,10 +391,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1213.3,
       "schedule": [
         [
@@ -405,6 +411,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_675",
       "total_paid": 1383.12,
@@ -491,6 +498,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_676",
       "total_paid": 1480.32,
@@ -601,8 +609,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1213.3,
       "schedule": [
         [
@@ -623,8 +632,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1213.3,
       "schedule": [
         [

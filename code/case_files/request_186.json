@@ -4,9 +4,9 @@
     "user_id": "user_186",
     "request_date": "2026-01-03",
     "request_type": "investment",
-    "requested_amount": "26554.0",
+    "requested_amount": 26554.0,
     "desired_completion_date": "2026-03-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm thinking of investing ZAR 26,554. I need to complete it by 15 March 2026. Is it safer to invest now, invest a smaller amount, or wait?"
   },
   "profile": {
@@ -38,8 +38,12 @@
     "earliest_date_for_full_payment": "2026-03-15",
     "lowest_projected_balance": 26156.68,
     "binding_constraint": {
-      "date": "2026-01-13",
-      "flow": "transport:debit:*"
+      "summary": "2026-01-03→2026-01-15 pre-payday run, 18,706.82 of bills",
+      "low_point_date": "2026-01-13",
+      "bills_window_start": "2026-01-03",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 18706.82,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -553,10 +557,12 @@
       "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 26554.0,
       "schedule": [
         [
@@ -571,6 +577,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_530",
       "total_paid": 30271.5,
@@ -657,6 +664,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_531",
       "total_paid": 32395.92,
@@ -767,8 +775,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 26554.0,
       "schedule": [
         [
@@ -789,8 +798,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 26554.0,
       "schedule": [
         [

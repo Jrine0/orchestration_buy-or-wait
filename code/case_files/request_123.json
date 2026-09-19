@@ -4,9 +4,9 @@
     "user_id": "user_123",
     "request_date": "2026-01-07",
     "request_type": "investment",
-    "requested_amount": "4076000.0",
+    "requested_amount": 4076000.0,
     "desired_completion_date": "2026-03-28",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "What portion can I invest today without going below my minimum balance? I need to decide by 28 March 2026. I'm thinking of investing IDR 4,076,000."
   },
   "profile": {
@@ -27,12 +27,16 @@
     "stoppable": []
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 16283058.28,
+    "amount_safe_to_pay": 4076000.0,
+    "earliest_date_for_full_payment": "2026-01-07",
+    "lowest_projected_balance": 22885690.93,
     "binding_constraint": {
-      "date": "2026-04-05",
-      "flow": "dining:debit:*"
+      "summary": "2026-01-07→end of forecast run to end of forecast with no further income, 40,820,709.07 of bills",
+      "low_point_date": "2026-04-02",
+      "bills_window_start": "2026-01-07",
+      "next_credit": null,
+      "bills_in_window": 40820709.07,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -440,24 +444,14 @@
       "amount": -464672.67,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-04",
-      "amount": -6004000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-05",
-      "amount": -598632.65,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 4076000.0,
       "schedule": [
         [
@@ -466,12 +460,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_351",
       "total_paid": 4218660.0,
@@ -550,7 +545,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -560,13 +555,13 @@
   ],
   "output_row": {
     "request_id": "request_123",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "4076000",
+    "affordability_status": "affordable_now",
+    "recommended_payment_method": "full_payment",
+    "payment_plan": "2026-01-07:4076000",
+    "earliest_date_for_full_payment": "2026-01-07",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 28 March 2026. None of the available options keeps the IDR 18,091,200 minimum protected."
+    "decision_explanation": "Pay IDR 4,076,000 today. This leaves at least IDR 18,091,200 available over the next 90 days."
   },
   "verification_errors": []
 }

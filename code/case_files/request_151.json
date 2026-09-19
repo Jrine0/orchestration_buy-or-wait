@@ -4,9 +4,9 @@
     "user_id": "user_151",
     "request_date": "2024-09-03",
     "request_type": "housing",
-    "requested_amount": "26999000.0",
+    "requested_amount": 26999000.0,
     "desired_completion_date": "2024-09-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I pay the rental deposit by the requested date? I need to decide by 14 September 2024. I need IDR 26,999,000 for the rental deposit."
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2024-09-03",
     "lowest_projected_balance": 59253800.77,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "dining:debit:*"
+      "summary": "2024-09-03→2024-09-15 pre-payday run, 24,744,464.23 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-03",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 24744464.23,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -128,7 +132,7 @@
     "series salary:credit:*: monthly last=2024-08-15 amount=46170000.00 n=5 flex=fixed",
     "series transport:debit:*: every_21_days last=2024-08-28 amount=920073.77 n=9 flex=fixed",
     "series utilities:debit:*: monthly last=2024-08-08 amount=2791681.05 n=5 flex=fixed",
-    "message_116 first_salary: confirmed salary 46170000.00 on 2024-09-15 (R8)"
+    "message_116 first_salary: confirmed salary 46170000.00 on 2024-09-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -306,10 +310,12 @@
       "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 26999000.0,
       "schedule": [
         [
@@ -324,6 +330,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_431",
       "total_paid": 31858820.07,
@@ -422,6 +429,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_432",
       "total_paid": 29158920.0,

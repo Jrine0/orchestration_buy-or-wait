@@ -4,9 +4,9 @@
     "user_id": "user_36",
     "request_date": "2026-07-03",
     "request_type": "education",
-    "requested_amount": "3954.0",
+    "requested_amount": 3954.0,
     "desired_completion_date": "2026-09-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering a professional course priced at USD 3,954. Is it safe to cover the full course fee by the deadline?"
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2026-09-15",
     "lowest_projected_balance": 2988.71,
     "binding_constraint": {
-      "date": "2026-07-09",
-      "flow": "healthcare:debit:*"
+      "summary": "2026-07-03→2026-07-15 pre-payday run, 857.89 of bills",
+      "low_point_date": "2026-07-09",
+      "bills_window_start": "2026-07-03",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 857.89,
+      "last_debit_before_low": "healthcare:debit:*"
     }
   },
   "recurring_series": [
@@ -369,18 +373,14 @@
       "amount": -146.69,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-09-30",
-      "amount": -59.77,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3954.0,
       "schedule": [
         [
@@ -395,6 +395,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_100",
       "total_paid": 4507.56,
@@ -481,6 +482,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_101",
       "total_paid": 4824.0,
@@ -591,8 +593,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3954.0,
       "schedule": [
         [
@@ -614,8 +617,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 3954.0,
       "schedule": [
         [

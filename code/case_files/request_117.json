@@ -4,10 +4,10 @@
     "user_id": "user_117",
     "request_date": "2026-07-05",
     "request_type": "housing",
-    "requested_amount": "880.0",
+    "requested_amount": 880.0,
     "desired_completion_date": "2026-07-14",
-    "allows_partial_payment": "False",
-    "request_text": "El dep\u00f3sito de alquiler es de EUR 880. \u00bfPuedo pagarlo hoy sin poner en riesgo mis otros gastos, o deber\u00eda esperar?"
+    "allows_partial_payment": false,
+    "request_text": "El depósito de alquiler es de EUR 880. ¿Puedo pagarlo hoy sin poner en riesgo mis otros gastos, o debería esperar?"
   },
   "profile": {
     "home_currency": "EUR",
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-15",
     "lowest_projected_balance": 1859.11,
     "binding_constraint": {
-      "date": "2026-07-12",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-05→2026-07-15 pre-payday run, 305.09 of bills",
+      "low_point_date": "2026-07-12",
+      "bills_window_start": "2026-07-05",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 305.09,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -373,10 +377,45 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 20.89,
+      "low_point": "2026-07-12",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "stop:event_10833",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 22.0,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 66.0,
+      "chosen": true
+    },
+    {
+      "change": "reduce_to:event_10833:11",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 11.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 33.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_10878:20.50",
+      "series": "dining:debit:*",
+      "description": "Weekend food delivery",
+      "freed_before_low_point": 17.5,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 104.99,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 880.0,
       "schedule": [
         [
@@ -391,6 +430,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_332",
       "total_paid": 1003.14,
@@ -477,6 +517,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_333",
       "total_paid": 950.4,
@@ -515,8 +556,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 880.0,
       "schedule": [
         [
@@ -539,8 +581,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 880.0,
       "schedule": [
         [
@@ -555,8 +598,9 @@
       "notes": []
     },
     {
+      "label": "full_payment with spending changes",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 880.0,
       "schedule": [
         [

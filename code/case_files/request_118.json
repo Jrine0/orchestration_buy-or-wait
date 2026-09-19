@@ -4,9 +4,9 @@
     "user_id": "user_118",
     "request_date": "2024-12-07",
     "request_type": "housing",
-    "requested_amount": "738.1",
+    "requested_amount": 738.1,
     "desired_completion_date": "2025-02-08",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've been asked to pay EUR 738.10 as the rental deposit. I need to complete it by 8 February 2025. Would paying the full deposit leave enough for my other commitments?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2024-12-15",
     "lowest_projected_balance": 1249.88,
     "binding_constraint": {
-      "date": "2024-12-14",
-      "flow": "transport:debit:*"
+      "summary": "2024-12-07→2024-12-15 pre-payday run, 288.63 of bills",
+      "low_point_date": "2024-12-14",
+      "bills_window_start": "2024-12-07",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 288.63,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -468,10 +472,12 @@
       "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 738.1,
       "schedule": [
         [
@@ -488,6 +494,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_334",
       "total_paid": 767.61,
@@ -512,6 +519,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_336",
       "total_paid": 870.87,
@@ -610,8 +618,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 738.1,
       "schedule": [
         [
@@ -632,8 +641,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 738.1,
       "schedule": [
         [

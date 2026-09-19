@@ -4,9 +4,9 @@
     "user_id": "user_160",
     "request_date": "2024-06-06",
     "request_type": "travel",
-    "requested_amount": "1246.3",
+    "requested_amount": 1246.3,
     "desired_completion_date": "2024-08-20",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I can book the family trip for EUR 1,246.30. Would it be safer to book the trip now or wait until more money comes in?"
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2024-07-15",
     "lowest_projected_balance": 1769.52,
     "binding_constraint": {
-      "date": "2024-06-10",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-06-06→2024-06-15 pre-payday run, 375.09 of bills",
+      "low_point_date": "2024-06-10",
+      "bills_window_start": "2024-06-06",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 375.09,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -129,7 +133,7 @@
     "series transport:debit:*: every_21_days last=2024-05-28 amount=41.70 n=9 flex=fixed",
     "series utilities:debit:*: monthly last=2024-06-05 amount=102.80 n=6 flex=fixed",
     "reserved pending debit event_14744 87.00 on 2024-06-07 (R7)",
-    "message_124 first_salary: confirmed salary 1672.00 on 2024-06-15 (R8)"
+    "message_124 first_salary: confirmed salary 1672.00 on 2024-06-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -299,24 +303,14 @@
       "amount": -56.36,
       "kind": "recurring",
       "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-09-01",
-      "amount": -534.6,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-09-02",
-      "amount": -74.09,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1246.3,
       "schedule": [
         [
@@ -333,6 +327,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_454",
       "total_paid": 1296.15,
@@ -357,6 +352,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_456",
       "total_paid": 1470.63,
@@ -455,8 +451,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1246.3,
       "schedule": [
         [
@@ -477,8 +474,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1246.3,
       "schedule": [
         [

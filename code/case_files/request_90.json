@@ -4,9 +4,9 @@
     "user_id": "user_90",
     "request_date": "2026-07-06",
     "request_type": "debt_repayment",
-    "requested_amount": "2560.0",
+    "requested_amount": 2560.0,
     "desired_completion_date": "2026-09-23",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I have ZAR 2,560 in mind as an extra loan payment. I need to complete it by 23 September 2026. Can I clear this additional amount without putting upcoming bills at risk?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2026-07-06",
     "lowest_projected_balance": 29356.58,
     "binding_constraint": {
-      "date": "2026-07-13",
-      "flow": "shopping:debit:*"
+      "summary": "2026-07-06→2026-07-15 pre-payday run, 2,272.92 of bills",
+      "low_point_date": "2026-07-13",
+      "bills_window_start": "2026-07-06",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 2272.92,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -355,18 +359,14 @@
       "amount": -527.56,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-10-03",
-      "amount": -3234.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2560.0,
       "schedule": [
         [
@@ -381,6 +381,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_252",
       "total_paid": 2649.6,
@@ -467,6 +468,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_253",
       "total_paid": 2688.0,

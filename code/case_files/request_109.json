@@ -4,9 +4,9 @@
     "user_id": "user_109",
     "request_date": "2024-03-04",
     "request_type": "family_transfer",
-    "requested_amount": "1863.4",
+    "requested_amount": 1863.4,
     "desired_completion_date": "2024-05-26",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would sending the money now leave enough for my upcoming expenses? The amount I want to send is EUR 1,863.40."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-05-15",
     "lowest_projected_balance": 2172.91,
     "binding_constraint": {
-      "date": "2024-03-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-03-04→2024-03-15 pre-payday run, 803.55 of bills",
+      "low_point_date": "2024-03-14",
+      "bills_window_start": "2024-03-04",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 803.55,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -526,18 +530,38 @@
       "amount": -49.17,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1390.49,
+      "low_point": "2024-03-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-06-01",
-      "amount": -49.17,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "stop:event_10080",
+      "series": "cloud_storage:debit:*",
+      "description": "Shared storage plan",
+      "freed_before_low_point": 20.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 60.0,
+      "chosen": true
+    },
+    {
+      "change": "stop:event_10081",
+      "series": "streaming:debit:*",
+      "description": "Video streaming plan",
+      "freed_before_low_point": 53.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 159.0,
+      "chosen": true
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1863.4,
       "schedule": [
         [
@@ -554,6 +578,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_307",
       "total_paid": 1937.94,
@@ -578,6 +603,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_309",
       "total_paid": 2198.91,
@@ -676,8 +702,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1863.4,
       "schedule": [
         [
@@ -698,8 +725,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1863.4,
       "schedule": [
         [
@@ -716,6 +744,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_307",
       "total_paid": 1937.94,

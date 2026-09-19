@@ -4,9 +4,9 @@
     "user_id": "user_256",
     "request_date": "2024-06-03",
     "request_type": "investment",
-    "requested_amount": "218700.0",
+    "requested_amount": 218700.0,
     "desired_completion_date": "2024-08-19",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm thinking of investing INR 218,700. Is it safer to invest now, invest a smaller amount, or wait?"
   },
   "profile": {
@@ -31,12 +31,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 154031.74,
+    "amount_safe_to_pay": 152799.25,
+    "earliest_date_for_full_payment": "2024-07-15",
+    "lowest_projected_balance": 321399.25,
     "binding_constraint": {
-      "date": "2024-08-31",
-      "flow": "transport:debit:*"
+      "summary": "2024-06-03→2024-06-15 pre-payday run, 73,584.03 of bills",
+      "low_point_date": "2024-06-14",
+      "bills_window_start": "2024-06-03",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 73584.03,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -141,7 +145,7 @@
     "series rent:debit:*: monthly last=2024-06-01 amount=56600.00 n=6 flex=fixed",
     "series transport:debit:*: every_7_days last=2024-06-01 amount=3812.53 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2024-05-05 amount=11398.21 n=5 flex=fixed",
-    "message_200 first_salary: confirmed salary 214000.00 on 2024-06-15 (R8)"
+    "message_200 first_salary: confirmed salary 214000.00 on 2024-06-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -307,6 +311,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2024-07-15",
+      "amount": 214000.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_200)"
+    },
+    {
       "date": "2024-07-19",
       "amount": -8854.27,
       "kind": "recurring",
@@ -403,6 +413,12 @@
       "label": "delivery_membership:debit:*"
     },
     {
+      "date": "2024-08-15",
+      "amount": 214000.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_200)"
+    },
+    {
       "date": "2024-08-16",
       "amount": -8854.27,
       "kind": "recurring",
@@ -431,24 +447,14 @@
       "amount": -3812.53,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-08-30",
-      "amount": -8854.27,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-08-31",
-      "amount": -3812.53,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 218700.0,
       "schedule": [
         [
@@ -465,6 +471,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_737",
       "total_paid": 227448.0,
@@ -483,12 +490,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_739",
       "total_paid": 258066.06,
@@ -579,23 +587,66 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "21 payments exceed max_installment_months=3 (R35)"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 218700.0,
+      "schedule": [
+        [
+          "2024-06-03",
+          152799.25
+        ],
+        [
+          "2024-07-15",
+          65900.75
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "request does not allow partial payment",
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 218700.0,
+      "schedule": [
+        [
+          "2024-07-15",
+          218700.0
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "wait requires full_payment acceptance"
+      ]
     }
   ],
   "output_row": {
     "request_id": "request_256",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "152799.25",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2024-06-10:75816|2024-07-11:75816|2024-08-11:75816",
+    "earliest_date_for_full_payment": "2024-07-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 19 August 2024. None of the available options keeps the INR 168,600 minimum protected."
+    "decision_explanation": "Use 3 installments of INR 75,816, starting 10 June 2024. This leaves at least INR 168,600 available."
   },
   "verification_errors": []
 }

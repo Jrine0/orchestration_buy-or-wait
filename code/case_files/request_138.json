@@ -4,9 +4,9 @@
     "user_id": "user_138",
     "request_date": "2026-04-07",
     "request_type": "purchase",
-    "requested_amount": "1256.94",
+    "requested_amount": 1256.94,
     "desired_completion_date": "2026-06-05",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I've been quoted EUR 1,256.94 for the laptop. I need to complete it by 5 June 2026. Is the laptop affordable right now, or should I wait?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2026-04-15",
     "lowest_projected_balance": 3052.76,
     "binding_constraint": {
-      "date": "2026-04-13",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-07→2026-04-15 pre-payday run, 591.89 of bills",
+      "low_point_date": "2026-04-13",
+      "bills_window_start": "2026-04-07",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 591.89,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -356,18 +360,14 @@
       "amount": -107.97,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-07-03",
-      "amount": -711.7,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1256.94,
       "schedule": [
         [
@@ -384,6 +384,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_393",
       "total_paid": 1307.22,
@@ -408,6 +409,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_394",
       "total_paid": 1332.36,
@@ -436,8 +438,9 @@
       "notes": []
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1256.94,
       "schedule": [
         [
@@ -456,8 +459,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1256.94,
       "schedule": [
         [

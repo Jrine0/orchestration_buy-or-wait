@@ -4,9 +4,9 @@
     "user_id": "user_216",
     "request_date": "2026-07-03",
     "request_type": "travel",
-    "requested_amount": "3332.4",
+    "requested_amount": 3332.4,
     "desired_completion_date": "2026-09-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I can book the family trip for USD 3,332.40. Does paying for the trip now leave enough for the rest of the month?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-09-15",
     "lowest_projected_balance": 2283.08,
     "binding_constraint": {
-      "date": "2026-07-09",
-      "flow": "healthcare:debit:*"
+      "summary": "2026-07-03→2026-07-15 pre-payday run, 683.72 of bills",
+      "low_point_date": "2026-07-09",
+      "bills_window_start": "2026-07-03",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 683.72,
+      "last_debit_before_low": "healthcare:debit:*"
     }
   },
   "recurring_series": [
@@ -371,18 +375,14 @@
       "amount": -91.86,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-09-30",
-      "amount": -56.93,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3332.4,
       "schedule": [
         [
@@ -397,6 +397,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_620",
       "total_paid": 3798.9,
@@ -483,6 +484,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_621",
       "total_paid": 4065.6,
@@ -593,8 +595,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3332.4,
       "schedule": [
         [
@@ -616,8 +619,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 3332.4,
       "schedule": [
         [

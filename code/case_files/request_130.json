@@ -4,9 +4,9 @@
     "user_id": "user_130",
     "request_date": "2024-12-06",
     "request_type": "family_transfer",
-    "requested_amount": "1978.8",
+    "requested_amount": 1978.8,
     "desired_completion_date": "2025-02-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The amount I want to send is USD 1,978.80. I need to complete it by 15 February 2025. How much can I safely send to my family today?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2025-02-15",
     "lowest_projected_balance": 1773.31,
     "binding_constraint": {
-      "date": "2024-12-14",
-      "flow": "dining:debit:*"
+      "summary": "2024-12-06→2024-12-15 pre-payday run, 544.15 of bills",
+      "low_point_date": "2024-12-14",
+      "bills_window_start": "2024-12-06",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 544.15,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -461,18 +465,14 @@
       "amount": -63.71,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -600.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1978.8,
       "schedule": [
         [
@@ -487,6 +487,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_370",
       "total_paid": 2334.99,
@@ -585,6 +586,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_371",
       "total_paid": 2414.16,
@@ -687,7 +689,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -695,8 +697,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1978.8,
       "schedule": [
         [
@@ -717,8 +720,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1978.8,
       "schedule": [
         [

@@ -4,9 +4,9 @@
     "user_id": "user_119",
     "request_date": "2025-05-04",
     "request_type": "education",
-    "requested_amount": "203500.0",
+    "requested_amount": 203500.0,
     "desired_completion_date": "2025-07-17",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would paying the course fee now leave enough for my regular commitments? I need to decide by 17 July 2025. Enrolment for the course comes to INR 203,500."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2025-06-15",
     "lowest_projected_balance": 210610.4,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "cloud_storage:debit:*"
+      "summary": "2025-05-04→2025-05-15 pre-payday run, 71,490.61 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-04",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 71490.61,
+      "last_debit_before_low": "cloud_storage:debit:*"
     }
   },
   "recurring_series": [
@@ -412,10 +416,36 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 144089.6,
+      "low_point": "2025-05-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "reduce_to:event_11057:2370",
+      "series": "dining:debit:*",
+      "description": "Family dinner",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 10113.58,
+      "chosen": true
+    },
+    {
+      "change": "reduce_to:event_11016:2655",
+      "series": "entertainment:debit:*",
+      "description": "Weekend entertainment",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 7147.87,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 203500.0,
       "schedule": [
         [
@@ -432,6 +462,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_337",
       "total_paid": 211640.01,
@@ -456,6 +487,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_339",
       "total_paid": 223849.95,
@@ -530,8 +562,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 203500.0,
       "schedule": [
         [
@@ -552,8 +585,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 203500.0,
       "schedule": [
         [
@@ -570,6 +604,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_337",
       "total_paid": 211640.01,

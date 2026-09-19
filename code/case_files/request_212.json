@@ -4,9 +4,9 @@
     "user_id": "user_212",
     "request_date": "2025-02-05",
     "request_type": "other",
-    "requested_amount": "71934000.0",
+    "requested_amount": 71934000.0,
     "desired_completion_date": "2025-02-28",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The annual membership costs IDR 71,934,000. Would committing to the membership leave enough for my upcoming bills?"
   },
   "profile": {
@@ -34,11 +34,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 4092864.88,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 33672664.88,
     "binding_constraint": {
-      "date": "2025-02-16",
-      "flow": "groceries:debit:*"
+      "summary": "2025-02-05→2025-02-23 pre-payday run, 18,251,135.12 of bills",
+      "low_point_date": "2025-02-16",
+      "bills_window_start": "2025-02-05",
+      "next_credit": "2025-02-23",
+      "bills_in_window": 18251135.12,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -407,30 +411,38 @@
       "amount": -7600000.0,
       "kind": "recurring",
       "label": "rent:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 67841135.12,
+      "low_point": "2025-02-16",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-05-04",
-      "amount": -1462029.73,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_19472",
+      "series": "cloud_storage:debit:*",
+      "description": "Online backup subscription",
+      "freed_before_low_point": 133000.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 399000.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-05",
-      "amount": -833733.59,
-      "kind": "recurring",
-      "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-05-05",
-      "amount": -2304905.13,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
+      "change": "reduce_to:event_19473:603440",
+      "series": "shopping:debit:*",
+      "description": "Personal shopping",
+      "freed_before_low_point": 964843.19,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2894529.56,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 71934000.0,
       "schedule": [
         [
@@ -445,6 +457,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_608",
       "total_paid": 79127400.0,
@@ -519,6 +532,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_609",
       "total_paid": 87759480.0,

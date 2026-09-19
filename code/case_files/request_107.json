@@ -4,9 +4,9 @@
     "user_id": "user_107",
     "request_date": "2025-05-05",
     "request_type": "housing",
-    "requested_amount": "2534.4",
+    "requested_amount": 2534.4,
     "desired_completion_date": "2025-07-04",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "How much of the rental deposit can I safely pay today? I need to decide by 4 July 2025. The landlord has asked for a deposit of EUR 2,534.40."
   },
   "profile": {
@@ -33,12 +33,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 1428.36,
+    "amount_safe_to_pay": 2416.93,
+    "earliest_date_for_full_payment": "2025-07-15",
+    "lowest_projected_balance": 4016.93,
     "binding_constraint": {
-      "date": "2025-08-01",
-      "flow": "dining:debit:*"
+      "summary": "2025-05-05→2025-05-15 pre-payday run, 1,037.59 of bills",
+      "low_point_date": "2025-05-13",
+      "bills_window_start": "2025-05-05",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 1037.59,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -143,7 +147,7 @@
     "series rent:debit:*: monthly last=2025-05-04 amount=693.00 n=6 flex=fixed",
     "series transport:debit:*: every_7_days last=2025-04-29 amount=43.78 n=25 flex=fixed",
     "series utilities:debit:*: monthly last=2025-04-08 amount=127.40 n=5 flex=fixed",
-    "message_81 first_salary: confirmed salary 2123.00 on 2025-05-15 (R8)"
+    "message_81 first_salary: confirmed salary 2123.00 on 2025-05-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -309,6 +313,12 @@
       "label": "delivery_membership:debit:*"
     },
     {
+      "date": "2025-06-15",
+      "amount": 2123.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_81)"
+    },
+    {
       "date": "2025-06-16",
       "amount": -70.59,
       "kind": "recurring",
@@ -417,6 +427,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2025-07-15",
+      "amount": 2123.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_81)"
+    },
+    {
       "date": "2025-07-18",
       "amount": -85.44,
       "kind": "recurring",
@@ -445,18 +461,47 @@
       "amount": -43.78,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 117.47,
+      "low_point": "2025-05-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-08-01",
-      "amount": -85.44,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "reduce_to:event_9959:42.50",
+      "series": "dining:debit:*",
+      "description": "Quick-service meal",
+      "freed_before_low_point": 42.94,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 257.65,
+      "chosen": true
+    },
+    {
+      "change": "stop:event_9894",
+      "series": "music_subscription:debit:*",
+      "description": "Audio streaming plan",
+      "freed_before_low_point": 13.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 39.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_9895",
+      "series": "delivery_membership:debit:*",
+      "description": "Food delivery membership",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 108.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2534.4,
       "schedule": [
         [
@@ -473,6 +518,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_301",
       "total_paid": 2635.77,
@@ -497,6 +543,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_303",
       "total_paid": 2787.9,
@@ -563,23 +610,95 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "15 payments exceed max_installment_months=11 (R35)"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 2534.4,
+      "schedule": [
+        [
+          "2025-05-05",
+          2416.93
+        ],
+        [
+          "2025-07-15",
+          117.47
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": [
+        "request does not allow partial payment",
+        "remainder date is after desired_completion_date"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 2534.4,
+      "schedule": [
+        [
+          "2025-07-15",
+          2534.4
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": false,
+      "changes": [],
+      "notes": [
+        "wait requires full_payment acceptance"
+      ]
+    },
+    {
+      "label": "installments with spending changes",
+      "method": "installments",
+      "option": "payment_option_301",
+      "total_paid": 2635.77,
+      "schedule": [
+        [
+          "2025-05-08",
+          878.59
+        ],
+        [
+          "2025-06-05",
+          878.59
+        ],
+        [
+          "2025-07-03",
+          878.59
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [
+        "reduce_to:event_9959:42.50"
+      ],
+      "notes": [
+        "safe only with spending changes"
+      ]
     }
   ],
   "output_row": {
     "request_id": "request_107",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
-    "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 4 July 2025. None of the available options keeps the EUR 1,600 minimum protected."
+    "amount_safe_to_pay": "2416.93",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2025-05-08:878.59|2025-06-05:878.59|2025-07-03:878.59",
+    "earliest_date_for_full_payment": "2025-07-15",
+    "spending_changes_needed": "reduce_to:event_9959:42.50",
+    "decision_explanation": "Reduce the quick-service meal to EUR 42.50, then use 3 installments of EUR 878.59, starting 8 May 2025. This leaves at least EUR 1,600 available."
   },
   "verification_errors": []
 }

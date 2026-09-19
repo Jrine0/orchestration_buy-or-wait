@@ -4,9 +4,9 @@
     "user_id": "user_255",
     "request_date": "2026-04-06",
     "request_type": "family_transfer",
-    "requested_amount": "3345000.0",
+    "requested_amount": 3345000.0,
     "desired_completion_date": "2026-06-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "How much can I safely send to my family today? I need to decide by 15 June 2026. I need to make a family transfer of IDR 3,345,000."
   },
   "profile": {
@@ -27,12 +27,16 @@
     "stoppable": []
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 750746.03,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 10564646.03,
+    "amount_safe_to_pay": 3345000.0,
+    "earliest_date_for_full_payment": "2026-04-06",
+    "lowest_projected_balance": 14402646.03,
     "binding_constraint": {
-      "date": "2026-07-04",
-      "flow": "rent:debit:*"
+      "summary": "2026-04-06→end of forecast run to end of forecast with no further income, 24,115,503.97 of bills",
+      "low_point_date": "2026-06-30",
+      "bills_window_start": "2026-04-06",
+      "next_credit": null,
+      "bills_in_window": 24115503.97,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -316,18 +320,14 @@
       "amount": -725538.61,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-07-04",
-      "amount": -3838000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3345000.0,
       "schedule": [
         [
@@ -336,12 +336,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_736",
       "total_paid": 3462075.0,
@@ -420,7 +421,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -430,13 +431,13 @@
   ],
   "output_row": {
     "request_id": "request_255",
-    "amount_safe_to_pay": "750746.03",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "3345000",
+    "affordability_status": "affordable_now",
+    "recommended_payment_method": "full_payment",
+    "payment_plan": "2026-04-06:3345000",
+    "earliest_date_for_full_payment": "2026-04-06",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the IDR 3,345,000 request. Although IDR 750,746.03 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Pay IDR 3,345,000 today. This leaves at least IDR 9,813,900 available over the next 90 days."
   },
   "verification_errors": []
 }

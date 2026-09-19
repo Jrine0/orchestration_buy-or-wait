@@ -4,9 +4,9 @@
     "user_id": "user_177",
     "request_date": "2026-01-05",
     "request_type": "emergency_expense",
-    "requested_amount": "1017.6",
+    "requested_amount": 1017.6,
     "desired_completion_date": "2026-01-25",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "What is the most I can put toward this repair right now? I have an unexpected repair bill of USD 1,017.60."
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2026-01-05",
     "lowest_projected_balance": 2408.13,
     "binding_constraint": {
-      "date": "2026-01-14",
-      "flow": "transport:debit:*"
+      "summary": "2026-01-05→2026-01-15 pre-payday run, 579.11 of bills",
+      "low_point_date": "2026-01-14",
+      "bills_window_start": "2026-01-05",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 579.11,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -537,24 +541,14 @@
       "amount": -40.67,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-02",
-      "amount": -490.8,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-04",
-      "amount": -40.67,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1017.6,
       "schedule": [
         [
@@ -569,6 +563,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_504",
       "total_paid": 1160.1,
@@ -655,6 +650,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_505",
       "total_paid": 1099.02,

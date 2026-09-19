@@ -4,9 +4,9 @@
     "user_id": "user_110",
     "request_date": "2025-08-06",
     "request_type": "family_transfer",
-    "requested_amount": "22352.0",
+    "requested_amount": 22352.0,
     "desired_completion_date": "2025-10-11",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've been asked to transfer ZAR 22,352 to my family. I need to complete it by 11 October 2025. How much can I safely send to my family today?"
   },
   "profile": {
@@ -33,10 +33,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 22352.0,
     "earliest_date_for_full_payment": "2025-08-06",
-    "lowest_projected_balance": 45832.16,
+    "lowest_projected_balance": 50980.16,
     "binding_constraint": {
-      "date": "2025-11-03",
-      "flow": "rent:debit:*"
+      "summary": "2025-08-15→end of forecast run to end of forecast with no further income, 24,053.10 of bills",
+      "low_point_date": "2025-10-29",
+      "bills_window_start": "2025-08-15",
+      "next_credit": null,
+      "bills_in_window": 24053.1,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -325,18 +329,14 @@
       "amount": -724.53,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-11-03",
-      "amount": -5148.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 22352.0,
       "schedule": [
         [
@@ -353,6 +353,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_310",
       "total_paid": 23246.07,
@@ -377,6 +378,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_312",
       "total_paid": 24587.25,

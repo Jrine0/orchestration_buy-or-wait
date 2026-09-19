@@ -4,9 +4,9 @@
     "user_id": "user_29",
     "request_date": "2025-11-04",
     "request_type": "investment",
-    "requested_amount": "51524.0",
+    "requested_amount": 51524.0,
     "desired_completion_date": "2025-11-23",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would investing this amount leave my upcoming bills covered? I have an opportunity to invest ZAR 51,524."
   },
   "profile": {
@@ -31,11 +31,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 3221.58,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 31521.58,
     "binding_constraint": {
-      "date": "2026-01-26",
-      "flow": "groceries:debit:*"
+      "summary": "2025-11-04→end of forecast run to end of forecast with no further income, 82,018.52 of bills",
+      "low_point_date": "2026-01-26",
+      "bills_window_start": "2025-11-04",
+      "next_credit": null,
+      "bills_in_window": 82018.52,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -398,10 +402,27 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 48302.42,
+      "low_point": "2026-01-26",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "reduce_to:event_2660:712.80",
+      "series": "dining:debit:*",
+      "description": "Coffee shop",
+      "freed_before_low_point": 3150.5,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3150.5,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 51524.0,
       "schedule": [
         [
@@ -416,6 +437,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_82",
       "total_paid": 56676.45,

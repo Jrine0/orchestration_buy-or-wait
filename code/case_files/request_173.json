@@ -4,9 +4,9 @@
     "user_id": "user_173",
     "request_date": "2025-11-07",
     "request_type": "family_transfer",
-    "requested_amount": "113000.0",
+    "requested_amount": 113000.0,
     "desired_completion_date": "2026-01-17",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I complete this family transfer and still keep my minimum balance? I've been asked to transfer INR 113,000 to my family."
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2026-01-15",
     "lowest_projected_balance": 134471.35,
     "binding_constraint": {
-      "date": "2025-11-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-11-07→2025-11-15 pre-payday run, 27,819.18 of bills",
+      "low_point_date": "2025-11-14",
+      "bills_window_start": "2025-11-07",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 27819.18,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -159,7 +163,7 @@
     "series streaming:debit:*: monthly last=2025-10-09 amount=3140.00 n=5 flex=fixed",
     "series transport:debit:*: every_5_days last=2025-11-06 amount=1983.89 n=36 flex=fixed",
     "series utilities:debit:*: monthly last=2025-11-06 amount=5479.11 n=6 flex=fixed",
-    "message_137 fx_salary_confirmed: confirmed salary 106995.72 on 2025-11-15 (R8)"
+    "message_137 fx_salary_confirmed: confirmed salary 106995.72 on 2025-11-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -527,24 +531,14 @@
       "amount": -1983.89,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-02-02",
-      "amount": -34000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-02-04",
-      "amount": -1983.89,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 113000.0,
       "schedule": [
         [
@@ -561,6 +555,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_491",
       "total_paid": 117519.99,
@@ -585,6 +580,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_493",
       "total_paid": 124300.05,
@@ -651,7 +647,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -659,8 +655,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 113000.0,
       "schedule": [
         [
@@ -681,8 +678,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 113000.0,
       "schedule": [
         [

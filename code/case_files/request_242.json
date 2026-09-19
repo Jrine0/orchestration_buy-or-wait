@@ -4,9 +4,9 @@
     "user_id": "user_242",
     "request_date": "2025-08-05",
     "request_type": "debt_repayment",
-    "requested_amount": "1966.8",
+    "requested_amount": 1966.8,
     "desired_completion_date": "2025-08-25",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I would like to repay an additional EUR 1,966.80. I need to complete it by 25 August 2025. Can I make the extra loan payment now without affecting essential expenses?"
   },
   "profile": {
@@ -34,12 +34,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": -261.02,
+    "amount_safe_to_pay": 27.29,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 627.29,
     "binding_constraint": {
-      "date": "2025-10-28",
-      "flow": "transport:debit:*"
+      "summary": "2025-08-05→2025-08-15 pre-payday run, 410.11 of bills",
+      "low_point_date": "2025-08-14",
+      "bills_window_start": "2025-08-05",
+      "next_credit": "2025-08-15",
+      "bills_in_window": 410.11,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -145,7 +149,7 @@
     "series transport:debit:*: every_7_days last=2025-07-29 amount=18.53 n=25 flex=fixed",
     "series utilities:debit:*: monthly last=2025-07-07 amount=68.11 n=5 flex=fixed",
     "reserved pending debit event_22284 68.00 on 2025-08-08 (R7)",
-    "message_190 first_salary: confirmed salary 968.00 on 2025-08-15 (R8)"
+    "message_190 first_salary: confirmed salary 968.00 on 2025-08-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -317,6 +321,12 @@
       "label": "groceries:debit:*"
     },
     {
+      "date": "2025-09-15",
+      "amount": 968.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_190)"
+    },
+    {
       "date": "2025-09-16",
       "amount": -18.53,
       "kind": "recurring",
@@ -419,6 +429,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2025-10-15",
+      "amount": 968.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_190)"
+    },
+    {
       "date": "2025-10-20",
       "amount": -44.06,
       "kind": "recurring",
@@ -449,10 +465,45 @@
       "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1939.51,
+      "low_point": "2025-08-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "stop:event_22217",
+      "series": "music_subscription:debit:*",
+      "description": "Music service subscription",
+      "freed_before_low_point": 10.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 30.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_22218",
+      "series": "delivery_membership:debit:*",
+      "description": "Delivery service plan",
+      "freed_before_low_point": 13.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 39.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_22283:17.50",
+      "series": "dining:debit:*",
+      "description": "Family dinner",
+      "freed_before_low_point": 17.39,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 104.31,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1966.8,
       "schedule": [
         [
@@ -467,6 +518,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_699",
       "total_paid": 2163.45,
@@ -541,6 +593,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_700",
       "total_paid": 2399.52,
@@ -653,13 +706,13 @@
   ],
   "output_row": {
     "request_id": "request_242",
-    "amount_safe_to_pay": "0",
+    "amount_safe_to_pay": "27.29",
     "affordability_status": "not_affordable",
     "recommended_payment_method": "not_recommended",
     "payment_plan": "none",
     "earliest_date_for_full_payment": "",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 25 August 2025. None of the available options keeps the EUR 600 minimum protected."
+    "decision_explanation": "Do not proceed with the EUR 1,966.80 request. Although EUR 27.29 is available today, the full amount cannot be completed safely within 90 days."
   },
   "verification_errors": []
 }

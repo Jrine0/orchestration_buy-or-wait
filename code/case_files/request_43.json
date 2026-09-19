@@ -4,9 +4,9 @@
     "user_id": "user_43",
     "request_date": "2024-09-07",
     "request_type": "purchase",
-    "requested_amount": "43339000.0",
+    "requested_amount": 43339000.0,
     "desired_completion_date": "2024-11-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Laptop yang saya incar harganya IDR 43.339.000. Saya harus memutuskan sebelum 15 November 2024. Apakah saya bisa membelinya sekarang, atau sebaiknya menunggu?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-11-15",
     "lowest_projected_balance": 29671626.88,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "groceries:debit:*"
+      "summary": "2024-09-07→2024-09-15 pre-payday run, 6,969,123.12 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-07",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 6969123.12,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -132,7 +136,7 @@
     "series transport:debit:*: every_21_days last=2024-09-01 amount=697241.33 n=9 flex=fixed",
     "series utilities:debit:*: monthly last=2024-08-08 amount=1655271.89 n=5 flex=fixed",
     "reserved pending debit event_4015 1254000.00 on 2024-09-11 (R7)",
-    "message_31 first_salary: confirmed salary 32870000.00 on 2024-09-15 (R8)"
+    "message_31 first_salary: confirmed salary 32870000.00 on 2024-09-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -308,18 +312,14 @@
       "amount": -697241.33,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-04",
-      "amount": -8911000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 43339000.0,
       "schedule": [
         [
@@ -334,6 +334,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_118",
       "total_paid": 51140020.05,
@@ -432,8 +433,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 43339000.0,
       "schedule": [
         [
@@ -454,8 +456,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 43339000.0,
       "schedule": [
         [

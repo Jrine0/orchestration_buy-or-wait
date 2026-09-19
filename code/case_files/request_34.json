@@ -4,9 +4,9 @@
     "user_id": "user_34",
     "request_date": "2024-12-04",
     "request_type": "travel",
-    "requested_amount": "129400.0",
+    "requested_amount": 129400.0,
     "desired_completion_date": "2025-01-28",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I can book the family trip for INR 129,400. I need to complete it by 28 January 2025. How much can I safely put toward the booking today?"
   },
   "profile": {
@@ -34,10 +34,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 129400.0,
     "earliest_date_for_full_payment": "2024-12-04",
-    "lowest_projected_balance": 407404.63,
+    "lowest_projected_balance": 458604.63,
     "binding_constraint": {
-      "date": "2025-03-03",
-      "flow": "rent:debit:*"
+      "summary": "2024-12-15→end of forecast run to end of forecast with no further income, 264,477.72 of bills",
+      "low_point_date": "2025-02-26",
+      "bills_window_start": "2024-12-15",
+      "next_credit": null,
+      "bills_in_window": 264477.72,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -326,18 +330,14 @@
       "amount": -8500.04,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -51200.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 129400.0,
       "schedule": [
         [
@@ -352,6 +352,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_94",
       "total_paid": 152692.05,
@@ -450,6 +451,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_95",
       "total_paid": 139752.0,
@@ -488,6 +490,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_96",
       "total_paid": 157867.92,

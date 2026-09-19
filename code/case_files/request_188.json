@@ -4,9 +4,9 @@
     "user_id": "user_188",
     "request_date": "2025-02-07",
     "request_type": "family_transfer",
-    "requested_amount": "2464.0",
+    "requested_amount": 2464.0,
     "desired_completion_date": "2025-03-04",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I want to send EUR 2,464 to my family. Can I complete this family transfer and still keep my minimum balance?"
   },
   "profile": {
@@ -34,11 +34,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 102.94,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 1002.94,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "dining:debit:*"
+      "summary": "2025-02-07→2025-02-15 pre-payday run, 482.36 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-02-07",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 482.36,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -455,36 +459,47 @@
       "amount": -451.0,
       "kind": "recurring",
       "label": "rent:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 2361.06,
+      "low_point": "2025-02-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-05-05",
-      "amount": -75.8,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
+      "change": "stop:event_17331",
+      "series": "music_subscription:debit:*",
+      "description": "Music service subscription",
+      "freed_before_low_point": 16.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 48.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-06",
-      "amount": -62.7,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_17332",
+      "series": "delivery_membership:debit:*",
+      "description": "Food delivery membership",
+      "freed_before_low_point": 20.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 60.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-07",
-      "amount": -80.0,
-      "kind": "recurring",
-      "label": "education:debit:*"
-    },
-    {
-      "date": "2025-05-07",
-      "amount": -35.22,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_17399:18.50",
+      "series": "dining:debit:*",
+      "description": "Coffee shop",
+      "freed_before_low_point": 18.94,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 113.64,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2464.0,
       "schedule": [
         [
@@ -499,6 +514,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_535",
       "total_paid": 2710.35,
@@ -573,6 +589,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_536",
       "total_paid": 3006.0,

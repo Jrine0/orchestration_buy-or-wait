@@ -4,9 +4,9 @@
     "user_id": "user_56",
     "request_date": "2025-02-03",
     "request_type": "purchase",
-    "requested_amount": "881.56",
+    "requested_amount": 881.56,
     "desired_completion_date": "2025-03-13",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I've found a laptop for USD 881.56. Would paying for the laptop today leave enough for my regular expenses?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-02-15",
     "lowest_projected_balance": 2732.95,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-02-03→2025-02-15 pre-payday run, 699.41 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-02-03",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 699.41,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -408,24 +412,14 @@
       "amount": -94.28,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-05-02",
-      "amount": -212.0,
-      "kind": "recurring",
-      "label": "housing:debit:*"
-    },
-    {
-      "date": "2025-05-03",
-      "amount": -48.13,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 881.56,
       "schedule": [
         [
@@ -442,6 +436,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_155",
       "total_paid": 916.84,
@@ -462,6 +457,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_156",
       "total_paid": 934.47,
@@ -486,8 +482,9 @@
       "notes": []
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 881.56,
       "schedule": [
         [
@@ -506,8 +503,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 881.56,
       "schedule": [
         [

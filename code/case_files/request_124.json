@@ -4,9 +4,9 @@
     "user_id": "user_124",
     "request_date": "2024-06-04",
     "request_type": "other",
-    "requested_amount": "3104.2",
+    "requested_amount": 3104.2,
     "desired_completion_date": "2024-08-20",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering a yearly membership for EUR 3,104.20. Is the full membership fee affordable today, or should I wait?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-07-15",
     "lowest_projected_balance": 2992.45,
     "binding_constraint": {
-      "date": "2024-06-11",
-      "flow": "Scheduled school fee"
+      "summary": "2024-06-04→2024-06-15 pre-payday run, 717.11 of bills",
+      "low_point_date": "2024-06-11",
+      "bills_window_start": "2024-06-04",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 717.11,
+      "last_debit_before_low": "Scheduled school fee"
     }
   },
   "recurring_series": [
@@ -299,24 +303,38 @@
       "amount": -75.33,
       "kind": "recurring",
       "label": "dining:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1711.75,
+      "low_point": "2024-06-11",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-08-31",
-      "amount": -99.98,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_11448",
+      "series": "music_subscription:debit:*",
+      "description": "Music service subscription",
+      "freed_before_low_point": 34.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 102.0,
+      "chosen": true
     },
     {
-      "date": "2024-09-01",
-      "amount": -779.9,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_11480:38",
+      "series": "dining:debit:*",
+      "description": "Family dinner",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 149.33,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3104.2,
       "schedule": [
         [
@@ -333,6 +351,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_352",
       "total_paid": 3228.36,
@@ -357,6 +376,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_354",
       "total_paid": 3663.03,
@@ -455,8 +475,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3104.2,
       "schedule": [
         [
@@ -478,8 +499,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 3104.2,
       "schedule": [
         [
@@ -496,6 +518,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_352",
       "total_paid": 3228.36,

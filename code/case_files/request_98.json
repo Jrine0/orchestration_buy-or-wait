@@ -4,9 +4,9 @@
     "user_id": "user_98",
     "request_date": "2025-08-07",
     "request_type": "travel",
-    "requested_amount": "27148.0",
+    "requested_amount": 27148.0,
     "desired_completion_date": "2025-10-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've found a travel option for ZAR 27,148. I need to complete it by 15 October 2025. Can I book the family trip now and still cover my usual expenses?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-10-15",
     "lowest_projected_balance": 36553.27,
     "binding_constraint": {
-      "date": "2025-08-13",
-      "flow": "shopping:debit:*"
+      "summary": "2025-08-07→2025-08-15 pre-payday run, 10,691.43 of bills",
+      "low_point_date": "2025-08-13",
+      "bills_window_start": "2025-08-07",
+      "next_credit": "2025-08-15",
+      "bills_in_window": 10691.43,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -162,7 +166,7 @@
     "series streaming:debit:*: monthly last=2025-07-10 amount=684.20 n=5 flex=reducible_or_stoppable",
     "series transport:debit:*: every_5_days last=2025-08-02 amount=948.46 n=35 flex=fixed",
     "series utilities:debit:*: monthly last=2025-07-07 amount=1925.09 n=5 flex=fixed",
-    "message_74 fx_salary_confirmed: confirmed salary 36080.00 on 2025-08-15 (R8)"
+    "message_74 fx_salary_confirmed: confirmed salary 36080.00 on 2025-08-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -542,18 +546,14 @@
       "amount": -948.46,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-11-03",
-      "amount": -7986.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 27148.0,
       "schedule": [
         [
@@ -568,6 +568,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_276",
       "total_paid": 29862.75,
@@ -642,6 +643,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_277",
       "total_paid": 33120.48,
@@ -744,7 +746,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -752,8 +754,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 27148.0,
       "schedule": [
         [
@@ -775,8 +778,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 27148.0,
       "schedule": [
         [

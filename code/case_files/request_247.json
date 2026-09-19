@@ -4,9 +4,9 @@
     "user_id": "user_247",
     "request_date": "2024-09-05",
     "request_type": "family_transfer",
-    "requested_amount": "1059.3",
+    "requested_amount": 1059.3,
     "desired_completion_date": "2024-11-08",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I make the full transfer without falling short on my own bills? I need to decide by 8 November 2024. I'm planning to send my family EUR 1,059.30."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2024-09-05",
     "lowest_projected_balance": 2403.32,
     "binding_constraint": {
-      "date": "2024-09-13",
-      "flow": "transport:debit:*"
+      "summary": "2024-09-05→2024-09-15 pre-payday run, 415.88 of bills",
+      "low_point_date": "2024-09-13",
+      "bills_window_start": "2024-09-05",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 415.88,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -466,18 +470,14 @@
       "amount": -40.59,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-02",
-      "amount": -38.57,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1059.3,
       "schedule": [
         [
@@ -492,6 +492,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_714",
       "total_paid": 1249.92,
@@ -590,6 +591,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_715",
       "total_paid": 1144.02,

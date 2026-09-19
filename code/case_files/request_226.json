@@ -4,9 +4,9 @@
     "user_id": "user_226",
     "request_date": "2024-12-03",
     "request_type": "other",
-    "requested_amount": "157000.0",
+    "requested_amount": 157000.0,
     "desired_completion_date": "2025-01-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The annual membership costs INR 157,000. I need to complete it by 15 January 2025. How much can I safely pay toward the membership now?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-12-03",
     "lowest_projected_balance": 395326.07,
     "binding_constraint": {
-      "date": "2024-12-13",
-      "flow": "shopping:debit:*"
+      "summary": "2024-12-03→2024-12-15 pre-payday run, 185,853.93 of bills",
+      "low_point_date": "2024-12-13",
+      "bills_window_start": "2024-12-03",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 185853.93,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -468,10 +472,12 @@
       "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 157000.0,
       "schedule": [
         [
@@ -486,6 +492,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_651",
       "total_paid": 185259.9,
@@ -584,6 +591,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_652",
       "total_paid": 169560.0,
@@ -622,6 +630,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_653",
       "total_paid": 191539.92,

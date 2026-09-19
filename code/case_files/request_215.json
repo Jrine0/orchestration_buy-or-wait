@@ -4,9 +4,9 @@
     "user_id": "user_215",
     "request_date": "2025-05-06",
     "request_type": "investment",
-    "requested_amount": "29986.0",
+    "requested_amount": 29986.0,
     "desired_completion_date": "2025-07-10",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "How much can I invest now without affecting essential payments? I need to decide by 10 July 2025. The investment I'm considering is ZAR 29,986."
   },
   "profile": {
@@ -33,10 +33,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 29986.0,
     "earliest_date_for_full_payment": "2025-05-06",
-    "lowest_projected_balance": 48883.56,
+    "lowest_projected_balance": 49676.95,
     "binding_constraint": {
-      "date": "2025-08-02",
-      "flow": "dining:debit:*"
+      "summary": "2025-05-06→end of forecast run to end of forecast with no further income, 44,274.21 of bills",
+      "low_point_date": "2025-07-30",
+      "bills_window_start": "2025-05-06",
+      "next_credit": null,
+      "bills_in_window": 44274.21,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -447,18 +451,14 @@
       "amount": -496.68,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-08-02",
-      "amount": -793.39,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 29986.0,
       "schedule": [
         [
@@ -475,6 +475,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_616",
       "total_paid": 31185.45,
@@ -499,6 +500,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_618",
       "total_paid": 32984.55,

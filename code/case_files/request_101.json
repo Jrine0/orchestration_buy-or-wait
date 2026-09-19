@@ -4,9 +4,9 @@
     "user_id": "user_101",
     "request_date": "2025-11-03",
     "request_type": "investment",
-    "requested_amount": "143500.0",
+    "requested_amount": 143500.0,
     "desired_completion_date": "2025-11-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is it safer to invest now, invest a smaller amount, or wait? I'm considering setting aside INR 143,500 for an investment."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-11-03",
     "lowest_projected_balance": 337861.66,
     "binding_constraint": {
-      "date": "2025-11-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-11-03→2025-11-15 pre-payday run, 128,006.84 of bills",
+      "low_point_date": "2025-11-14",
+      "bills_window_start": "2025-11-03",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 128006.84,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -431,10 +435,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 143500.0,
       "schedule": [
         [
@@ -449,6 +455,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_285",
       "total_paid": 157849.95,
@@ -523,6 +530,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_286",
       "total_paid": 154980.0,

@@ -4,9 +4,9 @@
     "user_id": "user_88",
     "request_date": "2024-06-07",
     "request_type": "housing",
-    "requested_amount": "26092.0",
+    "requested_amount": 26092.0,
     "desired_completion_date": "2024-08-25",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I need ZAR 26,092 for the rental deposit. Would paying the full deposit leave enough for my other commitments?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-07-15",
     "lowest_projected_balance": 36535.77,
     "binding_constraint": {
-      "date": "2024-06-11",
-      "flow": "groceries:debit:*"
+      "summary": "2024-06-07→2024-06-15 pre-payday run, 4,822.12 of bills",
+      "low_point_date": "2024-06-11",
+      "bills_window_start": "2024-06-07",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 4822.12,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -301,18 +305,14 @@
       "amount": -9614.0,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-09-03",
-      "amount": -1224.02,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 26092.0,
       "schedule": [
         [
@@ -329,6 +329,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_245",
       "total_paid": 27135.69,
@@ -353,6 +354,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_247",
       "total_paid": 30788.52,
@@ -451,8 +453,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 26092.0,
       "schedule": [
         [
@@ -473,8 +476,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 26092.0,
       "schedule": [
         [

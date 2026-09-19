@@ -4,9 +4,9 @@
     "user_id": "user_33",
     "request_date": "2026-01-07",
     "request_type": "housing",
-    "requested_amount": "118000.0",
+    "requested_amount": 118000.0,
     "desired_completion_date": "2026-03-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would paying the full deposit leave enough for my other commitments? The move requires a INR 118,000 deposit."
   },
   "profile": {
@@ -35,11 +35,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 24172.64,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": "2026-03-15",
     "lowest_projected_balance": 126272.64,
     "binding_constraint": {
-      "date": "2026-01-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2026-01-07→2026-01-15 pre-payday run, 41,007.36 of bills",
+      "low_point_date": "2026-01-14",
+      "bills_window_start": "2026-01-07",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 41007.36,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -538,24 +542,14 @@
       "amount": -41900.0,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-06",
-      "amount": -3042.12,
-      "kind": "recurring",
-      "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-06",
-      "amount": -7194.48,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 118000.0,
       "schedule": [
         [
@@ -570,6 +564,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_92",
       "total_paid": 134519.94,
@@ -654,17 +649,57 @@
       "notes": [
         "user does not consider installments"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 118000.0,
+      "schedule": [
+        [
+          "2026-01-07",
+          24172.64
+        ],
+        [
+          "2026-03-15",
+          93827.36
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "request does not allow partial payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 118000.0,
+      "schedule": [
+        [
+          "2026-03-15",
+          118000.0
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_33",
     "amount_safe_to_pay": "24172.64",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2026-03-15:118000",
+    "earliest_date_for_full_payment": "2026-03-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the INR 118,000 request. Although INR 24,172.64 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Pay INR 118,000 in full on 15 March 2026. Paying earlier would take the balance below the INR 102,100 minimum."
   },
   "verification_errors": []
 }

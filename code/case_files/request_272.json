@@ -4,9 +4,9 @@
     "user_id": "user_272",
     "request_date": "2025-02-05",
     "request_type": "debt_repayment",
-    "requested_amount": "13585000.0",
+    "requested_amount": 13585000.0,
     "desired_completion_date": "2025-04-10",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I have IDR 13,585,000 in mind as an extra loan payment. Can I make the extra loan payment now without affecting essential expenses?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-03-15",
     "lowest_projected_balance": 12923869.1,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-02-05→2025-02-15 pre-payday run, 3,400,654.90 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-02-05",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 3400654.9,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -422,24 +426,14 @@
       "amount": -836000.0,
       "kind": "recurring",
       "label": "housing:debit:*"
-    },
-    {
-      "date": "2025-05-05",
-      "amount": -235532.86,
-      "kind": "recurring",
-      "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-05-05",
-      "amount": -574674.64,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 13585000.0,
       "schedule": [
         [
@@ -456,6 +450,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_780",
       "total_paid": 14128400.01,
@@ -480,6 +475,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_782",
       "total_paid": 14943499.95,
@@ -554,8 +550,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 13585000.0,
       "schedule": [
         [
@@ -576,8 +573,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 13585000.0,
       "schedule": [
         [

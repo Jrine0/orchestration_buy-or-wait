@@ -4,9 +4,9 @@
     "user_id": "user_60",
     "request_date": "2026-01-06",
     "request_type": "housing",
-    "requested_amount": "199.89",
+    "requested_amount": 199.89,
     "desired_completion_date": "2026-03-04",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I need USD 199.89 for the rental deposit. Is the deposit affordable now, or do I need more time?"
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2026-01-15",
     "lowest_projected_balance": 517.62,
     "binding_constraint": {
-      "date": "2026-01-14",
-      "flow": "transport:debit:*"
+      "summary": "2026-01-06→2026-01-15 pre-payday run, 166.07 of bills",
+      "low_point_date": "2026-01-14",
+      "bills_window_start": "2026-01-06",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 166.07,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -534,24 +538,14 @@
       "amount": -122.4,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-04",
-      "amount": -14.12,
-      "kind": "recurring",
-      "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-05",
-      "amount": -36.88,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 199.89,
       "schedule": [
         [
@@ -566,6 +560,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_167",
       "total_paid": 207.0,
@@ -652,6 +647,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_168",
       "total_paid": 210.0,
@@ -762,8 +758,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 199.89,
       "schedule": [
         [
@@ -784,8 +781,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 199.89,
       "schedule": [
         [

@@ -4,9 +4,9 @@
     "user_id": "user_206",
     "request_date": "2025-08-03",
     "request_type": "family_transfer",
-    "requested_amount": "1404.7",
+    "requested_amount": 1404.7,
     "desired_completion_date": "2025-09-29",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I need to make a family transfer of EUR 1,404.70. I need to complete it by 29 September 2025. Should I send the full amount, send part of it, or wait?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-08-03",
     "lowest_projected_balance": 2491.93,
     "binding_constraint": {
-      "date": "2025-10-26",
-      "flow": "groceries:debit:*"
+      "summary": "2025-08-03→end of forecast run to end of forecast with no further income, 2,739.21 of bills",
+      "low_point_date": "2025-10-26",
+      "bills_window_start": "2025-08-03",
+      "next_credit": null,
+      "bills_in_window": 2739.21,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -319,10 +323,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1404.7,
       "schedule": [
         [
@@ -339,6 +345,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_592",
       "total_paid": 1460.88,
@@ -363,6 +370,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_594",
       "total_paid": 1545.15,

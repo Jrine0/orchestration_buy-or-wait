@@ -4,9 +4,9 @@
     "user_id": "user_169",
     "request_date": "2024-03-04",
     "request_type": "education",
-    "requested_amount": "41976.0",
+    "requested_amount": 41976.0,
     "desired_completion_date": "2024-05-16",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would paying the course fee now leave enough for my regular commitments? I'm considering a professional course priced at ZAR 41,976."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-03-04",
     "lowest_projected_balance": 65775.64,
     "binding_constraint": {
-      "date": "2024-03-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-03-04→2024-03-15 pre-payday run, 11,768.86 of bills",
+      "low_point_date": "2024-03-14",
+      "bills_window_start": "2024-03-04",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 11768.86,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -535,18 +539,14 @@
       "amount": -739.2,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-06-01",
-      "amount": -739.2,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 41976.0,
       "schedule": [
         [
@@ -561,6 +561,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_481",
       "total_paid": 49531.65,
@@ -659,6 +660,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_482",
       "total_paid": 45334.08,

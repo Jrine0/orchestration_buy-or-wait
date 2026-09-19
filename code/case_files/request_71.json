@@ -4,9 +4,9 @@
     "user_id": "user_71",
     "request_date": "2025-05-03",
     "request_type": "housing",
-    "requested_amount": "21451000.0",
+    "requested_amount": 21451000.0,
     "desired_completion_date": "2025-05-28",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I pay the rental deposit by the requested date? I need to decide by 28 May 2025. I need to pay a IDR 21,451,000 rental deposit."
   },
   "profile": {
@@ -31,11 +31,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 244128.26,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 9128928.26,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "transport:debit:*"
+      "summary": "2025-05-03→2025-05-15 pre-payday run, 7,240,921.74 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-03",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 7240921.74,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -160,7 +164,7 @@
     "series streaming:debit:*: monthly last=2025-04-11 amount=207100.00 n=5 flex=stoppable",
     "series transport:debit:*: every_5_days last=2025-04-29 amount=248412.40 n=35 flex=fixed",
     "series utilities:debit:*: monthly last=2025-04-08 amount=728622.27 n=5 flex=fixed",
-    "message_53 fx_salary_confirmed: confirmed salary 11019997.68 on 2025-05-15 (R8)"
+    "message_53 fx_salary_confirmed: confirmed salary 11019997.68 on 2025-05-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -540,18 +544,38 @@
       "amount": -248412.4,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 21206871.74,
+      "low_point": "2025-05-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-07-30",
-      "amount": -359299.61,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "stop:event_6569",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 57950.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 173850.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_6570",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 207100.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 621300.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 21451000.0,
       "schedule": [
         [
@@ -566,6 +590,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_197",
       "total_paid": 23596099.95,

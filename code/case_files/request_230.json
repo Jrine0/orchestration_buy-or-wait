@@ -4,9 +4,9 @@
     "user_id": "user_230",
     "request_date": "2025-08-06",
     "request_type": "debt_repayment",
-    "requested_amount": "3537.6",
+    "requested_amount": 3537.6,
     "desired_completion_date": "2025-10-04",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I have EUR 3,537.60 in mind as an extra loan payment. I need to complete it by 4 October 2025. Can I clear this additional amount without putting upcoming bills at risk?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2025-08-06",
     "lowest_projected_balance": 6051.26,
     "binding_constraint": {
-      "date": "2025-10-14",
-      "flow": "groceries:debit:*"
+      "summary": "2025-09-15→2025-10-15 pre-payday run, 2,528.91 of bills",
+      "low_point_date": "2025-10-14",
+      "bills_window_start": "2025-09-15",
+      "next_credit": "2025-10-15",
+      "bills_in_window": 2528.91,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -408,18 +412,14 @@
       "amount": -99.85,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-11-03",
-      "amount": -891.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3537.6,
       "schedule": [
         [
@@ -434,6 +434,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_663",
       "total_paid": 3891.3,
@@ -508,6 +509,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_664",
       "total_paid": 3820.62,
@@ -546,6 +548,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_665",
       "total_paid": 4315.92,

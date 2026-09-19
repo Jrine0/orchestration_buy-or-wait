@@ -4,9 +4,9 @@
     "user_id": "user_95",
     "request_date": "2025-05-06",
     "request_type": "education",
-    "requested_amount": "553000.0",
+    "requested_amount": 553000.0,
     "desired_completion_date": "2025-07-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "How much of the course fee can I manage without cutting into essentials? I need to decide by 14 July 2025. I've been quoted INR 553,000 for the course."
   },
   "profile": {
@@ -30,11 +30,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 4648.03,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 150148.03,
     "binding_constraint": {
-      "date": "2025-05-20",
-      "flow": "groceries:debit:*"
+      "summary": "2025-05-06→2025-05-23 pre-payday run, 133,216.97 of bills",
+      "low_point_date": "2025-05-20",
+      "bills_window_start": "2025-05-06",
+      "next_credit": "2025-05-23",
+      "bills_in_window": 133216.97,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -405,10 +409,27 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 548351.97,
+      "low_point": "2025-05-20",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "reduce_to:event_8843:3620",
+      "series": "shopping:debit:*",
+      "description": "Monthly shopping spend",
+      "freed_before_low_point": 5445.1,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 16335.29,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 553000.0,
       "schedule": [
         [
@@ -425,6 +446,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_268",
       "total_paid": 608299.95,

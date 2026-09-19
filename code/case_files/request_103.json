@@ -4,9 +4,9 @@
     "user_id": "user_103",
     "request_date": "2024-09-07",
     "request_type": "travel",
-    "requested_amount": "368300.0",
+    "requested_amount": 368300.0,
     "desired_completion_date": "2024-10-07",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I book the family trip now and still cover my usual expenses? I need to decide by 7 October 2024. The total trip cost is INR 368,300."
   },
   "profile": {
@@ -36,11 +36,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 2146.56,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 127646.56,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "groceries:debit:*"
+      "summary": "2024-09-07→2024-09-15 pre-payday run, 41,102.44 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-07",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 41102.44,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -476,24 +480,65 @@
       "amount": -3378.2,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 366153.44,
+      "low_point": "2024-09-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-12-04",
-      "amount": -4405.05,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "stop:event_9527",
+      "series": "music_subscription:debit:*",
+      "description": "Music subscription",
+      "freed_before_low_point": 995.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2985.0,
+      "chosen": false
     },
     {
-      "date": "2024-12-04",
-      "amount": -53400.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_9528",
+      "series": "delivery_membership:debit:*",
+      "description": "Grocery delivery membership",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 5265.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_9529:2070",
+      "series": "gym:debit:*",
+      "description": "Community fitness plan",
+      "freed_before_low_point": 2070.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 6210.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_9530:3110",
+      "series": "entertainment:debit:*",
+      "description": "Games and recreation",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 10050.47,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_9594:2255",
+      "series": "dining:debit:*",
+      "description": "Coffee shop",
+      "freed_before_low_point": 2150.05,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 12900.31,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 368300.0,
       "schedule": [
         [
@@ -508,6 +553,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_291",
       "total_paid": 434593.95,

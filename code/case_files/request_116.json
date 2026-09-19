@@ -4,9 +4,9 @@
     "user_id": "user_116",
     "request_date": "2025-02-03",
     "request_type": "family_transfer",
-    "requested_amount": "241200.0",
+    "requested_amount": 241200.0,
     "desired_completion_date": "2025-04-16",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The amount I want to send is INR 241,200. Should I send the full amount, send part of it, or wait?"
   },
   "profile": {
@@ -33,11 +33,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 9179.83,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 89479.83,
     "binding_constraint": {
-      "date": "2025-02-14",
-      "flow": "groceries:debit:*"
+      "summary": "2025-02-03→2025-02-15 pre-payday run, 48,895.17 of bills",
+      "low_point_date": "2025-02-14",
+      "bills_window_start": "2025-02-03",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 48895.17,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -446,30 +450,38 @@
       "amount": -3076.76,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 232020.17,
+      "low_point": "2025-02-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-05-01",
-      "amount": -41100.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_10734",
+      "series": "delivery_membership:debit:*",
+      "description": "Delivery service plan",
+      "freed_before_low_point": 1120.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3360.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-02",
-      "amount": -5102.11,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-05-03",
-      "amount": -3076.76,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_10800:2405",
+      "series": "dining:debit:*",
+      "description": "Neighbourhood restaurant",
+      "freed_before_low_point": 2454.88,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 14729.27,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 241200.0,
       "schedule": [
         [
@@ -486,6 +498,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_329",
       "total_paid": 265320.0,
@@ -560,6 +573,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_330",
       "total_paid": 294264.0,

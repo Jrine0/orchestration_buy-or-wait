@@ -4,9 +4,9 @@
     "user_id": "user_61",
     "request_date": "2024-03-03",
     "request_type": "purchase",
-    "requested_amount": "29062.0",
+    "requested_amount": 29062.0,
     "desired_completion_date": "2024-05-24",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would paying for the laptop today leave enough for my regular expenses? I've been quoted ZAR 29,062 for the laptop."
   },
   "profile": {
@@ -32,10 +32,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 29062.0,
     "earliest_date_for_full_payment": "2024-03-03",
-    "lowest_projected_balance": 67773.63,
+    "lowest_projected_balance": 69583.45,
     "binding_constraint": {
-      "date": "2024-05-31",
-      "flow": "groceries:debit:*"
+      "summary": "2024-03-03→end of forecast run to end of forecast with no further income, 77,886.78 of bills",
+      "low_point_date": "2024-05-19",
+      "bills_window_start": "2024-03-03",
+      "next_credit": null,
+      "bills_in_window": 77886.78,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -289,18 +293,14 @@
       "amount": -1578.92,
       "kind": "recurring",
       "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-05-31",
-      "amount": -1809.82,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 29062.0,
       "schedule": [
         [
@@ -317,6 +317,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_169",
       "total_paid": 30224.49,
@@ -341,6 +342,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_171",
       "total_paid": 34293.21,

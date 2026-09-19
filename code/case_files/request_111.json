@@ -4,9 +4,9 @@
     "user_id": "user_111",
     "request_date": "2026-04-03",
     "request_type": "debt_repayment",
-    "requested_amount": "16625000.0",
+    "requested_amount": 16625000.0,
     "desired_completion_date": "2026-05-02",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is the full extra repayment safe, or should I pay a smaller amount? I need to decide by 2 May 2026. I have IDR 16,625,000 in mind as an extra loan payment."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-04-03",
     "lowest_projected_balance": 40344944.48,
     "binding_constraint": {
-      "date": "2026-06-27",
-      "flow": "groceries:debit:*"
+      "summary": "2026-04-03→end of forecast run to end of forecast with no further income, 44,859,915.52 of bills",
+      "low_point_date": "2026-06-27",
+      "bills_window_start": "2026-04-03",
+      "next_credit": null,
+      "bills_in_window": 44859915.52,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -338,10 +342,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 16625000.0,
       "schedule": [
         [
@@ -356,6 +362,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_314",
       "total_paid": 18952500.06,
@@ -442,6 +449,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_315",
       "total_paid": 17955000.0,

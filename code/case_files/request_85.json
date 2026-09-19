@@ -4,9 +4,9 @@
     "user_id": "user_85",
     "request_date": "2024-03-06",
     "request_type": "housing",
-    "requested_amount": "19304000.0",
+    "requested_amount": 19304000.0,
     "desired_completion_date": "2024-04-26",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is the deposit affordable now, or do I need more time? I need to pay a IDR 19,304,000 rental deposit."
   },
   "profile": {
@@ -35,11 +35,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 392399.9,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 6788699.9,
     "binding_constraint": {
-      "date": "2024-03-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-03-06→2024-03-15 pre-payday run, 2,029,720.10 of bills",
+      "low_point_date": "2024-03-14",
+      "bills_window_start": "2024-03-06",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 2029720.1,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -457,24 +461,65 @@
       "amount": -200868.58,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 18911600.1,
+      "low_point": "2024-03-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-06-02",
-      "amount": -2527000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_7974",
+      "series": "music_subscription:debit:*",
+      "description": "Music service subscription",
+      "freed_before_low_point": 88350.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 265050.0,
+      "chosen": false
     },
     {
-      "date": "2024-06-03",
-      "amount": -311859.01,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_7975",
+      "series": "delivery_membership:debit:*",
+      "description": "Grocery delivery membership",
+      "freed_before_low_point": 135850.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 407550.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_7977:148200",
+      "series": "entertainment:debit:*",
+      "description": "Local event tickets",
+      "freed_before_low_point": 149984.59,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 449953.77,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_7976",
+      "series": "gym:debit:*",
+      "description": "Fitness club membership",
+      "freed_before_low_point": 161500.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 484500.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_8043:180500",
+      "series": "dining:debit:*",
+      "description": "Quick-service meal",
+      "freed_before_low_point": 202473.66,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1214841.96,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 19304000.0,
       "schedule": [
         [
@@ -491,6 +536,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_238",
       "total_paid": 22778719.95,

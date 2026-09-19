@@ -4,9 +4,9 @@
     "user_id": "user_74",
     "request_date": "2025-08-04",
     "request_type": "debt_repayment",
-    "requested_amount": "5010.0",
+    "requested_amount": 5010.0,
     "desired_completion_date": "2025-10-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I would like to repay an additional ZAR 5,010. I need to complete it by 21 October 2025. Would paying this much toward the loan leave enough for the rest of the month?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2025-08-04",
     "lowest_projected_balance": 55082.6,
     "binding_constraint": {
-      "date": "2025-10-27",
-      "flow": "groceries:debit:*"
+      "summary": "2025-08-15→end of forecast run to end of forecast with no further income, 36,828.55 of bills",
+      "low_point_date": "2025-10-27",
+      "bills_window_start": "2025-08-15",
+      "next_credit": null,
+      "bills_in_window": 36828.55,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -326,10 +330,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 5010.0,
       "schedule": [
         [
@@ -344,6 +350,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_206",
       "total_paid": 5185.35,
@@ -418,6 +425,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_207",
       "total_paid": 5260.56,

@@ -4,9 +4,9 @@
     "user_id": "user_78",
     "request_date": "2025-10-02",
     "request_type": "purchase",
-    "requested_amount": "50200.0",
+    "requested_amount": 50200.0,
     "desired_completion_date": "2025-10-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The laptop I'm looking at is INR 50,200. I need to complete it by 14 October 2025. Is the laptop affordable right now, or should I wait?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-10-15",
     "lowest_projected_balance": 101118.87,
     "binding_constraint": {
-      "date": "2025-10-13",
-      "flow": "shopping:debit:*"
+      "summary": "2025-10-02→2025-10-15 pre-payday run, 55,557.13 of bills",
+      "low_point_date": "2025-10-13",
+      "bills_window_start": "2025-10-02",
+      "next_credit": "2025-10-15",
+      "bills_in_window": 55557.13,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -533,18 +537,47 @@
       "amount": -2949.15,
       "kind": "recurring",
       "label": "dining:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 4281.13,
+      "low_point": "2025-10-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-12-30",
-      "amount": -2155.5,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_7224:805",
+      "series": "streaming:debit:*",
+      "description": "Video streaming plan",
+      "freed_before_low_point": 805.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2415.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_7224",
+      "series": "streaming:debit:*",
+      "description": "Video streaming plan",
+      "freed_before_low_point": 1610.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 4830.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_7225:1480",
+      "series": "shopping:debit:*",
+      "description": "Monthly shopping spend",
+      "freed_before_low_point": 2030.58,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 6091.73,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 50200.0,
       "schedule": [
         [
@@ -559,6 +592,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_218",
       "total_paid": 57227.94,
@@ -645,6 +679,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_219",
       "total_paid": 54216.0,
@@ -683,6 +718,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_220",
       "total_paid": 61243.92,
@@ -793,8 +829,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 50200.0,
       "schedule": [
         [
@@ -816,8 +853,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 50200.0,
       "schedule": [
         [

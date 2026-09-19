@@ -4,9 +4,9 @@
     "user_id": "user_183",
     "request_date": "2026-04-07",
     "request_type": "emergency_expense",
-    "requested_amount": "26866000.0",
+    "requested_amount": 26866000.0,
     "desired_completion_date": "2026-06-18",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I cover the full repair now and still manage my essential expenses? I need to decide by 18 June 2026. The repair I need is priced at IDR 26,866,000."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-05-15",
     "lowest_projected_balance": 34860584.1,
     "binding_constraint": {
-      "date": "2026-04-14",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-07→2026-04-15 pre-payday run, 7,295,639.64 of bills",
+      "low_point_date": "2026-04-14",
+      "bills_window_start": "2026-04-07",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 7295639.64,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -543,24 +547,56 @@
       "amount": -523634.41,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 3883715.9,
+      "low_point": "2026-04-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-07-04",
-      "amount": -552511.49,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "stop:event_16813",
+      "series": "cloud_storage:debit:*",
+      "description": "Shared storage plan",
+      "freed_before_low_point": 157700.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 473100.0,
+      "chosen": true
     },
     {
-      "date": "2026-07-04",
-      "amount": -5776000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_16816:342000",
+      "series": "entertainment:debit:*",
+      "description": "Cinema and events",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1067687.82,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_16814",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 511100.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1533300.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_16815:365560",
+      "series": "shopping:debit:*",
+      "description": "Household shopping",
+      "freed_before_low_point": 547404.46,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1642213.37,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 26866000.0,
       "schedule": [
         [
@@ -577,6 +613,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_521",
       "total_paid": 27940640.01,
@@ -601,6 +638,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_523",
       "total_paid": 30627239.94,
@@ -687,8 +725,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 26866000.0,
       "schedule": [
         [
@@ -710,8 +749,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 26866000.0,
       "schedule": [
         [
@@ -728,6 +768,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_521",
       "total_paid": 27940640.01,

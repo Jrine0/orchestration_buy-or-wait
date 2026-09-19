@@ -4,9 +4,9 @@
     "user_id": "user_62",
     "request_date": "2025-08-05",
     "request_type": "debt_repayment",
-    "requested_amount": "404.23",
+    "requested_amount": 404.23,
     "desired_completion_date": "2025-10-09",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I have USD 404.23 in mind as an extra loan payment. I need to complete it by 9 October 2025. Can I make the extra loan payment now without affecting essential expenses?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-08-05",
     "lowest_projected_balance": 5032.91,
     "binding_constraint": {
-      "date": "2025-08-07",
-      "flow": "utilities:debit:*"
+      "summary": "2025-08-05→2025-08-08 pre-payday run, 118.53 of bills",
+      "low_point_date": "2025-08-07",
+      "bills_window_start": "2025-08-05",
+      "next_credit": "2025-08-08",
+      "bills_in_window": 118.53,
+      "last_debit_before_low": "utilities:debit:*"
     }
   },
   "recurring_series": [
@@ -362,10 +366,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 404.23,
       "schedule": [
         [
@@ -380,6 +386,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_173",
       "total_paid": 418.5,
@@ -454,6 +461,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_174",
       "total_paid": 424.56,

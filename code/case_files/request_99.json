@@ -4,9 +4,9 @@
     "user_id": "user_99",
     "request_date": "2026-07-04",
     "request_type": "emergency_expense",
-    "requested_amount": "18062.0",
+    "requested_amount": 18062.0,
     "desired_completion_date": "2026-07-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would paying the repair bill today take me below the balance I need to keep? I need to decide by 14 July 2026. The repair I need is priced at ZAR 18,062."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-15",
     "lowest_projected_balance": 66545.43,
     "binding_constraint": {
-      "date": "2026-07-12",
-      "flow": "transport:debit:*"
+      "summary": "2026-07-04→2026-07-15 pre-payday run, 20,161.15 of bills",
+      "low_point_date": "2026-07-12",
+      "bills_window_start": "2026-07-04",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 20161.15,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -133,7 +137,8 @@
     "series streaming:debit:*: monthly last=2026-06-11 amount=1051.60 n=5 flex=reducible_or_stoppable",
     "series transport:debit:*: every_14_days last=2026-06-28 amount=1042.62 n=13 flex=fixed",
     "series utilities:debit:*: monthly last=2026-06-08 amount=4067.19 n=5 flex=fixed",
-    "confirmed salary event_9233 56980.00 on 2026-07-15 replaces projection (R8)"
+    "confirmed salary event_9233 56980.00 on 2026-07-15 replaces projection (R8)",
+    "confirmed amount 56980.00 differs from settled payroll 44444.40; only the 2026-07-15 payroll is confirmed at the new amount, so the 2 later projected payroll(s) stay at 44444.40 (R19: no unsupported income; the safer reading)"
   ],
   "projected_flows": [
     {
@@ -369,18 +374,47 @@
       "amount": -2637.38,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 616.57,
+      "low_point": "2026-07-12",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-09-30",
-      "amount": -2111.99,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "stop:event_9188",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 1051.6,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 3154.8,
+      "chosen": true
+    },
+    {
+      "change": "reduce_to:event_9188:525.80",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 525.8,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1577.4,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_9232:1065.90",
+      "series": "dining:debit:*",
+      "description": "Family dinner",
+      "freed_before_low_point": 1046.09,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 6276.53,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 18062.0,
       "schedule": [
         [
@@ -395,6 +429,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_279",
       "total_paid": 20590.74,
@@ -481,6 +516,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_280",
       "total_paid": 19506.96,
@@ -519,8 +555,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 18062.0,
       "schedule": [
         [
@@ -543,8 +580,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 18062.0,
       "schedule": [
         [
@@ -559,8 +597,9 @@
       "notes": []
     },
     {
+      "label": "full_payment with spending changes",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 18062.0,
       "schedule": [
         [

@@ -4,9 +4,9 @@
     "user_id": "user_265",
     "request_date": "2024-03-06",
     "request_type": "family_transfer",
-    "requested_amount": "45970.0",
+    "requested_amount": 45970.0,
     "desired_completion_date": "2024-03-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "How much can I safely send to my family today? I want to send INR 45,970 to my family."
   },
   "profile": {
@@ -31,12 +31,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 173092.51,
+    "amount_safe_to_pay": 45970.0,
+    "earliest_date_for_full_payment": "2024-03-06",
+    "lowest_projected_balance": 267955.8,
     "binding_constraint": {
-      "date": "2024-06-03",
-      "flow": "groceries:debit:*"
+      "summary": "2024-03-06→end of forecast run to end of forecast with no further income, 518,149.20 of bills",
+      "low_point_date": "2024-05-28",
+      "bills_window_start": "2024-03-06",
+      "next_credit": null,
+      "bills_in_window": 518149.2,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -436,24 +440,14 @@
       "amount": -5259.96,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -83700.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-06-03",
-      "amount": -11163.3,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 45970.0,
       "schedule": [
         [
@@ -462,12 +456,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_763",
       "total_paid": 47579.07,
@@ -558,7 +553,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -568,13 +563,13 @@
   ],
   "output_row": {
     "request_id": "request_265",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "45970",
+    "affordability_status": "affordable_now",
+    "recommended_payment_method": "full_payment",
+    "payment_plan": "2024-03-06:45970",
+    "earliest_date_for_full_payment": "2024-03-06",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 21 March 2024. None of the available options keeps the INR 189,700 minimum protected."
+    "decision_explanation": "Pay INR 45,970 today. This leaves at least INR 189,700 available over the next 90 days."
   },
   "verification_errors": []
 }

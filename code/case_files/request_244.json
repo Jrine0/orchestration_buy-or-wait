@@ -4,9 +4,9 @@
     "user_id": "user_244",
     "request_date": "2024-06-04",
     "request_type": "family_transfer",
-    "requested_amount": "49918.0",
+    "requested_amount": 49918.0,
     "desired_completion_date": "2024-07-16",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I want to send ZAR 49,918 to my family. Would sending the money now leave enough for my upcoming expenses?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2024-06-04",
     "lowest_projected_balance": 106761.24,
     "binding_constraint": {
-      "date": "2024-06-12",
-      "flow": "delivery_membership:debit:*"
+      "summary": "2024-06-04→2024-06-15 pre-payday run, 19,517.96 of bills",
+      "low_point_date": "2024-06-12",
+      "bills_window_start": "2024-06-04",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 19517.96,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -444,30 +448,14 @@
       "amount": -1370.03,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-08-31",
-      "amount": -2144.11,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-09-01",
-      "amount": -18106.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-09-01",
-      "amount": -1370.03,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 49918.0,
       "schedule": [
         [
@@ -482,6 +470,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_705",
       "total_paid": 58903.32,
@@ -580,6 +569,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_706",
       "total_paid": 53911.44,
@@ -616,6 +606,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_707",
       "total_paid": 60900.0,

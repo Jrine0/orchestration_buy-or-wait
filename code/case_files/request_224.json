@@ -4,9 +4,9 @@
     "user_id": "user_224",
     "request_date": "2025-02-04",
     "request_type": "travel",
-    "requested_amount": "10327000.0",
+    "requested_amount": 10327000.0,
     "desired_completion_date": "2025-03-16",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I've found a travel option for IDR 10,327,000. How much can I safely put toward the booking today?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2025-02-15",
     "lowest_projected_balance": 32250994.35,
     "binding_constraint": {
-      "date": "2025-02-12",
-      "flow": "delivery_membership:debit:*"
+      "summary": "2025-02-04→2025-02-15 pre-payday run, 17,718,405.65 of bills",
+      "low_point_date": "2025-02-12",
+      "bills_window_start": "2025-02-04",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 17718405.65,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -468,24 +472,14 @@
       "amount": -9310000.0,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2025-05-03",
-      "amount": -1300027.74,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-05-04",
-      "amount": -705847.11,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 10327000.0,
       "schedule": [
         [
@@ -502,6 +496,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_645",
       "total_paid": 10740080.0,
@@ -522,6 +517,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_646",
       "total_paid": 10946620.02,
@@ -548,8 +544,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 10327000.0,
       "schedule": [
         [
@@ -568,8 +565,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 10327000.0,
       "schedule": [
         [

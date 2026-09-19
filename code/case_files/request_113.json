@@ -4,9 +4,9 @@
     "user_id": "user_113",
     "request_date": "2026-09-04",
     "request_type": "debt_repayment",
-    "requested_amount": "36500.0",
+    "requested_amount": 36500.0,
     "desired_completion_date": "2026-10-19",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "How much extra can I put toward the loan today? I want to put another INR 36,500 toward my loan."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2026-10-15",
     "lowest_projected_balance": 101866.67,
     "binding_constraint": {
-      "date": "2026-09-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2026-09-04→2026-09-15 pre-payday run, 40,023.33 of bills",
+      "low_point_date": "2026-09-14",
+      "bills_window_start": "2026-09-04",
+      "next_credit": "2026-09-15",
+      "bills_in_window": 40023.33,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -168,7 +172,7 @@
     "series transport:debit:*: every_5_days last=2026-09-03 amount=2168.75 n=36 flex=fixed",
     "series utilities:debit:*: monthly last=2026-08-06 amount=5003.26 n=5 flex=fixed",
     "message_86 fx_salary_confirmed: no cash-flow change (informational, pending, or non-cash)",
-    "message_86 fx_salary_confirmed: confirmed salary 107995.68 on 2026-09-15 (R8)"
+    "message_86 fx_salary_confirmed: confirmed salary 107995.68 on 2026-09-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -542,24 +546,14 @@
       "amount": -2168.75,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-12-02",
-      "amount": -27300.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-12-02",
-      "amount": -2168.75,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 36500.0,
       "schedule": [
         [
@@ -574,6 +568,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_321",
       "total_paid": 37777.5,
@@ -648,8 +643,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 36500.0,
       "schedule": [
         [
@@ -670,8 +666,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 36500.0,
       "schedule": [
         [

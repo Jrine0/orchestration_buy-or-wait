@@ -4,9 +4,9 @@
     "user_id": "user_75",
     "request_date": "2026-04-06",
     "request_type": "emergency_expense",
-    "requested_amount": "28270.0",
+    "requested_amount": 28270.0,
     "desired_completion_date": "2026-06-12",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Should I pay for the repair in full, split the payment, or wait? I need to decide by 12 June 2026. I've received a repair quote for ZAR 28,270."
   },
   "profile": {
@@ -33,12 +33,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 13211.67,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 52211.67,
+    "amount_safe_to_pay": 28270.0,
+    "earliest_date_for_full_payment": "2026-04-06",
+    "lowest_projected_balance": 67853.67,
     "binding_constraint": {
-      "date": "2026-07-04",
-      "flow": "rent:debit:*"
+      "summary": "2026-04-06→end of forecast run to end of forecast with no further income, 78,014.20 of bills",
+      "low_point_date": "2026-06-30",
+      "bills_window_start": "2026-04-06",
+      "next_credit": null,
+      "bills_in_window": 78014.2,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -331,18 +335,56 @@
       "amount": -2133.18,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 0.0,
+      "low_point": "2026-06-30",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-07-04",
-      "amount": -15642.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_6960:479.60",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 1438.8,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 1438.8,
+      "chosen": true
+    },
+    {
+      "change": "reduce_to:event_6961:419.76",
+      "series": "shopping:debit:*",
+      "description": "Online retail purchases",
+      "freed_before_low_point": 1808.71,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 1808.71,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_6960",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 2877.6,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 2877.6,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_6998:991.10",
+      "series": "dining:debit:*",
+      "description": "Quick-service meal",
+      "freed_before_low_point": 4595.04,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 4595.04,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 28270.0,
       "schedule": [
         [
@@ -351,7 +393,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": [
@@ -359,6 +401,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_208",
       "total_paid": 29400.81,
@@ -383,6 +426,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_210",
       "total_paid": 32227.74,
@@ -467,17 +511,46 @@
       "notes": [
         "18 payments exceed max_installment_months=3 (R35)"
       ]
+    },
+    {
+      "label": "installments with spending changes",
+      "method": "installments",
+      "option": "payment_option_208",
+      "total_paid": 29400.81,
+      "schedule": [
+        [
+          "2026-04-09",
+          9800.27
+        ],
+        [
+          "2026-05-09",
+          9800.27
+        ],
+        [
+          "2026-06-08",
+          9800.27
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [
+        "reduce_to:event_6960:479.60"
+      ],
+      "notes": [
+        "safe only with spending changes"
+      ]
     }
   ],
   "output_row": {
     "request_id": "request_75",
-    "amount_safe_to_pay": "13211.67",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
-    "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the ZAR 28,270 request. Although ZAR 13,211.67 is available today, the full amount cannot be completed safely within 90 days."
+    "amount_safe_to_pay": "28270",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2026-04-09:9800.27|2026-05-09:9800.27|2026-06-08:9800.27",
+    "earliest_date_for_full_payment": "2026-04-06",
+    "spending_changes_needed": "reduce_to:event_6960:479.60",
+    "decision_explanation": "Reduce the family streaming plan to ZAR 479.60, then use 3 installments of ZAR 9,800.27, starting 9 April 2026. This leaves at least ZAR 39,000 available."
   },
   "verification_errors": []
 }

@@ -4,9 +4,9 @@
     "user_id": "user_205",
     "request_date": "2024-03-06",
     "request_type": "debt_repayment",
-    "requested_amount": "10621000.0",
+    "requested_amount": 10621000.0,
     "desired_completion_date": "2024-05-19",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I clear this additional amount without putting upcoming bills at risk? The additional loan payment would be IDR 10,621,000."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-03-06",
     "lowest_projected_balance": 26126567.74,
     "binding_constraint": {
-      "date": "2024-03-13",
-      "flow": "dining:debit:*"
+      "summary": "2024-03-06→2024-03-15 pre-payday run, 5,336,332.26 of bills",
+      "low_point_date": "2024-03-13",
+      "bills_window_start": "2024-03-06",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 5336332.26,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -446,24 +450,14 @@
       "amount": -439830.09,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -5871000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-06-03",
-      "amount": -820367.67,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 10621000.0,
       "schedule": [
         [
@@ -478,6 +472,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_590",
       "total_paid": 12532780.05,
@@ -576,6 +571,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_591",
       "total_paid": 11470680.0,

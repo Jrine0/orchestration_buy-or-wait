@@ -68,24 +68,33 @@ def case_file(ctx: Context, dec: Decision, row: dict, violations: list[str]) -> 
     cap = dec.capacity
     p, r = ctx.profile, ctx.request
     return {
-        "request": {k: str(v) for k, v in r.__dict__.items() if k != "solved"},
+        "request": {k: (v.isoformat() if hasattr(v, "isoformat") else v) for k, v in r.__dict__.items() if k != "solved"},
         "profile": {"home_currency": p.home_currency, "balance": p.balance, "minimum_balance": p.minimum_balance,
                     "methods": sorted(p.methods), "max_installment_months": p.max_installment_months,
                     "protected": sorted(p.protected), "reducible": sorted(p.reducible), "stoppable": sorted(p.stoppable)},
         "capacity_frozen": {"amount_safe_to_pay": cap.amount_safe_to_pay,
-                            "earliest_date_for_full_payment": str(cap.earliest_date_for_full_payment),
+                            "earliest_date_for_full_payment": cap.earliest_date_for_full_payment.isoformat()
+                            if cap.earliest_date_for_full_payment else None,
                             "lowest_projected_balance": round(cap.lowest_balance, 2),
-                            "binding_constraint": {"date": str(cap.binding_date), "flow": cap.binding_label}},
-        "recurring_series": [{"key": s.key, "cadence": s.cadence, "last": str(s.last_date), "amount": round(s.amount, 2),
+                            "binding_constraint": {
+                                "summary": cap.binding_text(),
+                                "low_point_date": cap.binding_date.isoformat() if cap.binding_date else None,
+                                "bills_window_start": cap.window_start.isoformat() if cap.window_start else None,
+                                "next_credit": cap.window_end.isoformat() if cap.window_end else None,
+                                "bills_in_window": cap.window_debits,
+                                "last_debit_before_low": cap.binding_label}},
+        "recurring_series": [{"key": s.key, "cadence": s.cadence, "last": s.last_date.isoformat(), "amount": round(s.amount, 2),
                               "occurrences": len(s.events), "flexibility": s.flexibility,
                               "latest_event": s.latest_event.event_id} for s in ctx.series],
         "evidence": [{"message_id": d.message_id, "intent": d.intent, "amount": d.amount, "currency": d.currency,
-                      "date": str(d.on) if d.on else None} for d in ctx.deltas],
+                      "date": d.on.isoformat() if d.on else None} for d in ctx.deltas],
         "trace": ctx.trace,
-        "projected_flows": [{"date": str(f.date), "amount": round(f.amount, 2), "kind": f.kind, "label": f.label}
+        "projected_flows": [{"date": f.date.isoformat(), "amount": round(f.amount, 2), "kind": f.kind, "label": f.label}
                             for f in sorted(ctx.flows, key=lambda f: f.date)],
-        "candidate_plans": [{"method": c.method, "option": c.option_id, "total_paid": c.total_paid,
-                             "schedule": [[str(d), a] for d, a in c.schedule], "eligible": c.eligible, "safe": c.safe,
+        "spending_change_review": dec.change_review,
+        "candidate_plans": [{"label": c.method + (" with spending changes" if c.changes else ""),
+                             "method": c.method, "option": c.option_id or None, "total_paid": c.total_paid,
+                             "schedule": [[d.isoformat(), a] for d, a in c.schedule], "eligible": c.eligible, "safe": c.safe,
                              "completes_by_deadline": c.completes_by_deadline,
                              "changes": [ch.render() for ch in c.changes], "notes": c.notes} for c in dec.candidates],
         "output_row": row,
@@ -120,7 +129,7 @@ def run(requests: Optional[list[Request]] = None, ds: Optional[Dataset] = None, 
             res.decisions[req.request_id] = dec
             if write_cases:
                 (CASE_DIR / f"{req.request_id}.json").write_text(
-                    json.dumps(case_file(ctx, dec, row, errs), indent=2, default=str), encoding="utf-8")
+                    json.dumps(case_file(ctx, dec, row, errs), indent=2, default=str, ensure_ascii=False), encoding="utf-8")
         except Exception:
             res.fallbacks.append(req.request_id)
             res.violations[req.request_id] = ["exception: " + traceback.format_exc(limit=3)]

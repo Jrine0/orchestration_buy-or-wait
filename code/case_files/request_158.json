@@ -4,9 +4,9 @@
     "user_id": "user_158",
     "request_date": "2025-08-07",
     "request_type": "emergency_expense",
-    "requested_amount": "242600.0",
+    "requested_amount": 242600.0,
     "desired_completion_date": "2025-10-02",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The urgent repair will cost INR 242,600. I need to complete it by 2 October 2025. Can I cover the full repair now and still manage my essential expenses?"
   },
   "profile": {
@@ -29,12 +29,16 @@
     "stoppable": []
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 199967.12,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 331367.12,
+    "amount_safe_to_pay": 242600.0,
+    "earliest_date_for_full_payment": "2025-08-07",
+    "lowest_projected_balance": 398967.12,
     "binding_constraint": {
-      "date": "2025-11-03",
-      "flow": "rent:debit:*"
+      "summary": "2025-08-07→end of forecast run to end of forecast with no further income, 346,449.98 of bills",
+      "low_point_date": "2025-10-30",
+      "bills_window_start": "2025-08-07",
+      "next_credit": null,
+      "bills_in_window": 346449.98,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -308,18 +312,14 @@
       "amount": -7971.43,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-11-03",
-      "amount": -67600.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 242600.0,
       "schedule": [
         [
@@ -328,7 +328,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": [
@@ -336,6 +336,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_449",
       "total_paid": 252303.99,
@@ -354,12 +355,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_451",
       "total_paid": 266860.05,
@@ -426,7 +428,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -436,13 +438,13 @@
   ],
   "output_row": {
     "request_id": "request_158",
-    "amount_safe_to_pay": "199967.12",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "242600",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2025-08-07:84101.33|2025-09-04:84101.33|2025-10-02:84101.33",
+    "earliest_date_for_full_payment": "2025-08-07",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the INR 242,600 request. Although INR 199,967.12 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Use 3 installments of INR 84,101.33, starting 7 August 2025. This leaves at least INR 131,400 available."
   },
   "verification_errors": []
 }

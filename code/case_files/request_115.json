@@ -4,9 +4,9 @@
     "user_id": "user_115",
     "request_date": "2024-09-06",
     "request_type": "other",
-    "requested_amount": "80500.0",
+    "requested_amount": 80500.0,
     "desired_completion_date": "2024-11-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I pay for the annual membership now without affecting my regular expenses? I need to decide by 15 November 2024. The membership fee is INR 80,500 for the year."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-11-15",
     "lowest_projected_balance": 53448.43,
     "binding_constraint": {
-      "date": "2024-09-13",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-09-06→2024-09-15 pre-payday run, 12,486.57 of bills",
+      "low_point_date": "2024-09-13",
+      "bills_window_start": "2024-09-06",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 12486.57,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -300,18 +304,14 @@
       "amount": -1328.59,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-04",
-      "amount": -13300.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 80500.0,
       "schedule": [
         [
@@ -326,6 +326,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_327",
       "total_paid": 94989.93,
@@ -424,8 +425,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 80500.0,
       "schedule": [
         [
@@ -447,8 +449,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 80500.0,
       "schedule": [
         [

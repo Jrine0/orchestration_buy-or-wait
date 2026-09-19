@@ -4,9 +4,9 @@
     "user_id": "user_45",
     "request_date": "2026-07-06",
     "request_type": "purchase",
-    "requested_amount": "21983000.0",
+    "requested_amount": 21983000.0,
     "desired_completion_date": "2026-09-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "How much of the laptop price can I safely cover today? The price of the laptop is IDR 21,983,000."
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2026-09-15",
     "lowest_projected_balance": 14511578.45,
     "binding_constraint": {
-      "date": "2026-07-13",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-06→2026-07-15 pre-payday run, 5,471,321.55 of bills",
+      "low_point_date": "2026-07-13",
+      "bills_window_start": "2026-07-06",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 5471321.55,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -374,18 +378,14 @@
       "amount": -748511.67,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-10-03",
-      "amount": -1805000.0,
-      "kind": "recurring",
-      "label": "housing:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 21983000.0,
       "schedule": [
         [
@@ -400,6 +400,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_123",
       "total_paid": 25060620.06,
@@ -486,8 +487,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 21983000.0,
       "schedule": [
         [
@@ -508,8 +510,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 21983000.0,
       "schedule": [
         [

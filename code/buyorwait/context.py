@@ -37,7 +37,8 @@ def series_flows(sr: Series, start: date, end: date, amount: float | None = None
     sign = -1 if sr.direction == "debit" else 1
     amt = sr.amount if amount is None else amount
     return [Flow(date=d, amount=sign * amt, label=sr.key, category=sr.category, kind="recurring",
-                 series_key=sr.key, event_id=sr.latest_event.event_id, essential=sr.is_essential)
+                 series_key=sr.key, event_id=sr.latest_event.event_id, essential=sr.is_essential,
+                 monthly=sr.cadence == "monthly")
             for d in sr.occurrences(start, end)]
 
 
@@ -108,6 +109,12 @@ def build(ds: Dataset, req: Request, s: Settings = SETTINGS) -> Context:
                 flows.append(Flow(date=sd, amount=e.amount, label=e.description, category="salary",
                                   kind="scheduled", event_id=e.event_id))
                 trace.append(f"confirmed salary {e.event_id} {e.amount:.2f} on {sd} replaces projection (R8)")
+                settled = near[0].amount if near else max(f.amount for f in existing)
+                if abs(settled - e.amount) > 0.01:
+                    later = [f for f in _salary_flows(flows) if f.date > sd]
+                    trace.append(f"confirmed amount {e.amount:.2f} differs from settled payroll {settled:.2f}; only the "
+                                 f"{sd} payroll is confirmed at the new amount, so the {len(later)} later projected "
+                                 f"payroll(s) stay at {settled:.2f} (R19: no unsupported income; the safer reading)")
         elif e.status in ("pending",) and e.direction == "credit":
             trace.append(f"ignored pending credit {e.event_id} {e.amount:.2f} (R7)")
         elif e.status in ("failed", "cancelled", "unrealized"):
@@ -195,10 +202,18 @@ def apply_delta(ctx: Context, d: Delta, ds: Dataset, first: date, end: date) -> 
         for f in sal:
             if abs((f.date - d.on).days) <= 12:
                 flows.remove(f)
-        if first <= d.on <= end:
-            flows.append(Flow(date=d.on, amount=amt, label=f"confirmed salary ({d.message_id})",
-                              category="salary", kind="evidence"))
-        trace.append(f"{tag}: confirmed salary {amt:.2f} on {d.on} (R8)")
+        continues = [f for f in _salary_flows(flows) if f.date > d.on]
+        if continues:
+            if first <= d.on <= end:
+                flows.append(Flow(date=d.on, amount=amt, label=f"confirmed salary ({d.message_id})",
+                                  category="salary", kind="evidence"))
+            trace.append(f"{tag}: confirmed salary {amt:.2f} on {d.on} (R8); existing payroll stream continues after it")
+        else:
+            # confirmed start of a salaried job with no regular payroll history yet: the same rule as a scheduled
+            # "Next confirmed salary" without history - it continues monthly from the confirmed date
+            flows.extend(_monthly(d.on, amt, first, end, f"confirmed salary ({d.message_id})"))
+            trace.append(f"{tag}: confirmed salary {amt:.2f} on {d.on}, continued monthly (no payroll stream to "
+                         f"continue it; same rule as a scheduled confirmed salary without history)")
     elif d.intent == "invoice_approved" and d.on and d.amount is not None:
         amt = conv(d.amount, d.on)
         if first <= d.on <= end:

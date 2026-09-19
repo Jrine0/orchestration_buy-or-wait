@@ -4,9 +4,9 @@
     "user_id": "user_189",
     "request_date": "2026-07-04",
     "request_type": "debt_repayment",
-    "requested_amount": "488.4",
+    "requested_amount": 488.4,
     "desired_completion_date": "2026-08-14",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would paying this much toward the loan leave enough for the rest of the month? I'm planning an extra loan payment of EUR 488.40."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-04",
     "lowest_projected_balance": 962.88,
     "binding_constraint": {
-      "date": "2026-07-11",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-04→2026-07-15 pre-payday run, 184.78 of bills",
+      "low_point_date": "2026-07-11",
+      "bills_window_start": "2026-07-04",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 184.78,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -373,10 +377,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 488.4,
       "schedule": [
         [
@@ -391,6 +397,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_538",
       "total_paid": 556.74,
@@ -477,6 +484,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_539",
       "total_paid": 527.46,

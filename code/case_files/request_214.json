@@ -4,9 +4,9 @@
     "user_id": "user_214",
     "request_date": "2024-12-04",
     "request_type": "other",
-    "requested_amount": "69750.0",
+    "requested_amount": 69750.0,
     "desired_completion_date": "2025-01-28",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The annual plan comes to INR 69,750. I need to complete it by 28 January 2025. Is the full membership fee affordable today, or should I wait?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2024-12-15",
     "lowest_projected_balance": 216013.73,
     "binding_constraint": {
-      "date": "2024-12-14",
-      "flow": "transport:debit:*"
+      "summary": "2024-12-04→2024-12-15 pre-payday run, 76,166.27 of bills",
+      "low_point_date": "2024-12-14",
+      "bills_window_start": "2024-12-04",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 76166.27,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -543,18 +547,14 @@
       "amount": -4946.4,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -69100.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 69750.0,
       "schedule": [
         [
@@ -571,6 +571,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_614",
       "total_paid": 72540.0,
@@ -591,6 +592,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_615",
       "total_paid": 73935.0,
@@ -615,8 +617,9 @@
       "notes": []
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 69750.0,
       "schedule": [
         [
@@ -635,8 +638,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 69750.0,
       "schedule": [
         [

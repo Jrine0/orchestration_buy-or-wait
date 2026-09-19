@@ -4,9 +4,9 @@
     "user_id": "user_199",
     "request_date": "2024-09-04",
     "request_type": "housing",
-    "requested_amount": "23674000.0",
+    "requested_amount": 23674000.0,
     "desired_completion_date": "2024-11-10",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I cover this deposit without putting rent and regular bills at risk? I need to decide by 10 November 2024. The deposit on the place comes to IDR 23,674,000."
   },
   "profile": {
@@ -32,10 +32,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 23674000.0,
     "earliest_date_for_full_payment": "2024-09-04",
-    "lowest_projected_balance": 50922033.0,
+    "lowest_projected_balance": 52141183.38,
     "binding_constraint": {
-      "date": "2024-12-01",
-      "flow": "dining:debit:*"
+      "summary": "2024-09-04→end of forecast run to end of forecast with no further income, 84,550,635.56 of bills",
+      "low_point_date": "2024-11-28",
+      "bills_window_start": "2024-09-04",
+      "next_credit": null,
+      "bills_in_window": 84550635.56,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -452,18 +456,14 @@
       "amount": -731186.57,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-01",
-      "amount": -1219150.38,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 23674000.0,
       "schedule": [
         [
@@ -480,6 +480,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_569",
       "total_paid": 24620960.01,
@@ -504,6 +505,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_571",
       "total_paid": 27935319.93,

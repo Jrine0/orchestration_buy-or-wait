@@ -4,9 +4,9 @@
     "user_id": "user_225",
     "request_date": "2026-07-06",
     "request_type": "emergency_expense",
-    "requested_amount": "22059000.0",
+    "requested_amount": 22059000.0,
     "desired_completion_date": "2026-09-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Should I pay for the repair in full, split the payment, or wait? The repair I need is priced at IDR 22,059,000."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2026-09-15",
     "lowest_projected_balance": 27261123.21,
     "binding_constraint": {
-      "date": "2026-07-13",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-06→2026-07-15 pre-payday run, 8,530,036.39 of bills",
+      "low_point_date": "2026-07-13",
+      "bills_window_start": "2026-07-06",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 8530036.39,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -151,7 +155,7 @@
     "series transport:debit:*: every_7_days last=2026-07-05 amount=704576.26 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2026-06-06 amount=1294139.50 n=5 flex=fixed",
     "ignored failed event_20718 (R7)",
-    "message_175 rent_increase: 3 projected rent payments raised 12.0%"
+    "message_175 rent_increase: 2 projected rent payments raised 12.0%"
   ],
   "projected_flows": [
     {
@@ -453,24 +457,38 @@
       "amount": -704576.26,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 12468576.79,
+      "low_point": "2026-07-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-10-02",
-      "amount": -7107520.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_20649:314450",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 314450.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 943350.0,
+      "chosen": true
     },
     {
-      "date": "2026-10-03",
-      "amount": -932921.82,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_20650",
+      "series": "cloud_storage:debit:*",
+      "description": "Online backup subscription",
+      "freed_before_low_point": 101650.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 304950.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 22059000.0,
       "schedule": [
         [
@@ -487,6 +505,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_647",
       "total_paid": 22941360.0,
@@ -511,6 +530,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_649",
       "total_paid": 25147260.0,
@@ -597,8 +617,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 22059000.0,
       "schedule": [
         [
@@ -619,8 +640,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 22059000.0,
       "schedule": [
         [
@@ -637,6 +659,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_647",
       "total_paid": 22941360.0,

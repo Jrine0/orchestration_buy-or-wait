@@ -4,9 +4,9 @@
     "user_id": "user_218",
     "request_date": "2025-08-07",
     "request_type": "purchase",
-    "requested_amount": "61142000.0",
+    "requested_amount": 61142000.0,
     "desired_completion_date": "2025-10-06",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The laptop I'm looking at is IDR 61,142,000. I need to complete it by 6 October 2025. Is the laptop affordable right now, or should I wait?"
   },
   "profile": {
@@ -31,8 +31,12 @@
     "earliest_date_for_full_payment": "2025-09-15",
     "lowest_projected_balance": 59089052.51,
     "binding_constraint": {
-      "date": "2025-08-14",
-      "flow": "transport:debit:*"
+      "summary": "2025-08-07→2025-08-15 pre-payday run, 13,330,562.29 of bills",
+      "low_point_date": "2025-08-14",
+      "bills_window_start": "2025-08-07",
+      "next_credit": "2025-08-15",
+      "bills_in_window": 13330562.29,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -403,18 +407,14 @@
       "amount": -1815328.7,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-11-04",
-      "amount": -3800000.0,
-      "kind": "recurring",
-      "label": "housing:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 61142000.0,
       "schedule": [
         [
@@ -431,6 +431,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_625",
       "total_paid": 63587679.99,
@@ -455,6 +456,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_627",
       "total_paid": 67256200.05,
@@ -529,8 +531,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 61142000.0,
       "schedule": [
         [
@@ -551,8 +554,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 61142000.0,
       "schedule": [
         [

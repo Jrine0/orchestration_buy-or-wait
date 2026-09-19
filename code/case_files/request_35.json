@@ -4,9 +4,9 @@
     "user_id": "user_35",
     "request_date": "2025-10-30",
     "request_type": "travel",
-    "requested_amount": "212000.0",
+    "requested_amount": 212000.0,
     "desired_completion_date": "2026-01-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would it be safer to book the trip now or wait until more money comes in? I need to decide by 15 January 2026. I've found a travel option for INR 212,000."
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2026-01-15",
     "lowest_projected_balance": 129553.93,
     "binding_constraint": {
-      "date": "2025-11-14",
-      "flow": "transport:debit:*"
+      "summary": "2025-10-30→2025-11-15 pre-payday run, 101,976.07 of bills",
+      "low_point_date": "2025-11-14",
+      "bills_window_start": "2025-10-30",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 101976.07,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -470,18 +474,14 @@
       "amount": -4110.27,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-01-26",
-      "amount": -4536.4,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 212000.0,
       "schedule": [
         [
@@ -496,6 +496,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_98",
       "total_paid": 233200.05,
@@ -570,8 +571,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 212000.0,
       "schedule": [
         [
@@ -593,8 +595,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 212000.0,
       "schedule": [
         [

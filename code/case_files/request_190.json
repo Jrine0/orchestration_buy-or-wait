@@ -4,9 +4,9 @@
     "user_id": "user_190",
     "request_date": "2024-12-06",
     "request_type": "purchase",
-    "requested_amount": "2557.5",
+    "requested_amount": 2557.5,
     "desired_completion_date": "2025-02-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The laptop I'm looking at is EUR 2,557.50. I need to complete it by 15 February 2025. How much of the laptop price can I safely cover today?"
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2025-02-15",
     "lowest_projected_balance": 2078.57,
     "binding_constraint": {
-      "date": "2024-12-14",
-      "flow": "dining:debit:*"
+      "summary": "2024-12-06→2024-12-15 pre-payday run, 1,077.23 of bills",
+      "low_point_date": "2024-12-14",
+      "bills_window_start": "2024-12-06",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 1077.23,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -449,18 +453,14 @@
       "amount": -75.22,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -728.2,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2557.5,
       "schedule": [
         [
@@ -475,6 +475,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_541",
       "total_paid": 3017.91,
@@ -565,7 +566,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -573,6 +574,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_542",
       "total_paid": 3120.24,
@@ -675,7 +677,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -683,8 +685,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2557.5,
       "schedule": [
         [
@@ -705,8 +708,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 2557.5,
       "schedule": [
         [

@@ -14,7 +14,7 @@ from typing import Optional
 
 from .config import SETTINGS, Settings
 from .context import Context
-from .forecast import earliest_full_payment, is_safe, safe_amount_today, simulate, window
+from .forecast import capacity_from_baseline, is_safe, simulate, window
 from .loader import PaymentOption
 from .state import CHANGEABLE_FLEX, Flow
 
@@ -26,6 +26,16 @@ class Capacity:  # R4/R5: frozen before preferences and spending changes
     lowest_balance: float
     binding_date: Optional[date]
     binding_label: str
+    window_start: Optional[date] = None      # the run of bills that produces the low point
+    window_end: Optional[date] = None        # next credit after the low point (None = end of forecast)
+    window_debits: float = 0.0
+
+    def binding_text(self) -> str:
+        if self.binding_date is None:
+            return "balance never falls below its opening level"
+        end = f"{self.window_end}" if self.window_end else "end of forecast"
+        kind = "pre-payday run" if self.window_end else "run to end of forecast with no further income"
+        return f"{self.window_start}→{end} {kind}, {self.window_debits:,.2f} of bills"
 
 
 @dataclass
@@ -68,6 +78,7 @@ class Decision:
     method: str
     plan: Optional[Plan]
     candidates: list[Plan]
+    change_review: list[dict] = field(default_factory=list)
 
 
 def fmt_plan_amount(x: float) -> str:
@@ -77,13 +88,23 @@ def fmt_plan_amount(x: float) -> str:
 
 def capacity(ctx: Context, s: Settings = SETTINGS) -> Capacity:
     p, r = ctx.profile, ctx.request
-    tr = simulate(p.balance, ctx.flows, s)
-    safe = safe_amount_today(p.balance, p.minimum_balance, ctx.flows, r.request_date, r.requested_amount, s)
-    earliest = earliest_full_payment(p.balance, p.minimum_balance, ctx.flows, r.request_date, r.requested_amount, s)
+    # one baseline trajectory feeds both frozen fields, so the amount and the date cannot disagree
+    tr, safe, earliest = capacity_from_baseline(p.balance, p.minimum_balance, ctx.flows, r.request_date,
+                                                r.requested_amount, s)
+    w_start = w_end = None
+    w_debits = 0.0
+    if tr.binding:
+        low_d = tr.binding[0]
+        credits_before = [d for d, _, f in tr.points if f.amount > 0 and d <= low_d]
+        credits_after = [d for d, _, f in tr.points if f.amount > 0 and d > low_d]
+        w_start = max(credits_before) if credits_before else r.request_date
+        w_end = min(credits_after) if credits_after else None
+        w_debits = -sum(f.amount for d, _, f in tr.points if f.amount < 0 and w_start <= d <= low_d)
     return Capacity(amount_safe_to_pay=safe, earliest_date_for_full_payment=earliest,
                     lowest_balance=tr.minimum,
                     binding_date=tr.binding[0] if tr.binding else None,
-                    binding_label=tr.binding[2].label if tr.binding else "")
+                    binding_label=tr.binding[2].label if tr.binding else "",
+                    window_start=w_start, window_end=w_end, window_debits=round(w_debits, 2))
 
 
 def installment_schedule(o: PaymentOption) -> list[tuple[date, float]]:  # R13: rebuilt from the option's own fields
@@ -227,9 +248,12 @@ def decide(ctx: Context, options: list[PaymentOption], s: Settings = SETTINGS) -
         if best is not None:
             cands.append(best)
             viable = [best]
+        review = review_changes(ctx, cap, groups, best)
+    else:
+        review = []
 
     if not viable:
-        return Decision(cap, "not_affordable", "not_recommended", None, cands)
+        return Decision(cap, "not_affordable", "not_recommended", None, cands, review)
     chosen = min(viable, key=lambda c: c.rank_key())
     if chosen.changes or chosen.method in ("partial_payment", "installments"):
         status = "affordable_with_plan"
@@ -237,4 +261,36 @@ def decide(ctx: Context, options: list[PaymentOption], s: Settings = SETTINGS) -
         status = "affordable_later"
     else:
         status = "affordable_now"
-    return Decision(cap, status, chosen.method, chosen, cands)
+    return Decision(cap, status, chosen.method, chosen, cands, review)
+
+
+def review_changes(ctx: Context, cap: Capacity, groups: list[list[Change]], best: Optional[Plan]) -> list[dict]:
+    """Every permitted single change, for the case file.
+
+    R16 ranks plans but says nothing about WHICH spending changes to use: two change sets that both
+    make the same payment safe tie on all six rules. Our tiebreak principle (not from the spec):
+    choose the set that takes the least money away from the user over the 90-day forecast, then the
+    fewest changes, then the lowest event ids. It disturbs the user's spending the least while still
+    covering the gap, and it reproduces every spending-change choice in the solved samples."""
+    chosen = {(c.verb, c.event_id) for c in (best.changes if best else [])}
+    gap = round(ctx.request.requested_amount - cap.amount_safe_to_pay, 2)
+    low = cap.binding_date
+    out = []
+    for opts in groups:
+        for c in opts:
+            flows = [f for f in ctx.flows if f.series_key == c.series_key and f.amount < 0]
+            per = (lambda f: -f.amount) if c.verb == "stop" else (lambda f: -f.amount - c.new_amount)
+            freed = sum(per(f) for f in flows if low is None or f.date <= low)
+            out.append({
+                "change": c.render(),
+                "series": c.series_key,
+                "description": c.description,
+                "freed_before_low_point": round(freed, 2),
+                "covers_gap_alone": freed + 0.005 >= gap,
+                "cost_over_90_days": round(c.horizon_saving, 2),
+                "chosen": (c.verb, c.event_id) in chosen,
+            })
+    out.sort(key=lambda d: (not d["chosen"], d["cost_over_90_days"]))
+    return [{"gap_to_cover_today": gap, "low_point": str(low),
+             "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, "
+                          "then fewest changes, then lowest event id"}] + out

@@ -4,9 +4,9 @@
     "user_id": "user_194",
     "request_date": "2025-08-04",
     "request_type": "housing",
-    "requested_amount": "132800.0",
+    "requested_amount": 132800.0,
     "desired_completion_date": "2025-10-23",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The move requires a INR 132,800 deposit. I need to complete it by 23 October 2025. Can I cover this deposit without putting rent and regular bills at risk?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-10-15",
     "lowest_projected_balance": 146683.28,
     "binding_constraint": {
-      "date": "2025-08-17",
-      "flow": "groceries:debit:*"
+      "summary": "2025-08-04→2025-08-23 pre-payday run, 61,946.72 of bills",
+      "low_point_date": "2025-08-17",
+      "bills_window_start": "2025-08-04",
+      "next_credit": "2025-08-23",
+      "bills_in_window": 61946.72,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -401,10 +405,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 132800.0,
       "schedule": [
         [
@@ -419,6 +425,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_553",
       "total_paid": 146080.05,
@@ -493,6 +500,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_554",
       "total_paid": 162016.08,
@@ -603,8 +611,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 132800.0,
       "schedule": [
         [
@@ -626,8 +635,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 132800.0,
       "schedule": [
         [

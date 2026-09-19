@@ -4,9 +4,9 @@
     "user_id": "user_42",
     "request_date": "2026-01-05",
     "request_type": "emergency_expense",
-    "requested_amount": "52100.0",
+    "requested_amount": 52100.0,
     "desired_completion_date": "2026-03-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I need to cover an urgent repair of INR 52,100. I need to complete it by 15 March 2026. What is the most I can put toward this repair right now?"
   },
   "profile": {
@@ -29,11 +29,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 25475.13,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": "2026-03-15",
     "lowest_projected_balance": 138575.13,
     "binding_constraint": {
-      "date": "2026-03-13",
-      "flow": "shopping:debit:*"
+      "summary": "2026-02-15→2026-03-15 pre-payday run, 123,703.53 of bills",
+      "low_point_date": "2026-03-13",
+      "bills_window_start": "2026-02-15",
+      "next_credit": "2026-03-15",
+      "bills_in_window": 123703.53,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -555,18 +559,14 @@
       "amount": -3180.03,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-03",
-      "amount": -40200.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 52100.0,
       "schedule": [
         [
@@ -581,6 +581,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_115",
       "total_paid": 59394.06,
@@ -659,7 +660,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -667,6 +668,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_116",
       "total_paid": 63562.08,
@@ -769,23 +771,64 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "user does not consider installments"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 52100.0,
+      "schedule": [
+        [
+          "2026-01-05",
+          25475.13
+        ],
+        [
+          "2026-03-15",
+          26624.87
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "request does not allow partial payment",
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 52100.0,
+      "schedule": [
+        [
+          "2026-03-15",
+          52100.0
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_42",
     "amount_safe_to_pay": "25475.13",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2026-03-15:52100",
+    "earliest_date_for_full_payment": "2026-03-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the INR 52,100 request. Although INR 25,475.13 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Pay INR 52,100 in full on 15 March 2026. Paying earlier would take the balance below the INR 113,100 minimum."
   },
   "verification_errors": []
 }

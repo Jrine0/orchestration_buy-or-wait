@@ -4,9 +4,9 @@
     "user_id": "user_131",
     "request_date": "2025-05-03",
     "request_type": "education",
-    "requested_amount": "1855.2",
+    "requested_amount": 1855.2,
     "desired_completion_date": "2025-07-08",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Is it safe to cover the full course fee by the deadline? I need to decide by 8 July 2025. The professional course costs USD 1,855.20."
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2025-06-15",
     "lowest_projected_balance": 2234.43,
     "binding_constraint": {
-      "date": "2025-05-17",
-      "flow": "groceries:debit:*"
+      "summary": "2025-05-03→2025-05-23 pre-payday run, 1,152.73 of bills",
+      "low_point_date": "2025-05-17",
+      "bills_window_start": "2025-05-03",
+      "next_credit": "2025-05-23",
+      "bills_in_window": 1152.73,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -411,10 +415,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1855.2,
       "schedule": [
         [
@@ -431,6 +437,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_372",
       "total_paid": 1929.42,
@@ -455,6 +462,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_374",
       "total_paid": 2040.75,
@@ -529,8 +537,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1855.2,
       "schedule": [
         [
@@ -551,8 +560,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1855.2,
       "schedule": [
         [

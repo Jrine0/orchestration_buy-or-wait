@@ -4,9 +4,9 @@
     "user_id": "user_165",
     "request_date": "2026-04-06",
     "request_type": "travel",
-    "requested_amount": "80600.0",
+    "requested_amount": 80600.0,
     "desired_completion_date": "2026-04-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would it be safer to book the trip now or wait until more money comes in? I'm planning a family trip that costs INR 80,600."
   },
   "profile": {
@@ -33,12 +33,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 68752.32,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 163752.32,
+    "amount_safe_to_pay": 80600.0,
+    "earliest_date_for_full_payment": "2026-04-06",
+    "lowest_projected_balance": 194652.32,
     "binding_constraint": {
-      "date": "2026-07-02",
-      "flow": "rent:debit:*"
+      "summary": "2026-04-06→end of forecast run to end of forecast with no further income, 172,052.68 of bills",
+      "low_point_date": "2026-06-28",
+      "bills_window_start": "2026-04-06",
+      "next_credit": null,
+      "bills_in_window": 172052.68,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -332,18 +336,14 @@
       "amount": -4813.74,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-07-02",
-      "amount": -30900.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 80600.0,
       "schedule": [
         [
@@ -352,12 +352,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_469",
       "total_paid": 91884.06,
@@ -436,7 +437,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -444,6 +445,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_470",
       "total_paid": 87048.0,
@@ -474,45 +476,23 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "user does not consider installments"
       ]
-    },
-    {
-      "method": "full_payment",
-      "option": "",
-      "total_paid": 80600.0,
-      "schedule": [
-        [
-          "2026-04-06",
-          80600.0
-        ]
-      ],
-      "eligible": true,
-      "safe": true,
-      "completes_by_deadline": true,
-      "changes": [
-        "stop:event_15134",
-        "reduce_to:event_15136:1048",
-        "reduce_to:event_15173:1875"
-      ],
-      "notes": [
-        "safe only with spending changes"
-      ]
     }
   ],
   "output_row": {
     "request_id": "request_165",
-    "amount_safe_to_pay": "68752.32",
-    "affordability_status": "affordable_with_plan",
+    "amount_safe_to_pay": "80600",
+    "affordability_status": "affordable_now",
     "recommended_payment_method": "full_payment",
     "payment_plan": "2026-04-06:80600",
-    "earliest_date_for_full_payment": "",
-    "spending_changes_needed": "stop:event_15134|reduce_to:event_15136:1048|reduce_to:event_15173:1875",
-    "decision_explanation": "Stop the cloud storage plan and reduce the online retail purchases to INR 1,048 and reduce the quick-service meal to INR 1,875, then pay INR 80,600 today. This leaves at least INR 95,000 available; without the change only INR 68,752.32 is safe today."
+    "earliest_date_for_full_payment": "2026-04-06",
+    "spending_changes_needed": "none",
+    "decision_explanation": "Pay INR 80,600 today. This leaves at least INR 95,000 available over the next 90 days."
   },
   "verification_errors": []
 }

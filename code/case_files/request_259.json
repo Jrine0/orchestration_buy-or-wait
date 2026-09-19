@@ -4,9 +4,9 @@
     "user_id": "user_259",
     "request_date": "2024-09-04",
     "request_type": "other",
-    "requested_amount": "935.0",
+    "requested_amount": 935.0,
     "desired_completion_date": "2024-11-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is the full membership fee affordable today, or should I wait? I need to decide by 15 November 2024. The full-year membership is EUR 935."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-11-15",
     "lowest_projected_balance": 811.88,
     "binding_constraint": {
-      "date": "2024-09-13",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-09-04→2024-09-15 pre-payday run, 457.42 of bills",
+      "low_point_date": "2024-09-13",
+      "bills_window_start": "2024-09-04",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 457.42,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -316,10 +320,12 @@
       "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 935.0,
       "schedule": [
         [
@@ -334,6 +340,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_747",
       "total_paid": 1103.34,
@@ -432,8 +439,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 935.0,
       "schedule": [
         [
@@ -455,8 +463,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 935.0,
       "schedule": [
         [

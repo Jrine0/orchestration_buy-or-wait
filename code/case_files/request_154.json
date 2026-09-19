@@ -4,9 +4,9 @@
     "user_id": "user_154",
     "request_date": "2024-12-04",
     "request_type": "travel",
-    "requested_amount": "1625.8",
+    "requested_amount": 1625.8,
     "desired_completion_date": "2025-02-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've found a travel option for EUR 1,625.80. I need to complete it by 14 February 2025. How much can I safely put toward the booking today?"
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2024-12-04",
     "lowest_projected_balance": 2945.4,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "shopping:debit:*"
+      "summary": "2025-01-15→2025-02-15 pre-payday run, 1,539.98 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-01-15",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 1539.98,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -466,18 +470,29 @@
       "amount": -37.41,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 0.0,
+      "low_point": "2025-02-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-03-03",
-      "amount": -507.1,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_14186:27.20",
+      "series": "shopping:debit:*",
+      "description": "Personal shopping",
+      "freed_before_low_point": 121.84,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 121.84,
+      "chosen": true
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1625.8,
       "schedule": [
         [
@@ -494,6 +509,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_438",
       "total_paid": 1690.83,
@@ -518,6 +534,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_440",
       "total_paid": 1918.35,
@@ -608,7 +625,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -616,6 +633,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_438",
       "total_paid": 1690.83,

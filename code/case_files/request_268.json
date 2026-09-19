@@ -4,9 +4,9 @@
     "user_id": "user_268",
     "request_date": "2024-06-07",
     "request_type": "debt_repayment",
-    "requested_amount": "2426.6",
+    "requested_amount": 2426.6,
     "desired_completion_date": "2024-08-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The additional loan payment would be EUR 2,426.60. How much extra can I put toward the loan today?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-07-15",
     "lowest_projected_balance": 2441.5,
     "binding_constraint": {
-      "date": "2024-06-11",
-      "flow": "groceries:debit:*"
+      "summary": "2024-06-07→2024-06-15 pre-payday run, 471.02 of bills",
+      "low_point_date": "2024-06-11",
+      "bills_window_start": "2024-06-07",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 471.02,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -300,18 +304,14 @@
       "amount": -557.7,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-09-03",
-      "amount": -93.02,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2426.6,
       "schedule": [
         [
@@ -328,6 +328,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_770",
       "total_paid": 2523.66,
@@ -352,6 +353,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_772",
       "total_paid": 2863.35,
@@ -450,8 +452,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2426.6,
       "schedule": [
         [
@@ -473,8 +476,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 2426.6,
       "schedule": [
         [

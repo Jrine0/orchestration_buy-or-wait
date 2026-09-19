@@ -4,9 +4,9 @@
     "user_id": "user_63",
     "request_date": "2026-07-07",
     "request_type": "purchase",
-    "requested_amount": "343900.0",
+    "requested_amount": 343900.0,
     "desired_completion_date": "2026-09-17",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Is the laptop affordable right now, or should I wait? I need to decide by 17 September 2026. I've found a laptop for INR 343,900."
   },
   "profile": {
@@ -31,11 +31,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 37534.99,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 191034.99,
     "binding_constraint": {
-      "date": "2026-07-14",
-      "flow": "shopping:debit:*"
+      "summary": "2026-07-07→2026-07-15 pre-payday run, 60,760.01 of bills",
+      "low_point_date": "2026-07-14",
+      "bills_window_start": "2026-07-07",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 60760.01,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -533,24 +537,38 @@
       "amount": -4152.6,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 306365.01,
+      "low_point": "2026-07-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-10-03",
-      "amount": -7125.92,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "reduce_to:event_5828:3184",
+      "series": "shopping:debit:*",
+      "description": "Clothing and household items",
+      "freed_before_low_point": 4576.07,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 13728.22,
+      "chosen": false
     },
     {
-      "date": "2026-10-04",
-      "amount": -50000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_5827",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 4830.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 14490.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 343900.0,
       "schedule": [
         [
@@ -567,6 +585,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_176",
       "total_paid": 392045.94,

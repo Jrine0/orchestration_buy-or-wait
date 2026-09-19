@@ -4,9 +4,9 @@
     "user_id": "user_91",
     "request_date": "2024-09-03",
     "request_type": "emergency_expense",
-    "requested_amount": "1927.2",
+    "requested_amount": 1927.2,
     "desired_completion_date": "2024-11-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The repair cannot wait. How much can I safely pay today? I need to decide by 15 November 2024. I need to cover an urgent repair of EUR 1,927.20."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-11-15",
     "lowest_projected_balance": 2416.2,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "shopping:debit:*"
+      "summary": "2024-09-03→2024-09-15 pre-payday run, 1,793.40 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-03",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 1793.4,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -479,18 +483,14 @@
       "amount": -52.9,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-11-30",
-      "amount": -94.32,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1927.2,
       "schedule": [
         [
@@ -505,6 +505,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_255",
       "total_paid": 2274.09,
@@ -603,8 +604,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1927.2,
       "schedule": [
         [
@@ -626,8 +628,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1927.2,
       "schedule": [
         [

@@ -4,9 +4,9 @@
     "user_id": "user_64",
     "request_date": "2024-06-04",
     "request_type": "other",
-    "requested_amount": "63700.0",
+    "requested_amount": 63700.0,
     "desired_completion_date": "2024-08-16",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've been offered the annual membership for INR 63,700. Is the full membership fee affordable today, or should I wait?"
   },
   "profile": {
@@ -31,11 +31,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": -930.9,
     "binding_constraint": {
-      "date": "2024-06-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-06-04→2024-06-15 pre-payday run, 99,503.91 of bills",
+      "low_point_date": "2024-06-13",
+      "bills_window_start": "2024-06-04",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 99503.91,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -542,24 +546,38 @@
       "amount": -1135.66,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 63700.0,
+      "low_point": "2024-06-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-08-31",
-      "amount": -1135.66,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_5949:530",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 530.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1590.0,
+      "chosen": false
     },
     {
-      "date": "2024-09-01",
-      "amount": -12800.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_5951:950",
+      "series": "entertainment:debit:*",
+      "description": "Weekend entertainment",
+      "freed_before_low_point": 1095.52,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3286.57,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 63700.0,
       "schedule": [
         [
@@ -576,6 +594,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_177",
       "total_paid": 66248.01,
@@ -600,6 +619,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_179",
       "total_paid": 75165.93,

@@ -4,9 +4,9 @@
     "user_id": "user_164",
     "request_date": "2025-02-04",
     "request_type": "other",
-    "requested_amount": "27018000.0",
+    "requested_amount": 27018000.0,
     "desired_completion_date": "2025-04-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The membership fee is IDR 27,018,000 for the year. Is the full membership fee affordable today, or should I wait?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-02-04",
     "lowest_projected_balance": 58574100.52,
     "binding_constraint": {
-      "date": "2025-03-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-02-15→2025-03-15 pre-payday run, 27,122,406.59 of bills",
+      "low_point_date": "2025-03-13",
+      "bills_window_start": "2025-02-15",
+      "next_credit": "2025-03-15",
+      "bills_in_window": 27122406.59,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -433,24 +437,14 @@
       "amount": -1920599.99,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-05-02",
-      "amount": -4474500.0,
-      "kind": "recurring",
-      "label": "housing:debit:*"
-    },
-    {
-      "date": "2025-05-04",
-      "amount": -1168371.18,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 27018000.0,
       "schedule": [
         [
@@ -467,6 +461,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_465",
       "total_paid": 28098720.0,
@@ -491,6 +486,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_467",
       "total_paid": 29719800.0,

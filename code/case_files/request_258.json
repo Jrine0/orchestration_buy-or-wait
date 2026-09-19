@@ -4,9 +4,9 @@
     "user_id": "user_258",
     "request_date": "2026-01-07",
     "request_type": "investment",
-    "requested_amount": "1113.6",
+    "requested_amount": 1113.6,
     "desired_completion_date": "2026-01-22",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I want to put USD 1,113.60 into an investment. I need to complete it by 22 January 2026. What portion can I invest today without going below my minimum balance?"
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2026-01-07",
     "lowest_projected_balance": 1742.66,
     "binding_constraint": {
-      "date": "2026-03-13",
-      "flow": "transport:debit:*"
+      "summary": "2026-02-15→2026-03-15 pre-payday run, 841.77 of bills",
+      "low_point_date": "2026-03-13",
+      "bills_window_start": "2026-02-15",
+      "next_credit": "2026-03-15",
+      "bills_in_window": 841.77,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -549,10 +553,12 @@
       "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1113.6,
       "schedule": [
         [
@@ -567,6 +573,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_743",
       "total_paid": 1269.54,
@@ -653,6 +660,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_744",
       "total_paid": 1202.7,
@@ -691,6 +699,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_745",
       "total_paid": 1358.64,

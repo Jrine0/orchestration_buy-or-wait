@@ -4,9 +4,9 @@
     "user_id": "user_47",
     "request_date": "2025-05-05",
     "request_type": "emergency_expense",
-    "requested_amount": "38114000.0",
+    "requested_amount": 38114000.0,
     "desired_completion_date": "2025-06-19",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "What is the most I can put toward this repair right now? I need to decide by 19 June 2025. I've received a repair quote for IDR 38,114,000."
   },
   "profile": {
@@ -34,12 +34,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 1221224.89,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 31270224.89,
+    "amount_safe_to_pay": 2731823.41,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 32780823.41,
     "binding_constraint": {
-      "date": "2025-08-01",
-      "flow": "dining:debit:*"
+      "summary": "2025-05-05→end of forecast run to end of forecast with no further income, 80,143,326.59 of bills",
+      "low_point_date": "2025-07-29",
+      "bills_window_start": "2025-05-05",
+      "next_credit": null,
+      "bills_in_window": 80143326.59,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -440,18 +444,65 @@
       "amount": -1021421.01,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 35382176.59,
+      "low_point": "2025-07-29",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-08-01",
-      "amount": -1510598.52,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "stop:event_4340",
+      "series": "delivery_membership:debit:*",
+      "description": "Delivery service plan",
+      "freed_before_low_point": 1171350.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1171350.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_4339",
+      "series": "music_subscription:debit:*",
+      "description": "Music service subscription",
+      "freed_before_low_point": 1493400.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1493400.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_4342:605150",
+      "series": "entertainment:debit:*",
+      "description": "Cinema and events",
+      "freed_before_low_point": 1754361.75,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1754361.75,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_4341",
+      "series": "gym:debit:*",
+      "description": "Community fitness plan",
+      "freed_before_low_point": 3180600.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3180600.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_4406:770450",
+      "series": "dining:debit:*",
+      "description": "Family dinner",
+      "freed_before_low_point": 4440891.11,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 4440891.11,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 38114000.0,
       "schedule": [
         [
@@ -466,6 +517,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_128",
       "total_paid": 41925400.05,
@@ -542,13 +594,13 @@
   ],
   "output_row": {
     "request_id": "request_47",
-    "amount_safe_to_pay": "1221224.89",
+    "amount_safe_to_pay": "2731823.41",
     "affordability_status": "not_affordable",
     "recommended_payment_method": "not_recommended",
     "payment_plan": "none",
     "earliest_date_for_full_payment": "",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the IDR 38,114,000 request. Although IDR 1,221,224.89 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Do not proceed with the IDR 38,114,000 request. Although IDR 2,731,823.41 is available today, the full amount cannot be completed safely within 90 days."
   },
   "verification_errors": []
 }

@@ -4,9 +4,9 @@
     "user_id": "user_187",
     "request_date": "2024-09-05",
     "request_type": "other",
-    "requested_amount": "187500.0",
+    "requested_amount": 187500.0,
     "desired_completion_date": "2024-11-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would committing to the membership leave enough for my upcoming bills? I need to decide by 15 November 2024. I'm considering a yearly membership for INR 187,500."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-11-15",
     "lowest_projected_balance": 166144.44,
     "binding_constraint": {
-      "date": "2024-09-13",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-09-05→2024-09-15 pre-payday run, 29,590.56 of bills",
+      "low_point_date": "2024-09-13",
+      "bills_window_start": "2024-09-05",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 29590.56,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -131,7 +135,7 @@
     "series salary:credit:*: monthly last=2024-08-15 amount=145000.00 n=5 flex=fixed",
     "series transport:debit:*: every_21_days last=2024-08-30 amount=2820.07 n=9 flex=fixed",
     "series utilities:debit:*: monthly last=2024-08-08 amount=6381.30 n=5 flex=fixed",
-    "message_149 first_salary: confirmed salary 145000.00 on 2024-09-15 (R8)"
+    "message_149 first_salary: confirmed salary 145000.00 on 2024-09-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -303,10 +307,12 @@
       "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 187500.0,
       "schedule": [
         [
@@ -321,6 +327,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_533",
       "total_paid": 221249.91,
@@ -419,8 +426,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 187500.0,
       "schedule": [
         [
@@ -441,8 +449,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 187500.0,
       "schedule": [
         [

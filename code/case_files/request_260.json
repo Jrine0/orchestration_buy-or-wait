@@ -4,9 +4,9 @@
     "user_id": "user_260",
     "request_date": "2025-02-06",
     "request_type": "emergency_expense",
-    "requested_amount": "52079000.0",
+    "requested_amount": 52079000.0,
     "desired_completion_date": "2025-04-18",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The repair I need is priced at IDR 52,079,000. Should I pay for the repair in full, split the payment, or wait?"
   },
   "profile": {
@@ -31,11 +31,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 6375023.47,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 27102723.47,
     "binding_constraint": {
-      "date": "2025-02-14",
-      "flow": "transport:debit:*"
+      "summary": "2025-02-06→2025-02-15 pre-payday run, 8,684,376.53 of bills",
+      "low_point_date": "2025-02-14",
+      "bills_window_start": "2025-02-06",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 8684376.53,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -527,30 +531,47 @@
       "amount": -8436000.0,
       "kind": "recurring",
       "label": "rent:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 45703976.53,
+      "low_point": "2025-02-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-05-05",
-      "amount": -651042.86,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_23896:325850",
+      "series": "entertainment:debit:*",
+      "description": "Cinema and events",
+      "freed_before_low_point": 354383.21,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1063149.64,
+      "chosen": false
     },
     {
-      "date": "2025-05-05",
-      "amount": -1393406.1,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
+      "change": "reduce_to:event_23895:478040",
+      "series": "shopping:debit:*",
+      "description": "Online retail purchases",
+      "freed_before_low_point": 712576.47,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2137729.41,
+      "chosen": false
     },
     {
-      "date": "2025-05-06",
-      "amount": -834100.0,
-      "kind": "recurring",
-      "label": "insurance:debit:*"
+      "change": "reduce_to:event_23978:589000",
+      "series": "dining:debit:*",
+      "description": "Weekend food delivery",
+      "freed_before_low_point": 635925.83,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 7631110.02,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 52079000.0,
       "schedule": [
         [
@@ -567,6 +588,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_749",
       "total_paid": 57286900.05,
@@ -641,6 +663,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_750",
       "total_paid": 63536380.08,

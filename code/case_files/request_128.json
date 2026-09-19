@@ -4,9 +4,9 @@
     "user_id": "user_128",
     "request_date": "2025-02-07",
     "request_type": "education",
-    "requested_amount": "25168.0",
+    "requested_amount": 25168.0,
     "desired_completion_date": "2025-02-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I need ZAR 25,168 for the course fee. Should I pay for the course now, use installments, or wait?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-02-07",
     "lowest_projected_balance": 69161.48,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-02-07→2025-02-15 pre-payday run, 11,550.22 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-02-07",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 11550.22,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -409,36 +413,14 @@
       "amount": -5368.0,
       "kind": "recurring",
       "label": "housing:debit:*"
-    },
-    {
-      "date": "2025-05-05",
-      "amount": -3353.28,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
-    },
-    {
-      "date": "2025-05-06",
-      "amount": -2149.4,
-      "kind": "recurring",
-      "label": "insurance:debit:*"
-    },
-    {
-      "date": "2025-05-07",
-      "amount": -2908.4,
-      "kind": "recurring",
-      "label": "education:debit:*"
-    },
-    {
-      "date": "2025-05-07",
-      "amount": -1062.14,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 25168.0,
       "schedule": [
         [
@@ -453,6 +435,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_364",
       "total_paid": 27684.75,
@@ -527,6 +510,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_365",
       "total_paid": 27181.44,
@@ -565,6 +549,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_366",
       "total_paid": 30704.88,

@@ -4,9 +4,9 @@
     "user_id": "user_106",
     "request_date": "2024-12-03",
     "request_type": "education",
-    "requested_amount": "2207.7",
+    "requested_amount": 2207.7,
     "desired_completion_date": "2025-02-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering a professional course priced at EUR 2,207.70. I need to complete it by 15 February 2025. Is it safe to cover the full course fee by the deadline?"
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2025-02-15",
     "lowest_projected_balance": 1663.22,
     "binding_constraint": {
-      "date": "2024-12-12",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-12-03→2024-12-15 pre-payday run, 938.48 of bills",
+      "low_point_date": "2024-12-12",
+      "bills_window_start": "2024-12-03",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 938.48,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -129,7 +133,7 @@
     "series transport:debit:*: every_21_days last=2024-11-26 amount=41.87 n=9 flex=fixed",
     "series utilities:debit:*: monthly last=2024-11-07 amount=95.22 n=5 flex=fixed",
     "ignored cancelled event_9864 (R7)",
-    "message_80 first_salary: confirmed salary 1815.00 on 2024-12-15 (R8)"
+    "message_80 first_salary: confirmed salary 1815.00 on 2024-12-15 (R8); existing payroll stream continues after it"
   ],
   "projected_flows": [
     {
@@ -307,10 +311,12 @@
       "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2207.7,
       "schedule": [
         [
@@ -325,6 +331,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_299",
       "total_paid": 2605.05,
@@ -423,6 +430,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_300",
       "total_paid": 2693.28,
@@ -533,8 +541,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2207.7,
       "schedule": [
         [
@@ -556,8 +565,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 2207.7,
       "schedule": [
         [

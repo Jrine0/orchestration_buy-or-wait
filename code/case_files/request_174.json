@@ -4,9 +4,9 @@
     "user_id": "user_174",
     "request_date": "2026-04-04",
     "request_type": "investment",
-    "requested_amount": "1146.2",
+    "requested_amount": 1146.2,
     "desired_completion_date": "2026-06-07",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I want to put EUR 1,146.20 into an investment. I need to complete it by 7 June 2026. Would investing this amount leave my upcoming bills covered?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2026-04-04",
     "lowest_projected_balance": 1979.92,
     "binding_constraint": {
-      "date": "2026-06-27",
-      "flow": "groceries:debit:*"
+      "summary": "2026-04-04→end of forecast run to end of forecast with no further income, 1,286.12 of bills",
+      "low_point_date": "2026-06-27",
+      "bills_window_start": "2026-04-04",
+      "next_credit": null,
+      "bills_in_window": 1286.12,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -324,10 +328,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1146.2,
       "schedule": [
         [
@@ -344,6 +350,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_494",
       "total_paid": 1192.05,
@@ -368,6 +375,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_496",
       "total_paid": 1306.62,

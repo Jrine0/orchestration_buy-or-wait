@@ -4,9 +4,9 @@
     "user_id": "user_58",
     "request_date": "2024-12-07",
     "request_type": "debt_repayment",
-    "requested_amount": "16226000.0",
+    "requested_amount": 16226000.0,
     "desired_completion_date": "2025-01-25",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The additional loan payment would be IDR 16,226,000. I need to complete it by 25 January 2025. How much extra can I put toward the loan today?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-02-15",
     "lowest_projected_balance": 29377738.93,
     "binding_constraint": {
-      "date": "2025-02-14",
-      "flow": "groceries:debit:*"
+      "summary": "2025-01-15→2025-02-15 pre-payday run, 19,954,939.44 of bills",
+      "low_point_date": "2025-02-14",
+      "bills_window_start": "2025-01-15",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 19954939.44,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -477,10 +481,45 @@
       "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1282161.07,
+      "low_point": "2025-02-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "stop:event_5357",
+      "series": "delivery_membership:debit:*",
+      "description": "Food delivery membership",
+      "freed_before_low_point": 655500.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 655500.0,
+      "chosen": true
+    },
+    {
+      "change": "reduce_to:event_5358:350550",
+      "series": "gym:debit:*",
+      "description": "Community fitness plan",
+      "freed_before_low_point": 1051650.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1051650.0,
+      "chosen": true
+    },
+    {
+      "change": "stop:event_5358",
+      "series": "gym:debit:*",
+      "description": "Community fitness plan",
+      "freed_before_low_point": 2103300.0,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 2103300.0,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 16226000.0,
       "schedule": [
         [
@@ -495,6 +534,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_160",
       "total_paid": 19146680.07,
@@ -593,6 +633,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_161",
       "total_paid": 17524080.0,
@@ -631,6 +672,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_162",
       "total_paid": 19795720.08,
@@ -741,8 +783,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 16226000.0,
       "schedule": [
         [
@@ -765,8 +808,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 16226000.0,
       "schedule": [
         [
@@ -781,8 +825,9 @@
       "notes": []
     },
     {
+      "label": "full_payment with spending changes",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 16226000.0,
       "schedule": [
         [

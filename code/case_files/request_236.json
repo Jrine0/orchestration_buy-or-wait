@@ -4,9 +4,9 @@
     "user_id": "user_236",
     "request_date": "2025-02-03",
     "request_type": "housing",
-    "requested_amount": "52383000.0",
+    "requested_amount": 52383000.0,
     "desired_completion_date": "2025-02-23",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The move requires a IDR 52,383,000 deposit. Can I pay the rental deposit by the requested date?"
   },
   "profile": {
@@ -31,11 +31,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 5830036.97,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 22598636.97,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-02-03→2025-02-15 pre-payday run, 8,574,813.03 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-02-03",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 8574813.03,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -415,24 +419,38 @@
       "amount": -867826.02,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 46552963.03,
+      "low_point": "2025-02-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-05-02",
-      "amount": -2584000.0,
-      "kind": "recurring",
-      "label": "housing:debit:*"
+      "change": "stop:event_21742",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 95950.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 287850.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-03",
-      "amount": -518145.63,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_21783:451250",
+      "series": "dining:debit:*",
+      "description": "Takeaway order",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1563943.51,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 52383000.0,
       "schedule": [
         [
@@ -449,6 +467,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_681",
       "total_paid": 57621300.0,
@@ -523,6 +542,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_682",
       "total_paid": 63907260.0,

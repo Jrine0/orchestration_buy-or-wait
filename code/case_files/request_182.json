@@ -4,9 +4,9 @@
     "user_id": "user_182",
     "request_date": "2025-08-05",
     "request_type": "debt_repayment",
-    "requested_amount": "65714.0",
+    "requested_amount": 65714.0,
     "desired_completion_date": "2025-09-26",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm planning an extra loan payment of ZAR 65,714. I need to complete it by 26 September 2025. Can I make the extra loan payment now without affecting essential expenses?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-08-05",
     "lowest_projected_balance": 108485.27,
     "binding_constraint": {
-      "date": "2025-08-13",
-      "flow": "cloud_storage:debit:*"
+      "summary": "2025-08-05→2025-08-15 pre-payday run, 16,525.03 of bills",
+      "low_point_date": "2025-08-13",
+      "bills_window_start": "2025-08-05",
+      "next_credit": "2025-08-15",
+      "bills_in_window": 16525.03,
+      "last_debit_before_low": "cloud_storage:debit:*"
     }
   },
   "recurring_series": [
@@ -425,10 +429,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 65714.0,
       "schedule": [
         [
@@ -443,6 +449,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_518",
       "total_paid": 72285.45,
@@ -517,6 +524,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_519",
       "total_paid": 70971.12,
@@ -555,6 +563,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_520",
       "total_paid": 80171.04,

@@ -4,9 +4,9 @@
     "user_id": "user_223",
     "request_date": "2024-09-07",
     "request_type": "purchase",
-    "requested_amount": "898.7",
+    "requested_amount": 898.7,
     "desired_completion_date": "2024-10-20",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Is the laptop affordable right now, or should I wait? I need to decide by 20 October 2024. The laptop costs EUR 898.70."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-09-07",
     "lowest_projected_balance": 1896.12,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "groceries:debit:*"
+      "summary": "2024-09-07→2024-09-15 pre-payday run, 359.39 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-07",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 359.39,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -299,18 +303,14 @@
       "amount": -24.11,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-04",
-      "amount": -342.1,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 898.7,
       "schedule": [
         [
@@ -325,6 +325,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_642",
       "total_paid": 1060.5,
@@ -423,6 +424,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_643",
       "total_paid": 970.62,

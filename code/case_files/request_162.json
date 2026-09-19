@@ -4,9 +4,9 @@
     "user_id": "user_162",
     "request_date": "2026-07-05",
     "request_type": "other",
-    "requested_amount": "83923000.0",
+    "requested_amount": 83923000.0,
     "desired_completion_date": "2026-08-26",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've been offered the annual membership for IDR 83,923,000. I need to complete it by 26 August 2026. Would committing to the membership leave enough for my upcoming bills?"
   },
   "profile": {
@@ -33,11 +33,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 1255094.8,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 25416194.8,
     "binding_constraint": {
-      "date": "2026-07-13",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-05→2026-07-15 pre-payday run, 9,191,105.20 of bills",
+      "low_point_date": "2026-07-13",
+      "bills_window_start": "2026-07-05",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 9191105.2,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -381,10 +385,45 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 82667905.2,
+      "low_point": "2026-07-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "reduce_to:event_14872:391400",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 391400.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1174200.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_14872",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 782800.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2348400.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_14917:597550",
+      "series": "dining:debit:*",
+      "description": "Bakery and snacks",
+      "freed_before_low_point": 607365.78,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3644194.67,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 83923000.0,
       "schedule": [
         [
@@ -399,6 +438,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_460",
       "total_paid": 95672219.94,
@@ -485,6 +525,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_461",
       "total_paid": 102386059.92,

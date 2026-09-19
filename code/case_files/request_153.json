@@ -4,9 +4,9 @@
     "user_id": "user_153",
     "request_date": "2026-07-07",
     "request_type": "purchase",
-    "requested_amount": "2830.8",
+    "requested_amount": 2830.8,
     "desired_completion_date": "2026-09-24",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is the laptop affordable right now, or should I wait? The laptop costs USD 2,830.80."
   },
   "profile": {
@@ -33,11 +33,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 15.2,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 1415.2,
     "binding_constraint": {
-      "date": "2026-07-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2026-07-07→2026-07-15 pre-payday run, 488.40 of bills",
+      "low_point_date": "2026-07-14",
+      "bills_window_start": "2026-07-07",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 488.4,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -530,24 +534,47 @@
       "amount": -41.24,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 2815.6,
+      "low_point": "2026-07-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-10-02",
-      "amount": -528.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_14063",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 14.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 42.0,
+      "chosen": false
     },
     {
-      "date": "2026-10-04",
-      "amount": -41.24,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_14064:17",
+      "series": "streaming:debit:*",
+      "description": "Video streaming plan",
+      "freed_before_low_point": 17.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 51.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_14064",
+      "series": "streaming:debit:*",
+      "description": "Video streaming plan",
+      "freed_before_low_point": 34.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 102.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2830.8,
       "schedule": [
         [
@@ -562,6 +589,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_437",
       "total_paid": 3227.04,

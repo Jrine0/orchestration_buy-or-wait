@@ -4,9 +4,9 @@
     "user_id": "user_77",
     "request_date": "2025-11-05",
     "request_type": "housing",
-    "requested_amount": "60700.0",
+    "requested_amount": 60700.0,
     "desired_completion_date": "2025-11-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "How much of the rental deposit can I safely pay today? The rental deposit is INR 60,700."
   },
   "profile": {
@@ -33,8 +33,12 @@
     "earliest_date_for_full_payment": "2025-11-15",
     "lowest_projected_balance": 141544.98,
     "binding_constraint": {
-      "date": "2025-11-13",
-      "flow": "family_support:debit:*"
+      "summary": "2025-11-05→2025-11-15 pre-payday run, 48,315.52 of bills",
+      "low_point_date": "2025-11-13",
+      "bills_window_start": "2025-11-05",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 48315.52,
+      "last_debit_before_low": "family_support:debit:*"
     }
   },
   "recurring_series": [
@@ -398,24 +402,29 @@
       "amount": -4235.64,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1355.02,
+      "low_point": "2025-11-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-02-02",
-      "amount": -4235.64,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-02-02",
-      "amount": -25200.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_7143",
+      "series": "cloud_storage:debit:*",
+      "description": "Online backup subscription",
+      "freed_before_low_point": 705.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2115.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 60700.0,
       "schedule": [
         [
@@ -430,6 +439,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_215",
       "total_paid": 66769.95,
@@ -504,6 +514,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_216",
       "total_paid": 65556.0,
@@ -542,8 +553,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 60700.0,
       "schedule": [
         [
@@ -566,8 +578,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 60700.0,
       "schedule": [
         [

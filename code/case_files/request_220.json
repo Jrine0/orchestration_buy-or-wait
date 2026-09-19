@@ -4,9 +4,9 @@
     "user_id": "user_220",
     "request_date": "2024-06-06",
     "request_type": "investment",
-    "requested_amount": "3118.5",
+    "requested_amount": 3118.5,
     "desired_completion_date": "2024-07-03",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I'm considering setting aside EUR 3,118.50 for an investment. How much can I invest now without affecting essential payments?"
   },
   "profile": {
@@ -33,11 +33,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 72.34,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 1172.34,
     "binding_constraint": {
-      "date": "2024-06-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-06-06→2024-06-15 pre-payday run, 314.98 of bills",
+      "low_point_date": "2024-06-13",
+      "bills_window_start": "2024-06-06",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 314.98,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -455,30 +459,47 @@
       "amount": -24.63,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 3046.16,
+      "low_point": "2024-06-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-09-01",
-      "amount": -309.1,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_20229:18.50",
+      "series": "entertainment:debit:*",
+      "description": "Games and recreation",
+      "freed_before_low_point": 17.57,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 52.71,
+      "chosen": false
     },
     {
-      "date": "2024-09-02",
-      "amount": -61.15,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_20228",
+      "series": "gym:debit:*",
+      "description": "Community fitness plan",
+      "freed_before_low_point": 35.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 105.0,
+      "chosen": false
     },
     {
-      "date": "2024-09-03",
-      "amount": -24.63,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_20296:29.50",
+      "series": "dining:debit:*",
+      "description": "Coffee shop",
+      "freed_before_low_point": 25.62,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 153.74,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3118.5,
       "schedule": [
         [
@@ -495,6 +516,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_632",
       "total_paid": 3679.83,
@@ -593,6 +615,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_633",
       "total_paid": 3804.48,

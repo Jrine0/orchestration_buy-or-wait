@@ -4,9 +4,9 @@
     "user_id": "user_46",
     "request_date": "2024-12-03",
     "request_type": "debt_repayment",
-    "requested_amount": "49450.0",
+    "requested_amount": 49450.0,
     "desired_completion_date": "2025-01-09",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I would like to repay an additional INR 49,450. I need to complete it by 9 January 2025. Is the full extra repayment safe, or should I pay a smaller amount?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2024-12-15",
     "lowest_projected_balance": 119318.22,
     "binding_constraint": {
-      "date": "2024-12-13",
-      "flow": "shopping:debit:*"
+      "summary": "2024-12-03→2024-12-15 pre-payday run, 83,016.78 of bills",
+      "low_point_date": "2024-12-13",
+      "bills_window_start": "2024-12-03",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 83016.78,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -461,10 +465,12 @@
       "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 49450.0,
       "schedule": [
         [
@@ -481,6 +487,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_125",
       "total_paid": 51428.0,
@@ -501,6 +508,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_126",
       "total_paid": 52417.02,
@@ -525,8 +533,9 @@
       "notes": []
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 49450.0,
       "schedule": [
         [
@@ -545,8 +554,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 49450.0,
       "schedule": [
         [

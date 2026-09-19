@@ -4,9 +4,9 @@
     "user_id": "user_227",
     "request_date": "2025-05-05",
     "request_type": "debt_repayment",
-    "requested_amount": "259700.0",
+    "requested_amount": 259700.0,
     "desired_completion_date": "2025-06-20",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I make the extra loan payment now without affecting essential expenses? I need to decide by 20 June 2025. I'm considering paying an extra INR 259,700 off the loan."
   },
   "profile": {
@@ -30,11 +30,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 7567.26,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 70467.26,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "cloud_storage:debit:*"
+      "summary": "2025-05-05→2025-05-15 pre-payday run, 35,187.74 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-05",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 35187.74,
+      "last_debit_before_low": "cloud_storage:debit:*"
     }
   },
   "recurring_series": [
@@ -421,10 +425,36 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 252132.74,
+      "low_point": "2025-05-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "reduce_to:event_20900:1180",
+      "series": "dining:debit:*",
+      "description": "Neighbourhood restaurant",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 4429.88,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_20859:1790",
+      "series": "entertainment:debit:*",
+      "description": "Weekend entertainment",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 6061.58,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 259700.0,
       "schedule": [
         [
@@ -441,6 +471,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_655",
       "total_paid": 285670.05,

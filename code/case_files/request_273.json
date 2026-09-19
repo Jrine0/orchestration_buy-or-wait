@@ -4,9 +4,9 @@
     "user_id": "user_273",
     "request_date": "2026-04-07",
     "request_type": "education",
-    "requested_amount": "15861000.0",
+    "requested_amount": 15861000.0,
     "desired_completion_date": "2026-06-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Should I pay for the course now, use installments, or wait? Enrolment for the course comes to IDR 15,861,000."
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2026-04-15",
     "lowest_projected_balance": 28402767.38,
     "binding_constraint": {
-      "date": "2026-04-12",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-07→2026-04-15 pre-payday run, 3,744,032.62 of bills",
+      "low_point_date": "2026-04-12",
+      "bills_window_start": "2026-04-07",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 3744032.62,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -351,10 +355,12 @@
       "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 15861000.0,
       "schedule": [
         [
@@ -371,6 +377,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_784",
       "total_paid": 16495440.0,
@@ -395,8 +402,9 @@
       "notes": []
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 15861000.0,
       "schedule": [
         [
@@ -415,8 +423,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 15861000.0,
       "schedule": [
         [

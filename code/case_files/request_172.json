@@ -4,9 +4,9 @@
     "user_id": "user_172",
     "request_date": "2024-06-05",
     "request_type": "education",
-    "requested_amount": "10200.0",
+    "requested_amount": 10200.0,
     "desired_completion_date": "2024-07-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I've been quoted ZAR 10,200 for the course. Can I pay for the course before enrolment closes?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2024-06-15",
     "lowest_projected_balance": 36277.61,
     "binding_constraint": {
-      "date": "2024-06-12",
-      "flow": "family_support:debit:*"
+      "summary": "2024-06-05→2024-06-15 pre-payday run, 14,664.79 of bills",
+      "low_point_date": "2024-06-12",
+      "bills_window_start": "2024-06-05",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 14664.79,
+      "last_debit_before_low": "family_support:debit:*"
     }
   },
   "recurring_series": [
@@ -400,30 +404,14 @@
       "amount": -1495.03,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-09-01",
-      "amount": -1495.03,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-09-01",
-      "amount": -10340.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-09-02",
-      "amount": -680.05,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 10200.0,
       "schedule": [
         [
@@ -440,6 +428,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_489",
       "total_paid": 10608.0,
@@ -460,6 +449,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_490",
       "total_paid": 10812.0,
@@ -486,8 +476,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 10200.0,
       "schedule": [
         [
@@ -506,8 +497,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 10200.0,
       "schedule": [
         [

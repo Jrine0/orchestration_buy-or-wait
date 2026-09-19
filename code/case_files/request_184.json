@@ -4,9 +4,9 @@
     "user_id": "user_184",
     "request_date": "2024-06-04",
     "request_type": "debt_repayment",
-    "requested_amount": "251900.0",
+    "requested_amount": 251900.0,
     "desired_completion_date": "2024-07-30",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The additional loan payment would be INR 251,900. Would paying this much toward the loan leave enough for the rest of the month?"
   },
   "profile": {
@@ -30,11 +30,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 7134.15,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 117934.15,
     "binding_constraint": {
-      "date": "2024-06-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-06-04→2024-06-15 pre-payday run, 45,225.85 of bills",
+      "low_point_date": "2024-06-13",
+      "bills_window_start": "2024-06-04",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 45225.85,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -534,24 +538,38 @@
       "amount": -2588.14,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 244765.85,
+      "low_point": "2024-06-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-08-31",
-      "amount": -2588.14,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "stop:event_16934",
+      "series": "cloud_storage:debit:*",
+      "description": "Online backup subscription",
+      "freed_before_low_point": 1070.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3210.0,
+      "chosen": false
     },
     {
-      "date": "2024-09-01",
-      "amount": -42300.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_16935",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 3020.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 9060.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 251900.0,
       "schedule": [
         [
@@ -568,6 +586,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_525",
       "total_paid": 297241.98,
@@ -666,6 +685,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_526",
       "total_paid": 307318.08,

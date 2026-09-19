@@ -4,9 +4,9 @@
     "user_id": "user_84",
     "request_date": "2026-04-04",
     "request_type": "education",
-    "requested_amount": "95400.0",
+    "requested_amount": 95400.0,
     "desired_completion_date": "2026-06-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Enrolment for the course comes to INR 95,400. Would paying the course fee now leave enough for my regular commitments?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2026-06-15",
     "lowest_projected_balance": 112723.27,
     "binding_constraint": {
-      "date": "2026-04-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2026-04-04→2026-04-15 pre-payday run, 41,221.73 of bills",
+      "low_point_date": "2026-04-13",
+      "bills_window_start": "2026-04-04",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 41221.73,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -538,24 +542,14 @@
       "amount": -2030.06,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-07-01",
-      "amount": -26200.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-07-01",
-      "amount": -2030.06,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 95400.0,
       "schedule": [
         [
@@ -570,6 +564,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_235",
       "total_paid": 108756.0,
@@ -656,6 +651,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_236",
       "total_paid": 116388.0,
@@ -758,7 +754,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -766,8 +762,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 95400.0,
       "schedule": [
         [
@@ -788,8 +785,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 95400.0,
       "schedule": [
         [

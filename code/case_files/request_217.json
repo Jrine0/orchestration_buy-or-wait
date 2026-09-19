@@ -4,9 +4,9 @@
     "user_id": "user_217",
     "request_date": "2024-03-05",
     "request_type": "travel",
-    "requested_amount": "37180.0",
+    "requested_amount": 37180.0,
     "desired_completion_date": "2024-05-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I afford the full trip without putting upcoming bills at risk? I've found a travel option for ZAR 37,180."
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2024-05-15",
     "lowest_projected_balance": 46383.4,
     "binding_constraint": {
-      "date": "2024-03-12",
-      "flow": "shopping:debit:*"
+      "summary": "2024-03-05→2024-03-15 pre-payday run, 12,018.57 of bills",
+      "low_point_date": "2024-03-12",
+      "bills_window_start": "2024-03-05",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 12018.57,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -447,24 +451,14 @@
       "amount": -755.66,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -1567.63,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -10472.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 37180.0,
       "schedule": [
         [
@@ -481,6 +475,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_622",
       "total_paid": 38667.21,
@@ -505,6 +500,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_624",
       "total_paid": 43872.36,
@@ -595,7 +591,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -603,8 +599,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 37180.0,
       "schedule": [
         [
@@ -625,8 +622,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 37180.0,
       "schedule": [
         [

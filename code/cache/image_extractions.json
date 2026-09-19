@@ -101,69 +101,69 @@
     "_usage": {
       "input_tokens": 1614,
       "model": "claude-opus-5",
-      "output_tokens": 590
+      "output_tokens": 546
     },
-    "amount": 2854,
-    "confidence": "medium",
+    "amount": 2854.0,
+    "confidence": "low",
     "currency": "INR",
     "document_date": "",
     "document_type": "receipt",
     "other_amounts": [
       {
-        "amount": 2854,
+        "amount": 2854.0,
         "label": "Item Bill"
       },
       {
-        "amount": 95,
-        "label": "[Combo] Nissin Cup Noodles Mazedaar Masala (1x)"
+        "amount": 95.0,
+        "label": "Nissin Cup Noodles Mazedaar Masala (combo)"
       },
       {
-        "amount": 531,
-        "label": "The Whole Truth 20G Protein Bars No Added (1x)"
+        "amount": 531.0,
+        "label": "The Whole Truth 20G Protein Bars"
       },
       {
         "amount": 0,
-        "label": "Flyer - Nubu (1x)"
+        "label": "Flyer - Nubu"
       },
       {
-        "amount": 186,
-        "label": "[Combo] The Whole Truth 13G Protein Millet Bar (1x)"
+        "amount": 186.0,
+        "label": "The Whole Truth 13G Protein Millet Bar"
       },
       {
-        "amount": 122,
-        "label": "[Combo] O'Cean Fruit Water Mango & Passion (1x)"
+        "amount": 122.0,
+        "label": "O'Cean Fruit Water Mango & Passion"
       },
       {
-        "amount": 464,
-        "label": "[Combo] The Whole Truth Double Cocoa Prote (2x)"
+        "amount": 464.0,
+        "label": "The Whole Truth Double Cocoa Protein (2x)"
       },
       {
-        "amount": 184,
-        "label": "[Combo] The Whole Truth Almond Choco Fudg (1x)"
+        "amount": 184.0,
+        "label": "The Whole Truth Almond Choco Fudge"
       },
       {
-        "amount": 144,
+        "amount": 144.0,
         "label": "Nissin Cup Noodles Mazedaar Masala (3x)"
       },
       {
-        "amount": 75,
+        "amount": 75.0,
         "label": "Wickedgud Instant Masala Cup Noodles (3x)"
       },
       {
-        "amount": 366,
-        "label": "[Combo] O'Cean Peach & Passion Fruit Juice (3x)"
+        "amount": 366.0,
+        "label": "O'Cean Peach & Passion Fruit Juice (3x)"
       },
       {
-        "amount": 190,
-        "label": "[Combo] The Whole Truth Protein Bar Orange (1x)"
+        "amount": 190.0,
+        "label": "The Whole Truth Protein Bar Orange"
       },
       {
-        "amount": 121,
-        "label": "The Whole Truth Protein Bar Hazelnut Cocoa No (1x)"
+        "amount": 121.0,
+        "label": "The Whole Truth Protein Bar Hazelnut Cocoa"
       },
       {
-        "amount": 376,
-        "label": "[Combo] Nissin Cup Noodles Spiced Chicken (2x)"
+        "amount": 376.0,
+        "label": "Nissin Cup Noodles Spiced Chicken (2x)"
       }
     ]
   },
@@ -359,7 +359,7 @@
     "_usage": {
       "input_tokens": 2525,
       "model": "claude-opus-5",
-      "output_tokens": 164
+      "output_tokens": 182
     },
     "amount": 3650,
     "confidence": "high",
@@ -370,6 +370,10 @@
       {
         "amount": 3650,
         "label": "Total Bill Amount"
+      },
+      {
+        "amount": 3650,
+        "label": "Amount Payable"
       },
       {
         "amount": 0,
@@ -465,7 +469,7 @@
     "_usage": {
       "input_tokens": 1258,
       "model": "claude-opus-5",
-      "output_tokens": 222
+      "output_tokens": 220
     },
     "amount": 4543,
     "confidence": "medium",
@@ -495,7 +499,7 @@
       },
       {
         "amount": 670,
-        "label": "Line item (unlabelled)"
+        "label": "Line item 6"
       }
     ]
   },
@@ -503,7 +507,7 @@
     "_usage": {
       "input_tokens": 3219,
       "model": "claude-opus-5",
-      "output_tokens": 216
+      "output_tokens": 218
     },
     "amount": 9968.0,
     "confidence": "high",
@@ -533,7 +537,7 @@
       },
       {
         "amount": 9580.0,
-        "label": "Air Travel and related charges (incl taxes)"
+        "label": "Air Travel and related charges (Incl Taxes)"
       },
       {
         "amount": 388.0,

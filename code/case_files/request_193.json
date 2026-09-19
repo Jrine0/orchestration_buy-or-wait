@@ -4,9 +4,9 @@
     "user_id": "user_193",
     "request_date": "2024-03-07",
     "request_type": "other",
-    "requested_amount": "1212.2",
+    "requested_amount": 1212.2,
     "desired_completion_date": "2024-05-28",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I take the membership and still keep my minimum balance intact? The annual plan comes to EUR 1,212.20."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2024-05-15",
     "lowest_projected_balance": 1033.62,
     "binding_constraint": {
-      "date": "2024-03-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-03-07→2024-03-15 pre-payday run, 277.00 of bills",
+      "low_point_date": "2024-03-14",
+      "bills_window_start": "2024-03-07",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 277.0,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -448,24 +452,14 @@
       "amount": -47.56,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -429.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-06-04",
-      "amount": -61.76,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1212.2,
       "schedule": [
         [
@@ -482,6 +476,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_549",
       "total_paid": 1260.69,
@@ -506,6 +501,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_551",
       "total_paid": 1430.31,
@@ -604,8 +600,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1212.2,
       "schedule": [
         [
@@ -626,8 +623,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1212.2,
       "schedule": [
         [

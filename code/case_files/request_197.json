@@ -4,9 +4,9 @@
     "user_id": "user_197",
     "request_date": "2025-11-05",
     "request_type": "family_transfer",
-    "requested_amount": "50939000.0",
+    "requested_amount": 50939000.0,
     "desired_completion_date": "2026-01-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I make the full transfer without falling short on my own bills? The transfer I have in mind is IDR 50,939,000."
   },
   "profile": {
@@ -33,12 +33,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 23062770.14,
+    "amount_safe_to_pay": 50939000.0,
+    "earliest_date_for_full_payment": "2025-11-05",
+    "lowest_projected_balance": 79933110.61,
     "binding_constraint": {
-      "date": "2026-02-02",
-      "flow": "rent:debit:*"
+      "summary": "2025-11-05→2025-11-15 pre-payday run, 16,148,107.65 of bills",
+      "low_point_date": "2025-11-13",
+      "bills_window_start": "2025-11-05",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 16148107.65,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -143,7 +147,7 @@
     "series rent:debit:*: monthly last=2025-11-02 amount=11191000.00 n=6 flex=fixed",
     "series transport:debit:*: every_7_days last=2025-11-04 amount=786571.90 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2025-10-06 amount=1951750.96 n=5 flex=fixed",
-    "message_156 first_salary: confirmed salary 38190000.00 on 2025-11-15 (R8)"
+    "message_156 first_salary: confirmed salary 38190000.00 on 2025-11-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -303,6 +307,12 @@
       "label": "groceries:debit:*"
     },
     {
+      "date": "2025-12-15",
+      "amount": 38190000.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_156)"
+    },
+    {
       "date": "2025-12-16",
       "amount": -786571.9,
       "kind": "recurring",
@@ -405,6 +415,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2026-01-15",
+      "amount": 38190000.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_156)"
+    },
+    {
       "date": "2026-01-19",
       "amount": -1753167.67,
       "kind": "recurring",
@@ -433,24 +449,14 @@
       "amount": -786571.9,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-02-02",
-      "amount": -1753167.67,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-02-02",
-      "amount": -11191000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 50939000.0,
       "schedule": [
         [
@@ -459,7 +465,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": [
@@ -467,6 +473,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_562",
       "total_paid": 52976559.99,
@@ -485,12 +492,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_564",
       "total_paid": 56032900.05,
@@ -557,7 +565,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -567,13 +575,13 @@
   ],
   "output_row": {
     "request_id": "request_197",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "50939000",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2025-11-19:17658853.33|2025-12-17:17658853.33|2026-01-14:17658853.33",
+    "earliest_date_for_full_payment": "2025-11-05",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 21 January 2026. None of the available options keeps the IDR 26,245,900 minimum protected."
+    "decision_explanation": "Use 3 installments of IDR 17,658,853.33, starting 19 November 2025. This leaves at least IDR 26,245,900 available."
   },
   "verification_errors": []
 }

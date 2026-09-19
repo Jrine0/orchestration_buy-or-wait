@@ -4,9 +4,9 @@
     "user_id": "user_27",
     "request_date": "2026-07-05",
     "request_type": "purchase",
-    "requested_amount": "6670.0",
+    "requested_amount": 6670.0,
     "desired_completion_date": "2026-08-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I make this purchase without dipping into the balance I want to keep? I need to decide by 21 August 2026. The laptop costs ZAR 6,670."
   },
   "profile": {
@@ -31,10 +31,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 6670.0,
     "earliest_date_for_full_payment": "2026-07-05",
-    "lowest_projected_balance": 27484.49,
+    "lowest_projected_balance": 28867.3,
     "binding_constraint": {
-      "date": "2026-10-01",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-05→end of forecast run to end of forecast with no further income, 64,274.50 of bills",
+      "low_point_date": "2026-09-28",
+      "bills_window_start": "2026-07-05",
+      "next_credit": null,
+      "bills_in_window": 64274.5,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -435,18 +439,14 @@
       "amount": -736.16,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-10-01",
-      "amount": -1382.81,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 6670.0,
       "schedule": [
         [
@@ -461,6 +461,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_77",
       "total_paid": 6903.54,

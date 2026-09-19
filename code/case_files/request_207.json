@@ -4,9 +4,9 @@
     "user_id": "user_207",
     "request_date": "2026-07-05",
     "request_type": "family_transfer",
-    "requested_amount": "11830.0",
+    "requested_amount": 11830.0,
     "desired_completion_date": "2026-07-24",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I make the full transfer without falling short on my own bills? I need to decide by 24 July 2026. The amount I want to send is ZAR 11,830."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-15",
     "lowest_projected_balance": 18116.76,
     "binding_constraint": {
-      "date": "2026-07-13",
-      "flow": "transport:debit:*"
+      "summary": "2026-07-05→2026-07-15 pre-payday run, 8,612.84 of bills",
+      "low_point_date": "2026-07-13",
+      "bills_window_start": "2026-07-05",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 8612.84,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -369,18 +373,14 @@
       "amount": -969.41,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-10-01",
-      "amount": -870.44,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 11830.0,
       "schedule": [
         [
@@ -395,6 +395,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_596",
       "total_paid": 12244.14,
@@ -481,8 +482,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 11830.0,
       "schedule": [
         [
@@ -503,8 +505,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 11830.0,
       "schedule": [
         [

@@ -4,9 +4,9 @@
     "user_id": "user_97",
     "request_date": "2024-03-05",
     "request_type": "housing",
-    "requested_amount": "23496.0",
+    "requested_amount": 23496.0,
     "desired_completion_date": "2024-05-24",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "How much of the rental deposit can I safely pay today? I've been asked to pay ZAR 23,496 as the rental deposit."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-04-15",
     "lowest_projected_balance": 31299.79,
     "binding_constraint": {
-      "date": "2024-03-11",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-03-05→2024-03-15 pre-payday run, 7,266.10 of bills",
+      "low_point_date": "2024-03-11",
+      "bills_window_start": "2024-03-05",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 7266.1,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -292,24 +296,14 @@
       "amount": -1167.09,
       "kind": "recurring",
       "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -1437.72,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -11792.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 23496.0,
       "schedule": [
         [
@@ -326,6 +320,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_272",
       "total_paid": 24435.84,
@@ -350,6 +345,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_274",
       "total_paid": 27725.25,
@@ -448,8 +444,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 23496.0,
       "schedule": [
         [
@@ -471,8 +468,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 23496.0,
       "schedule": [
         [

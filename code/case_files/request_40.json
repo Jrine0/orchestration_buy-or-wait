@@ -4,9 +4,9 @@
     "user_id": "user_40",
     "request_date": "2024-06-06",
     "request_type": "education",
-    "requested_amount": "1290.3",
+    "requested_amount": 1290.3,
     "desired_completion_date": "2024-08-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The professional course costs EUR 1,290.30. How much of the course fee can I manage without cutting into essentials?"
   },
   "profile": {
@@ -30,12 +30,16 @@
     "stoppable": []
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": -683.03,
+    "amount_safe_to_pay": 355.73,
+    "earliest_date_for_full_payment": "2024-08-15",
+    "lowest_projected_balance": 1855.73,
     "binding_constraint": {
-      "date": "2024-09-03",
-      "flow": "transport:debit:*"
+      "summary": "2024-06-06→2024-06-15 pre-payday run, 538.27 of bills",
+      "low_point_date": "2024-06-12",
+      "bills_window_start": "2024-06-06",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 538.27,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -141,7 +145,7 @@
     "series transport:debit:*: every_7_days last=2024-06-04 amount=37.25 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2024-06-05 amount=112.92 n=6 flex=fixed",
     "reserved pending debit event_3711 43.00 on 2024-06-07 (R7)",
-    "message_29 first_salary: confirmed salary 1760.00 on 2024-06-15 (R8)"
+    "message_29 first_salary: confirmed salary 1760.00 on 2024-06-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -301,6 +305,12 @@
       "label": "groceries:debit:*"
     },
     {
+      "date": "2024-07-15",
+      "amount": 1760.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_29)"
+    },
+    {
       "date": "2024-07-16",
       "amount": -37.25,
       "kind": "recurring",
@@ -403,6 +413,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2024-08-15",
+      "amount": 1760.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_29)"
+    },
+    {
       "date": "2024-08-19",
       "amount": -74.73,
       "kind": "recurring",
@@ -431,30 +447,14 @@
       "amount": -37.25,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-09-01",
-      "amount": -581.9,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-09-02",
-      "amount": -74.73,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-09-03",
-      "amount": -37.25,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1290.3,
       "schedule": [
         [
@@ -469,6 +469,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_110",
       "total_paid": 1522.5,
@@ -559,7 +560,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -567,6 +568,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_111",
       "total_paid": 1574.16,
@@ -669,23 +671,64 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "24 payments exceed max_installment_months=5 (R35)"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 1290.3,
+      "schedule": [
+        [
+          "2024-06-06",
+          355.73
+        ],
+        [
+          "2024-08-15",
+          934.57
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "request does not allow partial payment",
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 1290.3,
+      "schedule": [
+        [
+          "2024-08-15",
+          1290.3
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_40",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "355.73",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2024-08-15:1290.30",
+    "earliest_date_for_full_payment": "2024-08-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 15 August 2024. None of the available options keeps the EUR 1,500 minimum protected."
+    "decision_explanation": "Pay EUR 1,290.30 in full on 15 August 2024. Paying earlier would take the balance below the EUR 1,500 minimum."
   },
   "verification_errors": []
 }

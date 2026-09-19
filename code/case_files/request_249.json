@@ -4,9 +4,9 @@
     "user_id": "user_249",
     "request_date": "2026-01-04",
     "request_type": "other",
-    "requested_amount": "643.2",
+    "requested_amount": 643.2,
     "desired_completion_date": "2026-03-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is the full membership fee affordable today, or should I wait? The annual plan comes to USD 643.20."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2026-03-15",
     "lowest_projected_balance": 726.52,
     "binding_constraint": {
-      "date": "2026-01-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2026-01-04→2026-01-15 pre-payday run, 215.88 of bills",
+      "low_point_date": "2026-01-14",
+      "bills_window_start": "2026-01-04",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 215.88,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -534,24 +538,14 @@
       "amount": -14.65,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-02",
-      "amount": -210.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-03",
-      "amount": -14.65,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 643.2,
       "schedule": [
         [
@@ -566,6 +560,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_720",
       "total_paid": 733.32,
@@ -652,8 +647,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 643.2,
       "schedule": [
         [
@@ -675,8 +671,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 643.2,
       "schedule": [
         [

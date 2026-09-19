@@ -4,9 +4,9 @@
     "user_id": "user_191",
     "request_date": "2025-05-03",
     "request_type": "investment",
-    "requested_amount": "664.4",
+    "requested_amount": 664.4,
     "desired_completion_date": "2025-07-17",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is it safer to invest now, invest a smaller amount, or wait? I need to decide by 17 July 2025. The amount I would like to invest is EUR 664.40."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-05-03",
     "lowest_projected_balance": 1265.91,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "dining:debit:*"
+      "summary": "2025-05-03→2025-05-15 pre-payday run, 325.15 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-03",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 325.15,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -424,10 +428,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 664.4,
       "schedule": [
         [
@@ -442,6 +448,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_544",
       "total_paid": 730.8,
@@ -516,6 +523,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_545",
       "total_paid": 717.54,

@@ -4,9 +4,9 @@
     "user_id": "user_163",
     "request_date": "2024-09-07",
     "request_type": "other",
-    "requested_amount": "19304000.0",
+    "requested_amount": 19304000.0,
     "desired_completion_date": "2024-11-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I take the membership and still keep my minimum balance intact? I need to decide by 15 November 2024. The annual membership costs IDR 19,304,000."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-09-15",
     "lowest_projected_balance": 35538283.38,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "shopping:debit:*"
+      "summary": "2024-09-07→2024-09-15 pre-payday run, 13,981,240.88 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-07",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 13981240.88,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -472,24 +476,14 @@
       "amount": -734121.14,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-04",
-      "amount": -1427079.3,
-      "kind": "recurring",
-      "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-12-04",
-      "amount": -6802000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 19304000.0,
       "schedule": [
         [
@@ -506,6 +500,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_462",
       "total_paid": 20076159.99,
@@ -530,6 +525,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_464",
       "total_paid": 22778719.95,
@@ -628,8 +624,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 19304000.0,
       "schedule": [
         [
@@ -650,8 +647,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 19304000.0,
       "schedule": [
         [

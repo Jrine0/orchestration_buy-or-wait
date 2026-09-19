@@ -4,9 +4,9 @@
     "user_id": "user_44",
     "request_date": "2025-02-04",
     "request_type": "education",
-    "requested_amount": "95800.0",
+    "requested_amount": 95800.0,
     "desired_completion_date": "2025-04-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I need INR 95,800 for the course fee. Would paying the course fee now leave enough for my regular commitments?"
   },
   "profile": {
@@ -30,12 +30,16 @@
     "stoppable": []
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": -39893.75,
+    "amount_safe_to_pay": 30429.03,
+    "earliest_date_for_full_payment": "2025-04-15",
+    "lowest_projected_balance": 113329.03,
     "binding_constraint": {
-      "date": "2025-05-04",
-      "flow": "transport:debit:*"
+      "summary": "2025-02-04→2025-02-15 pre-payday run, 48,960.97 of bills",
+      "low_point_date": "2025-02-12",
+      "bills_window_start": "2025-02-04",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 48960.97,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -141,7 +145,7 @@
     "series transport:debit:*: every_7_days last=2025-02-02 amount=2397.34 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2025-01-05 amount=7835.16 n=5 flex=fixed",
     "reserved scheduled debit event_4114 4830.00 on 2025-02-11 (R7)",
-    "message_32 first_salary: confirmed salary 115000.00 on 2025-02-15 (R8)"
+    "message_32 first_salary: confirmed salary 115000.00 on 2025-02-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -307,6 +311,12 @@
       "label": "groceries:debit:*"
     },
     {
+      "date": "2025-03-15",
+      "amount": 115000.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_32)"
+    },
+    {
       "date": "2025-03-16",
       "amount": -2397.34,
       "kind": "recurring",
@@ -409,6 +419,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2025-04-15",
+      "amount": 115000.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_32)"
+    },
+    {
       "date": "2025-04-19",
       "amount": -5270.29,
       "kind": "recurring",
@@ -443,24 +459,14 @@
       "amount": -30200.0,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2025-05-03",
-      "amount": -5270.29,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-05-04",
-      "amount": -2397.34,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 95800.0,
       "schedule": [
         [
@@ -475,6 +481,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_120",
       "total_paid": 105379.95,
@@ -541,7 +548,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -549,6 +556,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_121",
       "total_paid": 116875.92,
@@ -657,17 +665,58 @@
       "notes": [
         "24 payments exceed max_installment_months=4 (R35)"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 95800.0,
+      "schedule": [
+        [
+          "2025-02-04",
+          30429.03
+        ],
+        [
+          "2025-04-15",
+          65370.97
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "request does not allow partial payment",
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 95800.0,
+      "schedule": [
+        [
+          "2025-04-15",
+          95800.0
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_44",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "30429.03",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2025-04-15:95800",
+    "earliest_date_for_full_payment": "2025-04-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 15 April 2025. None of the available options keeps the INR 82,900 minimum protected."
+    "decision_explanation": "Pay INR 95,800 in full on 15 April 2025. Paying earlier would take the balance below the INR 82,900 minimum."
   },
   "verification_errors": []
 }

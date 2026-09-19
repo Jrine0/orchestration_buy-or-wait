@@ -4,9 +4,9 @@
     "user_id": "user_192",
     "request_date": "2026-04-05",
     "request_type": "education",
-    "requested_amount": "2046.0",
+    "requested_amount": 2046.0,
     "desired_completion_date": "2026-05-11",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The course I want to take is USD 2,046. Can I pay for the course before enrolment closes?"
   },
   "profile": {
@@ -34,11 +34,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 107.83,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 1107.83,
     "binding_constraint": {
-      "date": "2026-05-11",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-15→2026-05-15 pre-payday run, 869.51 of bills",
+      "low_point_date": "2026-05-11",
+      "bills_window_start": "2026-04-15",
+      "next_credit": "2026-05-15",
+      "bills_in_window": 869.51,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -351,18 +355,56 @@
       "amount": -59.41,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1938.17,
+      "low_point": "2026-05-11",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-07-01",
-      "amount": -375.6,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_17695",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 20.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 30.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_17696:18",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 36.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 54.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_17734:20.50",
+      "series": "dining:debit:*",
+      "description": "Lunch with colleagues",
+      "freed_before_low_point": 40.39,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 80.79,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_17696",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 72.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 108.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2046.0,
       "schedule": [
         [
@@ -377,6 +419,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_547",
       "total_paid": 2332.44,
@@ -463,6 +506,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_548",
       "total_paid": 2496.24,

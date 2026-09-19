@@ -4,9 +4,9 @@
     "user_id": "user_219",
     "request_date": "2026-04-04",
     "request_type": "education",
-    "requested_amount": "1673.1",
+    "requested_amount": 1673.1,
     "desired_completion_date": "2026-06-13",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would paying the course fee now leave enough for my regular commitments? I need to decide by 13 June 2026. I need EUR 1,673.10 for the course fee."
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2026-05-15",
     "lowest_projected_balance": 1811.17,
     "binding_constraint": {
-      "date": "2026-04-14",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-04→2026-04-15 pre-payday run, 1,004.34 of bills",
+      "low_point_date": "2026-04-14",
+      "bills_window_start": "2026-04-04",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 1004.34,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -342,10 +346,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1673.1,
       "schedule": [
         [
@@ -362,6 +368,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_628",
       "total_paid": 1740.03,
@@ -386,6 +393,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_630",
       "total_paid": 1907.28,
@@ -472,8 +480,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1673.1,
       "schedule": [
         [
@@ -494,8 +503,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1673.1,
       "schedule": [
         [

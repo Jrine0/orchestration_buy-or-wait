@@ -4,9 +4,9 @@
     "user_id": "user_54",
     "request_date": "2026-07-04",
     "request_type": "housing",
-    "requested_amount": "121528.0",
+    "requested_amount": 121528.0,
     "desired_completion_date": "2026-08-21",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The move requires a ZAR 121,528 deposit. I need to complete it by 21 August 2026. Can I cover this deposit without putting rent and regular bills at risk?"
   },
   "profile": {
@@ -30,11 +30,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 2083.52,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 39083.52,
     "binding_constraint": {
-      "date": "2026-07-12",
-      "flow": "dining:debit:*"
+      "summary": "2026-07-04→2026-07-15 pre-payday run, 14,497.88 of bills",
+      "low_point_date": "2026-07-12",
+      "bills_window_start": "2026-07-04",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 14497.88,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -377,10 +381,27 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 119444.48,
+      "low_point": "2026-07-12",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "stop:event_5024",
+      "series": "streaming:debit:*",
+      "description": "Video streaming plan",
+      "freed_before_low_point": 860.2,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2580.6,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 121528.0,
       "schedule": [
         [
@@ -397,6 +418,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_149",
       "total_paid": 138541.86,
@@ -483,6 +505,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_150",
       "total_paid": 148264.08,

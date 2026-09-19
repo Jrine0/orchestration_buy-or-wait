@@ -4,9 +4,9 @@
     "user_id": "user_66",
     "request_date": "2026-04-03",
     "request_type": "emergency_expense",
-    "requested_amount": "22200.0",
+    "requested_amount": 22200.0,
     "desired_completion_date": "2026-04-17",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The latest estimate for the repair is INR 22,200. I need to complete it by 17 April 2026. The repair cannot wait. How much can I safely pay today?"
   },
   "profile": {
@@ -31,8 +31,12 @@
     "earliest_date_for_full_payment": "2026-04-03",
     "lowest_projected_balance": 265305.89,
     "binding_constraint": {
-      "date": "2026-04-07",
-      "flow": "utilities:debit:*"
+      "summary": "2026-04-03→2026-04-08 pre-payday run, 37,214.11 of bills",
+      "low_point_date": "2026-04-07",
+      "bills_window_start": "2026-04-03",
+      "next_credit": "2026-04-08",
+      "bills_in_window": 37214.11,
+      "last_debit_before_low": "utilities:debit:*"
     }
   },
   "recurring_series": [
@@ -358,10 +362,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 22200.0,
       "schedule": [
         [
@@ -376,6 +382,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_183",
       "total_paid": 22977.0,
@@ -462,6 +469,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_184",
       "total_paid": 23310.0,

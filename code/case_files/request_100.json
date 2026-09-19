@@ -4,9 +4,9 @@
     "user_id": "user_100",
     "request_date": "2024-06-06",
     "request_type": "purchase",
-    "requested_amount": "37114.0",
+    "requested_amount": 37114.0,
     "desired_completion_date": "2024-08-16",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering a ZAR 37,114 laptop. How much of the laptop price can I safely cover today?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-07-15",
     "lowest_projected_balance": 57669.04,
     "binding_constraint": {
-      "date": "2024-06-12",
-      "flow": "dining:debit:*"
+      "summary": "2024-06-06→2024-06-15 pre-payday run, 10,694.49 of bills",
+      "low_point_date": "2024-06-12",
+      "bills_window_start": "2024-06-06",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 10694.49,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -446,30 +450,47 @@
       "amount": -816.82,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 11944.96,
+      "low_point": "2024-06-12",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-09-01",
-      "amount": -12716.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_9267:508.20",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 508.2,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1524.6,
+      "chosen": true
     },
     {
-      "date": "2024-09-02",
-      "amount": -1983.41,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_9268",
+      "series": "cloud_storage:debit:*",
+      "description": "Shared storage plan",
+      "freed_before_low_point": 238.7,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 716.1,
+      "chosen": false
     },
     {
-      "date": "2024-09-03",
-      "amount": -816.82,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "stop:event_9267",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 1016.4,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3049.2,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 37114.0,
       "schedule": [
         [
@@ -486,6 +507,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_281",
       "total_paid": 38598.57,
@@ -510,6 +532,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_283",
       "total_paid": 43794.45,
@@ -608,8 +631,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 37114.0,
       "schedule": [
         [
@@ -631,8 +655,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 37114.0,
       "schedule": [
         [
@@ -649,6 +674,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_281",
       "total_paid": 38598.57,

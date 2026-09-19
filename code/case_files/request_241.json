@@ -4,9 +4,9 @@
     "user_id": "user_241",
     "request_date": "2024-03-03",
     "request_type": "family_transfer",
-    "requested_amount": "21052000.0",
+    "requested_amount": 21052000.0,
     "desired_completion_date": "2024-05-25",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Should I send the full amount, send part of it, or wait? I need to make a family transfer of IDR 21,052,000."
   },
   "profile": {
@@ -33,10 +33,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 21052000.0,
     "earliest_date_for_full_payment": "2024-03-03",
-    "lowest_projected_balance": 42782921.9,
+    "lowest_projected_balance": 43878714.14,
     "binding_constraint": {
-      "date": "2024-05-31",
-      "flow": "groceries:debit:*"
+      "summary": "2024-03-03→end of forecast run to end of forecast with no further income, 46,293,608.00 of bills",
+      "low_point_date": "2024-05-19",
+      "bills_window_start": "2024-03-03",
+      "next_credit": null,
+      "bills_in_window": 46293608.0,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -290,18 +294,14 @@
       "amount": -1093833.96,
       "kind": "recurring",
       "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-05-31",
-      "amount": -1095792.24,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 21052000.0,
       "schedule": [
         [
@@ -318,6 +318,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_695",
       "total_paid": 21894080.01,
@@ -342,6 +343,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_697",
       "total_paid": 24841359.9,

@@ -4,9 +4,9 @@
     "user_id": "user_26",
     "request_date": "2025-08-03",
     "request_type": "family_transfer",
-    "requested_amount": "15656000.0",
+    "requested_amount": 15656000.0,
     "desired_completion_date": "2025-10-07",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've been asked to transfer IDR 15,656,000 to my family. I need to complete it by 7 October 2025. Should I send the full amount, send part of it, or wait?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-08-03",
     "lowest_projected_balance": 80900181.9,
     "binding_constraint": {
-      "date": "2025-10-26",
-      "flow": "groceries:debit:*"
+      "summary": "2025-09-07→end of forecast run to end of forecast with no further income, 28,967,245.09 of bills",
+      "low_point_date": "2025-10-26",
+      "bills_window_start": "2025-09-07",
+      "next_credit": null,
+      "bills_in_window": 28967245.09,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -351,10 +355,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 15656000.0,
       "schedule": [
         [
@@ -369,6 +375,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_73",
       "total_paid": 17221600.05,
@@ -443,6 +450,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_74",
       "total_paid": 16908480.0,
@@ -481,6 +489,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_75",
       "total_paid": 19100320.08,

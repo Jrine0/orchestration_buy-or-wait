@@ -4,9 +4,9 @@
     "user_id": "user_237",
     "request_date": "2026-04-05",
     "request_type": "other",
-    "requested_amount": "23826000.0",
+    "requested_amount": 23826000.0,
     "desired_completion_date": "2026-05-20",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would committing to the membership leave enough for my upcoming bills? Renewing the membership would cost IDR 23,826,000."
   },
   "profile": {
@@ -29,12 +29,16 @@
     "stoppable": []
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 22228678.74,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 44660178.74,
+    "amount_safe_to_pay": 23826000.0,
+    "earliest_date_for_full_payment": "2026-04-05",
+    "lowest_projected_balance": 52355178.74,
     "binding_constraint": {
-      "date": "2026-07-02",
-      "flow": "rent:debit:*"
+      "summary": "2026-04-05→end of forecast run to end of forecast with no further income, 48,469,371.26 of bills",
+      "low_point_date": "2026-06-27",
+      "bills_window_start": "2026-04-05",
+      "next_credit": null,
+      "bills_in_window": 48469371.26,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -327,18 +331,14 @@
       "amount": -1243138.29,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-07-02",
-      "amount": -7695000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 23826000.0,
       "schedule": [
         [
@@ -347,12 +347,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_684",
       "total_paid": 27161640.0,
@@ -431,7 +432,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -439,6 +440,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_685",
       "total_paid": 25732080.0,
@@ -469,43 +471,23 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "user does not consider installments"
       ]
-    },
-    {
-      "method": "full_payment",
-      "option": "",
-      "total_paid": 23826000.0,
-      "schedule": [
-        [
-          "2026-04-05",
-          23826000.0
-        ]
-      ],
-      "eligible": true,
-      "safe": true,
-      "completes_by_deadline": true,
-      "changes": [
-        "reduce_to:event_21813:548720"
-      ],
-      "notes": [
-        "safe only with spending changes"
-      ]
     }
   ],
   "output_row": {
     "request_id": "request_237",
-    "amount_safe_to_pay": "22228678.74",
-    "affordability_status": "affordable_with_plan",
+    "amount_safe_to_pay": "23826000",
+    "affordability_status": "affordable_now",
     "recommended_payment_method": "full_payment",
     "payment_plan": "2026-04-05:23826000",
-    "earliest_date_for_full_payment": "",
-    "spending_changes_needed": "reduce_to:event_21813:548720",
-    "decision_explanation": "Reduce the clothing and household items to IDR 548,720, then pay IDR 23,826,000 today. This leaves at least IDR 22,431,500 available; without the change only IDR 22,228,678.74 is safe today."
+    "earliest_date_for_full_payment": "2026-04-05",
+    "spending_changes_needed": "none",
+    "decision_explanation": "Pay IDR 23,826,000 today. This leaves at least IDR 22,431,500 available over the next 90 days."
   },
   "verification_errors": []
 }

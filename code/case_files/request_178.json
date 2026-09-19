@@ -4,9 +4,9 @@
     "user_id": "user_178",
     "request_date": "2024-12-07",
     "request_type": "investment",
-    "requested_amount": "2938.1",
+    "requested_amount": 2938.1,
     "desired_completion_date": "2025-02-12",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering setting aside EUR 2,938.10 for an investment. I need to complete it by 12 February 2025. What portion can I invest today without going below my minimum balance?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-12-07",
     "lowest_projected_balance": 6470.35,
     "binding_constraint": {
-      "date": "2025-03-03",
-      "flow": "rent:debit:*"
+      "summary": "2024-12-15→end of forecast run to end of forecast with no further income, 3,456.41 of bills",
+      "low_point_date": "2025-03-03",
+      "bills_window_start": "2024-12-15",
+      "next_credit": null,
+      "bills_in_window": 3456.41,
+      "last_debit_before_low": "rent:debit:*"
     }
   },
   "recurring_series": [
@@ -332,10 +336,12 @@
       "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2938.1,
       "schedule": [
         [
@@ -352,6 +358,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_506",
       "total_paid": 3055.62,
@@ -376,6 +383,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_508",
       "total_paid": 3466.89,

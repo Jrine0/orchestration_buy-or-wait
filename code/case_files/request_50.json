@@ -4,9 +4,9 @@
     "user_id": "user_50",
     "request_date": "2025-08-06",
     "request_type": "travel",
-    "requested_amount": "43900.0",
+    "requested_amount": 43900.0,
     "desired_completion_date": "2025-08-21",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The family trip will cost INR 43,900. I need to complete it by 21 August 2025. Would it be safer to book the trip now or wait until more money comes in?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-10-15",
     "lowest_projected_balance": 142346.9,
     "binding_constraint": {
-      "date": "2025-10-14",
-      "flow": "groceries:debit:*"
+      "summary": "2025-09-15→2025-10-15 pre-payday run, 108,584.52 of bills",
+      "low_point_date": "2025-10-14",
+      "bills_window_start": "2025-09-15",
+      "next_credit": "2025-10-15",
+      "bills_in_window": 108584.52,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -410,18 +414,38 @@
       "amount": -4592.86,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1253.1,
+      "low_point": "2025-10-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-11-03",
-      "amount": -38800.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_4679",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 2955.0,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 2955.0,
+      "chosen": true
+    },
+    {
+      "change": "reduce_to:event_4680:1928",
+      "series": "shopping:debit:*",
+      "description": "Household shopping",
+      "freed_before_low_point": 9107.48,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 9107.48,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 43900.0,
       "schedule": [
         [
@@ -436,6 +460,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_137",
       "total_paid": 48289.95,
@@ -510,6 +535,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_138",
       "total_paid": 47412.0,
@@ -548,6 +574,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_139",
       "total_paid": 53557.92,
@@ -658,8 +685,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 43900.0,
       "schedule": [
         [
@@ -681,8 +709,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 43900.0,
       "schedule": [
         [
@@ -697,8 +726,9 @@
       "notes": []
     },
     {
+      "label": "full_payment with spending changes",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 43900.0,
       "schedule": [
         [

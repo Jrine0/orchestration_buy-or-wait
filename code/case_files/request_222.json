@@ -4,9 +4,9 @@
     "user_id": "user_222",
     "request_date": "2026-01-05",
     "request_type": "education",
-    "requested_amount": "34078.0",
+    "requested_amount": 34078.0,
     "desired_completion_date": "2026-03-10",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The professional course costs ZAR 34,078. I need to complete it by 10 March 2026. Can I pay for the course before enrolment closes?"
   },
   "profile": {
@@ -31,10 +31,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 34078.0,
     "earliest_date_for_full_payment": "2026-01-05",
-    "lowest_projected_balance": 94292.26,
+    "lowest_projected_balance": 102696.26,
     "binding_constraint": {
-      "date": "2026-04-03",
-      "flow": "rent:debit:*"
+      "summary": "2026-01-15→end of forecast run to end of forecast with no further income, 43,680.30 of bills",
+      "low_point_date": "2026-03-30",
+      "bills_window_start": "2026-01-15",
+      "next_credit": null,
+      "bills_in_window": 43680.3,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -330,18 +334,14 @@
       "amount": -1472.61,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-04-03",
-      "amount": -8404.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 34078.0,
       "schedule": [
         [
@@ -356,6 +356,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_638",
       "total_paid": 38848.86,
@@ -442,6 +443,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_639",
       "total_paid": 36804.24,
@@ -480,6 +482,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_640",
       "total_paid": 41575.2,

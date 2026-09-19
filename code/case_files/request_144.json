@@ -4,9 +4,9 @@
     "user_id": "user_144",
     "request_date": "2026-07-04",
     "request_type": "investment",
-    "requested_amount": "233.34",
+    "requested_amount": 233.34,
     "desired_completion_date": "2026-07-26",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I'm thinking of investing USD 233.34. Would investing this amount leave my upcoming bills covered?"
   },
   "profile": {
@@ -32,12 +32,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": -340.48,
+    "amount_safe_to_pay": 233.34,
+    "earliest_date_for_full_payment": "2026-07-04",
+    "lowest_projected_balance": 850.05,
     "binding_constraint": {
-      "date": "2026-10-01",
-      "flow": "transport:debit:*"
+      "summary": "2026-07-04→2026-07-15 pre-payday run, 398.03 of bills",
+      "low_point_date": "2026-07-12",
+      "bills_window_start": "2026-07-04",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 398.03,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -143,7 +147,7 @@
     "series transport:debit:*: every_7_days last=2026-07-02 amount=20.39 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2026-06-05 amount=48.63 n=5 flex=fixed",
     "reserved scheduled debit event_13307 51.00 on 2026-07-11 (R7)",
-    "message_111 first_salary: confirmed salary 864.00 on 2026-07-15 (R8)"
+    "message_111 first_salary: confirmed salary 864.00 on 2026-07-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -315,6 +319,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2026-08-15",
+      "amount": 864.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_111)"
+    },
+    {
       "date": "2026-08-19",
       "amount": -38.46,
       "kind": "recurring",
@@ -411,6 +421,12 @@
       "label": "delivery_membership:debit:*"
     },
     {
+      "date": "2026-09-15",
+      "amount": 864.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_111)"
+    },
+    {
       "date": "2026-09-16",
       "amount": -38.46,
       "kind": "recurring",
@@ -439,30 +455,14 @@
       "amount": -20.39,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-09-30",
-      "amount": -38.46,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-10-01",
-      "amount": -220.8,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-10-01",
-      "amount": -20.39,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 233.34,
       "schedule": [
         [
@@ -471,12 +471,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_410",
       "total_paid": 241.56,
@@ -555,7 +556,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -563,6 +564,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_411",
       "total_paid": 245.04,
@@ -665,7 +667,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -675,13 +677,13 @@
   ],
   "output_row": {
     "request_id": "request_144",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "233.34",
+    "affordability_status": "affordable_now",
+    "recommended_payment_method": "full_payment",
+    "payment_plan": "2026-07-04:233.34",
+    "earliest_date_for_full_payment": "2026-07-04",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 26 July 2026. None of the available options keeps the USD 600 minimum protected."
+    "decision_explanation": "Pay USD 233.34 today. This leaves at least USD 600 available over the next 90 days."
   },
   "verification_errors": []
 }

@@ -4,9 +4,9 @@
     "user_id": "user_243",
     "request_date": "2026-07-07",
     "request_type": "emergency_expense",
-    "requested_amount": "17468.0",
+    "requested_amount": 17468.0,
     "desired_completion_date": "2026-08-09",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I cover the full repair now and still manage my essential expenses? I need to decide by 9 August 2026. I've received a repair quote for ZAR 17,468."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-07",
     "lowest_projected_balance": 40445.58,
     "binding_constraint": {
-      "date": "2026-07-12",
-      "flow": "healthcare:debit:*"
+      "summary": "2026-07-07→2026-07-15 pre-payday run, 7,024.82 of bills",
+      "low_point_date": "2026-07-12",
+      "bills_window_start": "2026-07-07",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 7024.82,
+      "last_debit_before_low": "healthcare:debit:*"
     }
   },
   "recurring_series": [
@@ -371,18 +375,14 @@
       "amount": -964.94,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-10-03",
-      "amount": -797.81,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 17468.0,
       "schedule": [
         [
@@ -397,6 +397,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_702",
       "total_paid": 19913.58,
@@ -483,6 +484,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_703",
       "total_paid": 18865.44,

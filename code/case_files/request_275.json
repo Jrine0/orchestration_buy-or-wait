@@ -4,9 +4,9 @@
     "user_id": "user_275",
     "request_date": "2025-05-06",
     "request_type": "emergency_expense",
-    "requested_amount": "15884000.0",
+    "requested_amount": 15884000.0,
     "desired_completion_date": "2025-07-22",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Should I pay for the repair in full, split the payment, or wait? I need to decide by 22 July 2025. I have an unexpected repair bill of IDR 15,884,000."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-05-06",
     "lowest_projected_balance": 30264920.77,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "transport:debit:*"
+      "summary": "2025-05-06→2025-05-15 pre-payday run, 6,941,529.23 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-06",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 6941529.23,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -408,10 +412,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 15884000.0,
       "schedule": [
         [
@@ -426,6 +432,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_789",
       "total_paid": 17472400.05,
@@ -500,6 +507,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_790",
       "total_paid": 17154720.0,

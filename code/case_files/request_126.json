@@ -4,9 +4,9 @@
     "user_id": "user_126",
     "request_date": "2026-07-03",
     "request_type": "emergency_expense",
-    "requested_amount": "159600.0",
+    "requested_amount": 159600.0,
     "desired_completion_date": "2026-07-17",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I need to cover an urgent repair of INR 159,600. I need to complete it by 17 July 2026. The repair cannot wait. How much can I safely pay today?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-07-03",
     "lowest_projected_balance": 294260.82,
     "binding_constraint": {
-      "date": "2026-09-25",
-      "flow": "groceries:debit:*"
+      "summary": "2026-07-15→end of forecast run to end of forecast with no further income, 195,074.97 of bills",
+      "low_point_date": "2026-09-25",
+      "bills_window_start": "2026-07-15",
+      "next_credit": null,
+      "bills_in_window": 195074.97,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -335,10 +339,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 159600.0,
       "schedule": [
         [
@@ -353,6 +359,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_359",
       "total_paid": 181944.0,
@@ -439,6 +446,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_360",
       "total_paid": 194712.0,

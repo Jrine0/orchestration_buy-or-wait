@@ -4,9 +4,9 @@
     "user_id": "user_81",
     "request_date": "2026-07-03",
     "request_type": "travel",
-    "requested_amount": "2076.0",
+    "requested_amount": 2076.0,
     "desired_completion_date": "2026-07-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Does paying for the trip now leave enough for the rest of the month? I'm planning a family trip that costs USD 2,076."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-03",
     "lowest_projected_balance": 3737.55,
     "binding_constraint": {
-      "date": "2026-08-13",
-      "flow": "transport:debit:*"
+      "summary": "2026-07-15→2026-08-15 pre-payday run, 2,871.20 of bills",
+      "low_point_date": "2026-08-13",
+      "bills_window_start": "2026-07-15",
+      "next_credit": "2026-08-15",
+      "bills_in_window": 2871.2,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -460,18 +464,14 @@
       "amount": -69.5,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-09-30",
-      "amount": -106.08,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2076.0,
       "schedule": [
         [
@@ -486,6 +486,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_227",
       "total_paid": 2366.64,
@@ -572,6 +573,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_228",
       "total_paid": 2242.08,

@@ -4,9 +4,9 @@
     "user_id": "user_146",
     "request_date": "2025-08-03",
     "request_type": "housing",
-    "requested_amount": "449400.0",
+    "requested_amount": 449400.0,
     "desired_completion_date": "2025-10-17",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I've been asked to pay INR 449,400 as the rental deposit. I need to complete it by 17 October 2025. Can I pay the rental deposit by the requested date?"
   },
   "profile": {
@@ -29,11 +29,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 16037.09,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 124637.09,
     "binding_constraint": {
-      "date": "2025-08-13",
-      "flow": "cloud_storage:debit:*"
+      "summary": "2025-08-03→2025-08-15 pre-payday run, 65,427.91 of bills",
+      "low_point_date": "2025-08-13",
+      "bills_window_start": "2025-08-03",
+      "next_credit": "2025-08-15",
+      "bills_in_window": 65427.91,
+      "last_debit_before_low": "cloud_storage:debit:*"
     }
   },
   "recurring_series": [
@@ -413,10 +417,27 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 433362.91,
+      "low_point": "2025-08-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
+    },
+    {
+      "change": "stop:event_13450",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 525.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1575.0,
+      "chosen": false
+    }
+  ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 449400.0,
       "schedule": [
         [
@@ -431,6 +452,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_416",
       "total_paid": 494340.0,
@@ -505,6 +527,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_417",
       "total_paid": 548268.0,

@@ -4,9 +4,9 @@
     "user_id": "user_136",
     "request_date": "2024-06-03",
     "request_type": "education",
-    "requested_amount": "560.4",
+    "requested_amount": 560.4,
     "desired_completion_date": "2024-06-14",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The course I want to take is USD 560.40. Is it safe to cover the full course fee by the deadline?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-06-15",
     "lowest_projected_balance": 1628.5,
     "binding_constraint": {
-      "date": "2024-06-14",
-      "flow": "groceries:debit:*"
+      "summary": "2024-06-03→2024-06-15 pre-payday run, 663.18 of bills",
+      "low_point_date": "2024-06-14",
+      "bills_window_start": "2024-06-03",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 663.18,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -390,24 +394,29 @@
       "amount": -63.27,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 31.9,
+      "low_point": "2024-06-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-08-30",
-      "amount": -63.27,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2024-08-31",
-      "amount": -33.81,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_12498:27.20",
+      "series": "shopping:debit:*",
+      "description": "Household shopping",
+      "freed_before_low_point": 40.4,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 121.2,
+      "chosen": true
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 560.4,
       "schedule": [
         [
@@ -422,6 +431,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_387",
       "total_paid": 661.29,
@@ -520,6 +530,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_388",
       "total_paid": 605.22,
@@ -558,6 +569,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_389",
       "total_paid": 683.76,
@@ -668,8 +680,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 560.4,
       "schedule": [
         [
@@ -690,8 +703,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 560.4,
       "schedule": [
         [
@@ -706,8 +720,9 @@
       "notes": []
     },
     {
+      "label": "full_payment with spending changes",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 560.4,
       "schedule": [
         [

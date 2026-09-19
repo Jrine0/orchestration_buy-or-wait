@@ -4,9 +4,9 @@
     "user_id": "user_221",
     "request_date": "2025-11-03",
     "request_type": "housing",
-    "requested_amount": "109800.0",
+    "requested_amount": 109800.0,
     "desired_completion_date": "2026-01-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I pay the rental deposit by the requested date? I need INR 109,800 for the rental deposit."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-11-03",
     "lowest_projected_balance": 212588.51,
     "binding_constraint": {
-      "date": "2025-11-13",
-      "flow": "family_support:debit:*"
+      "summary": "2025-11-03→2025-11-15 pre-payday run, 55,716.49 of bills",
+      "low_point_date": "2025-11-13",
+      "bills_window_start": "2025-11-03",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 55716.49,
+      "last_debit_before_low": "family_support:debit:*"
     }
   },
   "recurring_series": [
@@ -407,18 +411,14 @@
       "amount": -4746.22,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-01-31",
-      "amount": -4746.22,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 109800.0,
       "schedule": [
         [
@@ -433,6 +433,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_635",
       "total_paid": 120780.0,
@@ -507,6 +508,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_636",
       "total_paid": 118584.0,

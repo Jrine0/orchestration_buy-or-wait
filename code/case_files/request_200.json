@@ -4,9 +4,9 @@
     "user_id": "user_200",
     "request_date": "2025-02-06",
     "request_type": "purchase",
-    "requested_amount": "21717000.0",
+    "requested_amount": 21717000.0,
     "desired_completion_date": "2025-04-10",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The laptop comes to IDR 21,717,000. How much of the laptop price can I safely cover today?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2025-02-06",
     "lowest_projected_balance": 46068759.97,
     "binding_constraint": {
-      "date": "2025-02-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-02-06→2025-02-15 pre-payday run, 7,817,390.03 of bills",
+      "low_point_date": "2025-02-13",
+      "bills_window_start": "2025-02-06",
+      "next_credit": "2025-02-15",
+      "bills_in_window": 7817390.03,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -422,30 +426,14 @@
       "amount": -2346500.0,
       "kind": "recurring",
       "label": "housing:debit:*"
-    },
-    {
-      "date": "2025-05-05",
-      "amount": -1317370.59,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
-    },
-    {
-      "date": "2025-05-06",
-      "amount": -982300.0,
-      "kind": "recurring",
-      "label": "insurance:debit:*"
-    },
-    {
-      "date": "2025-05-06",
-      "amount": -501964.9,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 21717000.0,
       "schedule": [
         [
@@ -460,6 +448,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_573",
       "total_paid": 23888700.0,
@@ -534,6 +523,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_574",
       "total_paid": 23454360.0,
@@ -572,6 +562,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_575",
       "total_paid": 26494740.0,

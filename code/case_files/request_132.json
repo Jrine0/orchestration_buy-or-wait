@@ -4,9 +4,9 @@
     "user_id": "user_132",
     "request_date": "2026-01-05",
     "request_type": "family_transfer",
-    "requested_amount": "379.86",
+    "requested_amount": 379.86,
     "desired_completion_date": "2026-02-25",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I want to send USD 379.86 to my family. Can I make the full transfer without falling short on my own bills?"
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2026-01-15",
     "lowest_projected_balance": 1361.98,
     "binding_constraint": {
-      "date": "2026-01-13",
-      "flow": "transport:debit:*"
+      "summary": "2026-01-05→2026-01-15 pre-payday run, 382.57 of bills",
+      "low_point_date": "2026-01-13",
+      "bills_window_start": "2026-01-05",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 382.57,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -532,18 +536,14 @@
       "amount": -321.6,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-03",
-      "amount": -26.13,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 379.86,
       "schedule": [
         [
@@ -558,6 +558,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_376",
       "total_paid": 393.3,
@@ -644,6 +645,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_377",
       "total_paid": 398.88,
@@ -754,8 +756,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 379.86,
       "schedule": [
         [
@@ -776,8 +779,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 379.86,
       "schedule": [
         [

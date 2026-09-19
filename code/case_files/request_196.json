@@ -4,9 +4,9 @@
     "user_id": "user_196",
     "request_date": "2024-06-03",
     "request_type": "purchase",
-    "requested_amount": "762.3",
+    "requested_amount": 762.3,
     "desired_completion_date": "2024-07-05",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've found a laptop for EUR 762.30. Would paying for the laptop today leave enough for my regular expenses?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-06-03",
     "lowest_projected_balance": 1427.07,
     "binding_constraint": {
-      "date": "2024-06-10",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-06-03→2024-06-15 pre-payday run, 148.58 of bills",
+      "low_point_date": "2024-06-10",
+      "bills_window_start": "2024-06-03",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 148.58,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -292,18 +296,14 @@
       "amount": -34.51,
       "kind": "recurring",
       "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-08-30",
-      "amount": -31.72,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 762.3,
       "schedule": [
         [
@@ -318,6 +318,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_559",
       "total_paid": 899.43,
@@ -416,6 +417,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_560",
       "total_paid": 823.26,
@@ -454,6 +456,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_561",
       "total_paid": 930.0,

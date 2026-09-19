@@ -4,9 +4,9 @@
     "user_id": "user_254",
     "request_date": "2025-08-04",
     "request_type": "other",
-    "requested_amount": "3535.2",
+    "requested_amount": 3535.2,
     "desired_completion_date": "2025-10-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The annual membership costs USD 3,535.20. I need to complete it by 15 October 2025. Is the full membership fee affordable today, or should I wait?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-10-15",
     "lowest_projected_balance": 3137.23,
     "binding_constraint": {
-      "date": "2025-08-13",
-      "flow": "cloud_storage:debit:*"
+      "summary": "2025-08-04→2025-08-15 pre-payday run, 1,122.37 of bills",
+      "low_point_date": "2025-08-13",
+      "bills_window_start": "2025-08-04",
+      "next_credit": "2025-08-15",
+      "bills_in_window": 1122.37,
+      "last_debit_before_low": "cloud_storage:debit:*"
     }
   },
   "recurring_series": [
@@ -424,10 +428,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3535.2,
       "schedule": [
         [
@@ -442,6 +448,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_733",
       "total_paid": 3888.75,
@@ -516,6 +523,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_734",
       "total_paid": 4313.04,
@@ -626,8 +634,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 3535.2,
       "schedule": [
         [
@@ -648,8 +657,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 3535.2,
       "schedule": [
         [

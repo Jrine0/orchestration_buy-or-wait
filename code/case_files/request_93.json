@@ -4,9 +4,9 @@
     "user_id": "user_93",
     "request_date": "2026-04-07",
     "request_type": "travel",
-    "requested_amount": "1729.2",
+    "requested_amount": 1729.2,
     "desired_completion_date": "2026-04-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I book the family trip now and still cover my usual expenses? The current quote for the trip is USD 1,729.20."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-04-07",
     "lowest_projected_balance": 3731.78,
     "binding_constraint": {
-      "date": "2026-04-12",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-07→2026-04-15 pre-payday run, 230.32 of bills",
+      "low_point_date": "2026-04-12",
+      "bills_window_start": "2026-04-07",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 230.32,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -350,10 +354,12 @@
       "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1729.2,
       "schedule": [
         [
@@ -368,6 +374,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_261",
       "total_paid": 1971.36,
@@ -454,6 +461,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_262",
       "total_paid": 1867.56,

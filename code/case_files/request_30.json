@@ -4,9 +4,9 @@
     "user_id": "user_30",
     "request_date": "2026-04-06",
     "request_type": "debt_repayment",
-    "requested_amount": "775.2",
+    "requested_amount": 775.2,
     "desired_completion_date": "2026-06-06",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The additional loan payment would be USD 775.20. I need to complete it by 6 June 2026. Can I clear this additional amount without putting upcoming bills at risk?"
   },
   "profile": {
@@ -32,12 +32,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 282.04,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 1182.04,
+    "amount_safe_to_pay": 678.04,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 1578.04,
     "binding_constraint": {
-      "date": "2026-07-03",
-      "flow": "rent:debit:*"
+      "summary": "2026-04-06→end of forecast run to end of forecast with no further income, 2,174.68 of bills",
+      "low_point_date": "2026-06-29",
+      "bills_window_start": "2026-04-06",
+      "next_credit": null,
+      "bills_in_window": 2174.68,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -311,18 +315,47 @@
       "amount": -54.55,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 97.16,
+      "low_point": "2026-06-29",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-07-03",
-      "amount": -396.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_2694:17.50",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 52.5,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 52.5,
+      "chosen": true
+    },
+    {
+      "change": "reduce_to:event_2732:28",
+      "series": "dining:debit:*",
+      "description": "Family dinner",
+      "freed_before_low_point": 101.32,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 101.32,
+      "chosen": true
+    },
+    {
+      "change": "stop:event_2694",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 105.0,
+      "covers_gap_alone": true,
+      "cost_over_90_days": 105.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 775.2,
       "schedule": [
         [
@@ -339,6 +372,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_83",
       "total_paid": 806.22,
@@ -363,6 +397,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_85",
       "total_paid": 883.8,
@@ -447,17 +482,47 @@
       "notes": [
         "18 payments exceed max_installment_months=4 (R35)"
       ]
+    },
+    {
+      "label": "installments with spending changes",
+      "method": "installments",
+      "option": "payment_option_83",
+      "total_paid": 806.22,
+      "schedule": [
+        [
+          "2026-04-06",
+          268.74
+        ],
+        [
+          "2026-05-06",
+          268.74
+        ],
+        [
+          "2026-06-05",
+          268.74
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [
+        "reduce_to:event_2694:17.50",
+        "reduce_to:event_2732:28"
+      ],
+      "notes": [
+        "safe only with spending changes"
+      ]
     }
   ],
   "output_row": {
     "request_id": "request_30",
-    "amount_safe_to_pay": "282.04",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
+    "amount_safe_to_pay": "678.04",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2026-04-06:268.74|2026-05-06:268.74|2026-06-05:268.74",
     "earliest_date_for_full_payment": "",
-    "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the USD 775.20 request. Although USD 282.04 is available today, the full amount cannot be completed safely within 90 days."
+    "spending_changes_needed": "reduce_to:event_2694:17.50|reduce_to:event_2732:28",
+    "decision_explanation": "Reduce the family streaming plan to USD 17.50 and reduce the family dinner to USD 28, then use 3 installments of USD 268.74, starting 6 April 2026. This leaves at least USD 900 available."
   },
   "verification_errors": []
 }

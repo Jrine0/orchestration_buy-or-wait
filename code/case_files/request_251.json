@@ -4,9 +4,9 @@
     "user_id": "user_251",
     "request_date": "2025-05-03",
     "request_type": "education",
-    "requested_amount": "1513.6",
+    "requested_amount": 1513.6,
     "desired_completion_date": "2025-06-06",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is it safe to cover the full course fee by the deadline? I need to decide by 6 June 2025. The course fee is EUR 1,513.60."
   },
   "profile": {
@@ -32,12 +32,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 79.87,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 1379.87,
+    "amount_safe_to_pay": 130.83,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 1430.83,
     "binding_constraint": {
-      "date": "2025-07-30",
-      "flow": "dining:debit:*"
+      "summary": "2025-05-03→end of forecast run to end of forecast with no further income, 3,217.72 of bills",
+      "low_point_date": "2025-07-27",
+      "bills_window_start": "2025-05-03",
+      "next_credit": null,
+      "bills_in_window": 3217.72,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -435,18 +439,47 @@
       "amount": -27.55,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1382.77,
+      "low_point": "2025-07-27",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-07-30",
-      "amount": -50.96,
-      "kind": "recurring",
-      "label": "dining:debit:*"
+      "change": "reduce_to:event_23062:16",
+      "series": "gym:debit:*",
+      "description": "Fitness club membership",
+      "freed_before_low_point": 48.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 48.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_23061",
+      "series": "delivery_membership:debit:*",
+      "description": "Food delivery membership",
+      "freed_before_low_point": 69.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 69.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_23062",
+      "series": "gym:debit:*",
+      "description": "Fitness club membership",
+      "freed_before_low_point": 96.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 96.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1513.6,
       "schedule": [
         [
@@ -463,6 +496,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_725",
       "total_paid": 1665.0,
@@ -539,13 +573,13 @@
   ],
   "output_row": {
     "request_id": "request_251",
-    "amount_safe_to_pay": "79.87",
+    "amount_safe_to_pay": "130.83",
     "affordability_status": "not_affordable",
     "recommended_payment_method": "not_recommended",
     "payment_plan": "none",
     "earliest_date_for_full_payment": "",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the EUR 1,513.60 request. Although EUR 79.87 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Do not proceed with the EUR 1,513.60 request. Although EUR 130.83 is available today, the full amount cannot be completed safely within 90 days."
   },
   "verification_errors": []
 }

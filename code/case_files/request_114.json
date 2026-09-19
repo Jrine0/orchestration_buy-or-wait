@@ -4,9 +4,9 @@
     "user_id": "user_114",
     "request_date": "2026-01-04",
     "request_type": "other",
-    "requested_amount": "65300.0",
+    "requested_amount": 65300.0,
     "desired_completion_date": "2026-01-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The annual membership costs INR 65,300. I need to complete it by 14 January 2026. Is the full membership fee affordable today, or should I wait?"
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-01-15",
     "lowest_projected_balance": 168288.32,
     "binding_constraint": {
-      "date": "2026-01-14",
-      "flow": "transport:debit:*"
+      "summary": "2026-01-04→2026-01-15 pre-payday run, 50,941.68 of bills",
+      "low_point_date": "2026-01-14",
+      "bills_window_start": "2026-01-04",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 50941.68,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -542,18 +546,56 @@
       "amount": -4059.71,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 10411.68,
+      "low_point": "2026-01-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-04-03",
-      "amount": -41700.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_10558",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 580.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1740.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_10559:1450",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 1450.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 4350.0,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_10561:1890",
+      "series": "entertainment:debit:*",
+      "description": "Games and recreation",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 5088.09,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_10559",
+      "series": "streaming:debit:*",
+      "description": "Streaming subscription",
+      "freed_before_low_point": 2900.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 8700.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 65300.0,
       "schedule": [
         [
@@ -568,6 +610,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_323",
       "total_paid": 74442.06,
@@ -654,6 +697,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_324",
       "total_paid": 70524.0,
@@ -692,6 +736,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_325",
       "total_paid": 79666.08,
@@ -802,8 +847,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 65300.0,
       "schedule": [
         [
@@ -826,8 +872,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 65300.0,
       "schedule": [
         [

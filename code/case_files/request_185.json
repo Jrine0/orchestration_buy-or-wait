@@ -4,9 +4,9 @@
     "user_id": "user_185",
     "request_date": "2025-11-06",
     "request_type": "travel",
-    "requested_amount": "1257.3",
+    "requested_amount": 1257.3,
     "desired_completion_date": "2026-01-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would it be safer to book the trip now or wait until more money comes in? The booking comes to EUR 1,257.30."
   },
   "profile": {
@@ -32,11 +32,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 309.85,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": "2026-01-15",
     "lowest_projected_balance": 1609.85,
     "binding_constraint": {
-      "date": "2025-11-13",
-      "flow": "dining:debit:*"
+      "summary": "2025-11-06→2025-11-15 pre-payday run, 473.55 of bills",
+      "low_point_date": "2025-11-13",
+      "bills_window_start": "2025-11-06",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 473.55,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -152,7 +156,7 @@
     "series transport:debit:*: every_7_days last=2025-11-05 amount=40.27 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2025-10-06 amount=95.25 n=5 flex=fixed",
     "ignored failed event_17121 (R7)",
-    "message_147 rent_increase: 3 projected rent payments raised 12.0%"
+    "message_147 rent_increase: 2 projected rent payments raised 12.0%"
   ],
   "projected_flows": [
     {
@@ -454,24 +458,14 @@
       "amount": -40.27,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-02-02",
-      "amount": -505.12,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-02-03",
-      "amount": -72.23,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1257.3,
       "schedule": [
         [
@@ -486,6 +480,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_528",
       "total_paid": 1383.0,
@@ -552,23 +547,63 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "user does not consider installments"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 1257.3,
+      "schedule": [
+        [
+          "2025-11-06",
+          309.85
+        ],
+        [
+          "2026-01-15",
+          947.45
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 1257.3,
+      "schedule": [
+        [
+          "2026-01-15",
+          1257.3
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_185",
     "amount_safe_to_pay": "309.85",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2026-01-15:1257.30",
+    "earliest_date_for_full_payment": "2026-01-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the EUR 1,257.30 request. Although EUR 309.85 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Pay EUR 1,257.30 in full on 15 January 2026. Paying earlier would take the balance below the EUR 1,300 minimum."
   },
   "verification_errors": []
 }

@@ -4,9 +4,9 @@
     "user_id": "user_145",
     "request_date": "2024-03-06",
     "request_type": "travel",
-    "requested_amount": "217400.0",
+    "requested_amount": 217400.0,
     "desired_completion_date": "2024-05-26",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Would it be safer to book the trip now or wait until more money comes in? The total trip cost is INR 217,400."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2024-04-15",
     "lowest_projected_balance": 183050.1,
     "binding_constraint": {
-      "date": "2024-03-13",
-      "flow": "dining:debit:*"
+      "summary": "2024-03-06→2024-03-15 pre-payday run, 77,963.56 of bills",
+      "low_point_date": "2024-03-13",
+      "bills_window_start": "2024-03-06",
+      "next_credit": "2024-03-15",
+      "bills_in_window": 77963.56,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -454,24 +458,14 @@
       "amount": -6314.5,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-06-02",
-      "amount": -63900.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-06-03",
-      "amount": -9647.16,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 217400.0,
       "schedule": [
         [
@@ -488,6 +482,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_412",
       "total_paid": 226095.99,
@@ -512,6 +507,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_414",
       "total_paid": 256532.01,
@@ -610,8 +606,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 217400.0,
       "schedule": [
         [
@@ -632,8 +629,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 217400.0,
       "schedule": [
         [

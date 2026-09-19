@@ -4,9 +4,9 @@
     "user_id": "user_155",
     "request_date": "2025-05-06",
     "request_type": "purchase",
-    "requested_amount": "112500.0",
+    "requested_amount": 112500.0,
     "desired_completion_date": "2025-05-20",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "How much of the laptop price can I safely cover today? I need to decide by 20 May 2025. The laptop I'm looking at is INR 112,500."
   },
   "profile": {
@@ -32,8 +32,12 @@
     "earliest_date_for_full_payment": "2025-05-06",
     "lowest_projected_balance": 189102.22,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "transport:debit:*"
+      "summary": "2025-05-06→2025-05-15 pre-payday run, 28,947.78 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-06",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 28947.78,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -404,10 +408,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 112500.0,
       "schedule": [
         [
@@ -422,6 +428,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_442",
       "total_paid": 123750.0,
@@ -496,6 +503,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_443",
       "total_paid": 121500.0,

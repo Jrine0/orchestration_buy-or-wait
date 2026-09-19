@@ -4,9 +4,9 @@
     "user_id": "user_143",
     "request_date": "2025-05-07",
     "request_type": "emergency_expense",
-    "requested_amount": "12584.0",
+    "requested_amount": 12584.0,
     "desired_completion_date": "2025-07-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I cover the full repair now and still manage my essential expenses? I need to decide by 15 July 2025. The latest estimate for the repair is ZAR 12,584."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2025-07-15",
     "lowest_projected_balance": 13801.34,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "groceries:debit:*"
+      "summary": "2025-05-07→2025-05-15 pre-payday run, 6,309.66 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-07",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 6309.66,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -473,24 +477,14 @@
       "amount": -326.33,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-08-03",
-      "amount": -581.42,
-      "kind": "recurring",
-      "label": "dining:debit:*"
-    },
-    {
-      "date": "2025-08-04",
-      "amount": -3784.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 12584.0,
       "schedule": [
         [
@@ -505,6 +499,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_408",
       "total_paid": 13842.45,
@@ -579,8 +574,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 12584.0,
       "schedule": [
         [
@@ -602,8 +598,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 12584.0,
       "schedule": [
         [

@@ -4,9 +4,9 @@
     "user_id": "user_80",
     "request_date": "2025-02-06",
     "request_type": "debt_repayment",
-    "requested_amount": "217500.0",
+    "requested_amount": 217500.0,
     "desired_completion_date": "2025-02-21",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering paying an extra INR 217,500 off the loan. Can I clear this additional amount without putting upcoming bills at risk?"
   },
   "profile": {
@@ -32,12 +32,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 15959.16,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 137259.16,
+    "amount_safe_to_pay": 20064.73,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 141364.73,
     "binding_constraint": {
-      "date": "2025-05-06",
-      "flow": "transport:debit:*"
+      "summary": "2025-03-15→2025-04-15 pre-payday run, 142,738.79 of bills",
+      "low_point_date": "2025-04-14",
+      "bills_window_start": "2025-03-15",
+      "next_credit": "2025-04-15",
+      "bills_in_window": 142738.79,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -461,30 +465,47 @@
       "amount": -52000.0,
       "kind": "recurring",
       "label": "rent:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 197435.27,
+      "low_point": "2025-04-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-05-05",
-      "amount": -5933.62,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_7467",
+      "series": "delivery_membership:debit:*",
+      "description": "Delivery service plan",
+      "freed_before_low_point": 3360.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3360.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-05",
-      "amount": -7016.85,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
+      "change": "stop:event_7466",
+      "series": "music_subscription:debit:*",
+      "description": "Music service subscription",
+      "freed_before_low_point": 3675.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 3675.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-06",
-      "amount": -4206.73,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_7534:2650",
+      "series": "dining:debit:*",
+      "description": "Takeaway order",
+      "freed_before_low_point": 13054.86,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 15665.83,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 217500.0,
       "schedule": [
         [
@@ -501,6 +522,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_224",
       "total_paid": 239250.0,
@@ -575,6 +597,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_225",
       "total_paid": 265350.0,
@@ -687,13 +710,13 @@
   ],
   "output_row": {
     "request_id": "request_80",
-    "amount_safe_to_pay": "15959.16",
+    "amount_safe_to_pay": "20064.73",
     "affordability_status": "not_affordable",
     "recommended_payment_method": "not_recommended",
     "payment_plan": "none",
     "earliest_date_for_full_payment": "",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the INR 217,500 request. Although INR 15,959.16 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Do not proceed with the INR 217,500 request. Although INR 20,064.73 is available today, the full amount cannot be completed safely within 90 days."
   },
   "verification_errors": []
 }

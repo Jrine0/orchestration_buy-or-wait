@@ -4,9 +4,9 @@
     "user_id": "user_198",
     "request_date": "2026-07-07",
     "request_type": "education",
-    "requested_amount": "185800.0",
+    "requested_amount": 185800.0,
     "desired_completion_date": "2026-09-21",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I need INR 185,800 for the course fee. I need to complete it by 21 September 2026. Should I pay for the course now, use installments, or wait?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-07",
     "lowest_projected_balance": 343132.65,
     "binding_constraint": {
-      "date": "2026-07-14",
-      "flow": "transport:debit:*"
+      "summary": "2026-07-07→2026-07-15 pre-payday run, 52,057.35 of bills",
+      "low_point_date": "2026-07-14",
+      "bills_window_start": "2026-07-07",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 52057.35,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -378,18 +382,14 @@
       "amount": -6727.61,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-10-04",
-      "amount": -17550.0,
-      "kind": "recurring",
-      "label": "housing:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 185800.0,
       "schedule": [
         [
@@ -404,6 +404,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_566",
       "total_paid": 211811.94,
@@ -490,6 +491,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_567",
       "total_paid": 200664.0,
@@ -528,6 +530,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_568",
       "total_paid": 226675.92,

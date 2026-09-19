@@ -4,9 +4,9 @@
     "user_id": "user_96",
     "request_date": "2026-01-03",
     "request_type": "purchase",
-    "requested_amount": "90200.0",
+    "requested_amount": 90200.0,
     "desired_completion_date": "2026-03-12",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've been quoted INR 90,200 for the laptop. Would paying for the laptop today leave enough for my regular expenses?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-02-15",
     "lowest_projected_balance": 129258.97,
     "binding_constraint": {
-      "date": "2026-01-14",
-      "flow": "groceries:debit:*"
+      "summary": "2026-01-03→2026-01-15 pre-payday run, 32,376.52 of bills",
+      "low_point_date": "2026-01-14",
+      "bills_window_start": "2026-01-03",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 32376.52,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -435,30 +439,38 @@
       "amount": -1768.96,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 17441.03,
+      "low_point": "2026-01-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-04-01",
-      "amount": -3660.66,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "stop:event_8914",
+      "series": "delivery_membership:debit:*",
+      "description": "Food delivery membership",
+      "freed_before_low_point": 775.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2325.0,
+      "chosen": true
     },
     {
-      "date": "2026-04-01",
-      "amount": -21400.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-02",
-      "amount": -1768.96,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_8980:1610",
+      "series": "dining:debit:*",
+      "description": "Quick-service meal",
+      "freed_before_low_point": 1641.68,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 9850.07,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 90200.0,
       "schedule": [
         [
@@ -475,6 +487,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_269",
       "total_paid": 93807.99,
@@ -499,6 +512,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_271",
       "total_paid": 102828.06,
@@ -585,8 +599,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 90200.0,
       "schedule": [
         [
@@ -608,8 +623,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 90200.0,
       "schedule": [
         [
@@ -626,6 +642,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_269",
       "total_paid": 93807.99,

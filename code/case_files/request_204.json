@@ -4,9 +4,9 @@
     "user_id": "user_204",
     "request_date": "2026-01-04",
     "request_type": "housing",
-    "requested_amount": "588.74",
+    "requested_amount": 588.74,
     "desired_completion_date": "2026-01-31",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I need to pay a EUR 588.74 rental deposit. Can I cover this deposit without putting rent and regular bills at risk?"
   },
   "profile": {
@@ -32,12 +32,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": -841.41,
+    "amount_safe_to_pay": 572.05,
+    "earliest_date_for_full_payment": "2026-01-15",
+    "lowest_projected_balance": 1872.05,
     "binding_constraint": {
-      "date": "2026-04-03",
-      "flow": "transport:debit:*"
+      "summary": "2026-01-04→2026-01-15 pre-payday run, 754.23 of bills",
+      "low_point_date": "2026-01-12",
+      "bills_window_start": "2026-01-04",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 754.23,
+      "last_debit_before_low": "delivery_membership:debit:*"
     }
   },
   "recurring_series": [
@@ -143,7 +147,7 @@
     "series transport:debit:*: every_7_days last=2026-01-02 amount=47.55 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2025-12-05 amount=127.32 n=5 flex=fixed",
     "reserved scheduled debit event_18828 77.00 on 2026-01-11 (R7)",
-    "message_162 first_salary: confirmed salary 2024.00 on 2026-01-15 (R8)"
+    "message_162 first_salary: confirmed salary 2024.00 on 2026-01-15, continued monthly (no payroll stream to continue it; same rule as a scheduled confirmed salary without history)"
   ],
   "projected_flows": [
     {
@@ -315,6 +319,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2026-02-15",
+      "amount": 2024.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_162)"
+    },
+    {
       "date": "2026-02-19",
       "amount": -82.59,
       "kind": "recurring",
@@ -411,6 +421,12 @@
       "label": "transport:debit:*"
     },
     {
+      "date": "2026-03-15",
+      "amount": 2024.0,
+      "kind": "evidence",
+      "label": "confirmed salary (message_162)"
+    },
+    {
       "date": "2026-03-19",
       "amount": -82.59,
       "kind": "recurring",
@@ -439,30 +455,14 @@
       "amount": -47.55,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-01",
-      "amount": -628.1,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-02",
-      "amount": -82.59,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-04-03",
-      "amount": -47.55,
-      "kind": "recurring",
-      "label": "transport:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 588.74,
       "schedule": [
         [
@@ -477,6 +477,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_587",
       "total_paid": 609.48,
@@ -555,7 +556,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -563,6 +564,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_588",
       "total_paid": 618.24,
@@ -665,23 +667,63 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
         "24 payments exceed max_installment_months=4 (R35)"
       ]
+    },
+    {
+      "label": "partial_payment",
+      "method": "partial_payment",
+      "option": null,
+      "total_paid": 588.74,
+      "schedule": [
+        [
+          "2026-01-04",
+          572.05
+        ],
+        [
+          "2026-01-15",
+          16.69
+        ]
+      ],
+      "eligible": false,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": [
+        "user does not consider partial_payment"
+      ]
+    },
+    {
+      "label": "wait",
+      "method": "wait",
+      "option": null,
+      "total_paid": 588.74,
+      "schedule": [
+        [
+          "2026-01-15",
+          588.74
+        ]
+      ],
+      "eligible": true,
+      "safe": true,
+      "completes_by_deadline": true,
+      "changes": [],
+      "notes": []
     }
   ],
   "output_row": {
     "request_id": "request_204",
-    "amount_safe_to_pay": "0",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "572.05",
+    "affordability_status": "affordable_later",
+    "recommended_payment_method": "wait",
+    "payment_plan": "2026-01-15:588.74",
+    "earliest_date_for_full_payment": "2026-01-15",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 31 January 2026. None of the available options keeps the EUR 1,300 minimum protected."
+    "decision_explanation": "Pay EUR 588.74 in full on 15 January 2026. Paying earlier would take the balance below the EUR 1,300 minimum."
   },
   "verification_errors": []
 }

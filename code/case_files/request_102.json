@@ -4,9 +4,9 @@
     "user_id": "user_102",
     "request_date": "2026-04-05",
     "request_type": "purchase",
-    "requested_amount": "1716.0",
+    "requested_amount": 1716.0,
     "desired_completion_date": "2026-06-12",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "The laptop comes to EUR 1,716. I need to complete it by 12 June 2026. Can I make this purchase without dipping into the balance I want to keep?"
   },
   "profile": {
@@ -34,10 +34,14 @@
   "capacity_frozen": {
     "amount_safe_to_pay": 1716.0,
     "earliest_date_for_full_payment": "2026-04-05",
-    "lowest_projected_balance": 3683.87,
+    "lowest_projected_balance": 4029.27,
     "binding_constraint": {
-      "date": "2026-07-03",
-      "flow": "rent:debit:*"
+      "summary": "2026-04-15→end of forecast run to end of forecast with no further income, 1,728.10 of bills",
+      "low_point_date": "2026-06-28",
+      "bills_window_start": "2026-04-15",
+      "next_credit": null,
+      "bills_in_window": 1728.1,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -333,18 +337,14 @@
       "amount": -52.15,
       "kind": "recurring",
       "label": "groceries:debit:*"
-    },
-    {
-      "date": "2026-07-03",
-      "amount": -345.4,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1716.0,
       "schedule": [
         [
@@ -361,6 +361,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_287",
       "total_paid": 1784.64,
@@ -385,6 +386,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_289",
       "total_paid": 1956.24,

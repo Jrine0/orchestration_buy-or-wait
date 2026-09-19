@@ -4,9 +4,9 @@
     "user_id": "user_248",
     "request_date": "2025-02-07",
     "request_type": "investment",
-    "requested_amount": "1965.6",
+    "requested_amount": 1965.6,
     "desired_completion_date": "2025-04-28",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "I'm considering setting aside USD 1,965.60 for an investment. What portion can I invest today without going below my minimum balance?"
   },
   "profile": {
@@ -32,11 +32,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 385.95,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 1685.95,
     "binding_constraint": {
-      "date": "2025-04-12",
-      "flow": "family_support:debit:*"
+      "summary": "2025-03-15→2025-04-15 pre-payday run, 1,204.76 of bills",
+      "low_point_date": "2025-04-12",
+      "bills_window_start": "2025-03-15",
+      "next_credit": "2025-04-15",
+      "bills_in_window": 1204.76,
+      "last_debit_before_low": "family_support:debit:*"
     }
   },
   "recurring_series": [
@@ -399,30 +403,38 @@
       "amount": -343.2,
       "kind": "recurring",
       "label": "rent:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 1579.65,
+      "low_point": "2025-04-12",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2025-05-05",
-      "amount": -90.86,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
+      "change": "stop:event_22794",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 39.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 39.0,
+      "chosen": false
     },
     {
-      "date": "2025-05-06",
-      "amount": -55.6,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
-    },
-    {
-      "date": "2025-05-07",
-      "amount": -34.41,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "reduce_to:event_22795:15.20",
+      "series": "shopping:debit:*",
+      "description": "Monthly shopping spend",
+      "freed_before_low_point": 71.85,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 71.85,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1965.6,
       "schedule": [
         [
@@ -439,6 +451,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_717",
       "total_paid": 2162.1,
@@ -513,6 +526,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_718",
       "total_paid": 2398.08,

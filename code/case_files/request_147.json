@@ -4,9 +4,9 @@
     "user_id": "user_147",
     "request_date": "2026-04-05",
     "request_type": "travel",
-    "requested_amount": "1129.7",
+    "requested_amount": 1129.7,
     "desired_completion_date": "2026-06-07",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I afford the full trip without putting upcoming bills at risk? I need to decide by 7 June 2026. I've found a travel option for EUR 1,129.70."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-05-15",
     "lowest_projected_balance": 1377.46,
     "binding_constraint": {
-      "date": "2026-04-14",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-05→2026-04-15 pre-payday run, 264.07 of bills",
+      "low_point_date": "2026-04-14",
+      "bills_window_start": "2026-04-05",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 264.07,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -340,10 +344,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1129.7,
       "schedule": [
         [
@@ -360,6 +366,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_418",
       "total_paid": 1174.89,
@@ -384,6 +391,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_420",
       "total_paid": 1287.9,
@@ -470,8 +478,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1129.7,
       "schedule": [
         [
@@ -492,8 +501,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1129.7,
       "schedule": [
         [

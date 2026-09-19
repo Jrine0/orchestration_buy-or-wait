@@ -4,9 +4,9 @@
     "user_id": "user_87",
     "request_date": "2026-01-05",
     "request_type": "other",
-    "requested_amount": "487900.0",
+    "requested_amount": 487900.0,
     "desired_completion_date": "2026-03-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would committing to the membership leave enough for my upcoming bills? I need to decide by 15 March 2026. The membership fee is INR 487,900 for the year."
   },
   "profile": {
@@ -30,11 +30,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 16918.39,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 202818.39,
     "binding_constraint": {
-      "date": "2026-01-14",
-      "flow": "shopping:debit:*"
+      "summary": "2026-01-05→2026-01-15 pre-payday run, 75,931.61 of bills",
+      "low_point_date": "2026-01-14",
+      "bills_window_start": "2026-01-05",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 75931.61,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -523,24 +527,29 @@
       "amount": -4713.47,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 470981.61,
+      "low_point": "2026-01-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-04-03",
-      "amount": -9292.98,
-      "kind": "recurring",
-      "label": "dining:debit:*"
-    },
-    {
-      "date": "2026-04-04",
-      "amount": -74900.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "reduce_to:event_8162:4796",
+      "series": "shopping:debit:*",
+      "description": "Monthly shopping spend",
+      "freed_before_low_point": 6459.92,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 19379.75,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 487900.0,
       "schedule": [
         [
@@ -555,6 +564,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_244",
       "total_paid": 556205.94,

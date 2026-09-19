@@ -4,9 +4,9 @@
     "user_id": "user_175",
     "request_date": "2024-09-06",
     "request_type": "emergency_expense",
-    "requested_amount": "2346.3",
+    "requested_amount": 2346.3,
     "desired_completion_date": "2024-10-01",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Should I pay for the repair in full, split the payment, or wait? I need to decide by 1 October 2024. I need to cover an urgent repair of EUR 2,346.30."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-09-06",
     "lowest_projected_balance": 4254.65,
     "binding_constraint": {
-      "date": "2024-09-14",
-      "flow": "transport:debit:*"
+      "summary": "2024-09-06→2024-09-15 pre-payday run, 505.60 of bills",
+      "low_point_date": "2024-09-14",
+      "bills_window_start": "2024-09-06",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 505.6,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -464,24 +468,14 @@
       "amount": -38.4,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-12-03",
-      "amount": -75.06,
-      "kind": "recurring",
-      "label": "dining:debit:*"
-    },
-    {
-      "date": "2024-12-04",
-      "amount": -496.1,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2346.3,
       "schedule": [
         [
@@ -496,6 +490,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_498",
       "total_paid": 2768.64,
@@ -594,6 +589,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_499",
       "total_paid": 2533.98,

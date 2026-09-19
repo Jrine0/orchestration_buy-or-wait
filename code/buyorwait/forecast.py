@@ -28,10 +28,13 @@ class Trajectory:
 def _order(flows: list[Flow], s: Settings) -> list[Flow]:
     # same-day ordering: credits post at start of day (payday), then bills, then plan payments
     def rank(f: Flow) -> int:
-        credit_rank = 1 if s.same_day_debits_first else 0
         if f.kind == "plan":
-            return 2
-        return credit_rank if f.amount >= 0 else 1 - credit_rank
+            return 3
+        if s.same_day_debits_first:
+            return 1 if f.amount >= 0 else 0
+        if f.amount >= 0:
+            return 1
+        return 0 if (s.variable_spend_before_credit and not f.monthly) else 2
     return sorted(flows, key=lambda f: (f.date, rank(f)))
 
 
@@ -48,7 +51,7 @@ def simulate(opening: float, flows: list[Flow], s: Settings = SETTINGS) -> Traje
 
 
 def window(request_date: date, s: Settings = SETTINGS) -> tuple[date, date]:
-    return request_date, request_date + timedelta(days=s.horizon_days - 1)  # 90 calendar days incl. request_date
+    return request_date, request_date + timedelta(days=s.horizon_days - 1)  # inclusive of both ends
 
 
 def min_balance_from(opening: float, flows: list[Flow], start: date, s: Settings = SETTINGS) -> float:
@@ -79,6 +82,41 @@ def safe_amount_today(opening: float, minimum: float, flows: list[Flow], request
     tr = simulate(opening, flows, s)
     headroom = tr.minimum - minimum
     return round(max(0.0, min(requested, headroom)), 2)
+
+
+def capacity_from_baseline(opening: float, minimum: float, flows: list[Flow], request_date: date,
+                           requested: float, s: Settings = SETTINGS):
+    """One baseline trajectory -> (trajectory, amount_safe_to_pay, earliest_date_for_full_payment).
+
+    Both capacity fields come from the same simulated path, so they cannot disagree (R4, R5).
+    A single payment X on day d is applied after every flow dated d (see _order). It is safe iff
+      every baseline balance up to and including day d is >= minimum, and
+      (balance at end of day d, and every later balance) - X >= minimum.
+    """
+    tr = simulate(opening, flows, s)
+    safe = round(max(0.0, min(requested, tr.minimum - minimum)), 2)
+    start, end = window(request_date, s)
+    pts = tr.points
+    # end-of-day balance and prefix minimum (opening included) for each day in the window
+    earliest = None
+    bal, prefix_low, i = opening, opening, 0
+    n = len(pts)
+    suffix_low = [0.0] * (n + 1)          # min balance over pts[k:]
+    suffix_low[n] = float("inf")
+    for k in range(n - 1, -1, -1):
+        suffix_low[k] = min(pts[k][1], suffix_low[k + 1])
+    d = start
+    while d <= end:
+        while i < n and pts[i][0] <= d:
+            bal = pts[i][1]
+            prefix_low = min(prefix_low, bal)
+            i += 1
+        after_low = min(bal, suffix_low[i])
+        if prefix_low >= minimum - EPS and after_low - requested >= minimum - EPS:
+            earliest = d
+            break
+        d += timedelta(days=1)
+    return tr, safe, earliest
 
 
 def earliest_full_payment(opening: float, minimum: float, flows: list[Flow], request_date: date,

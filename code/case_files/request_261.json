@@ -4,9 +4,9 @@
     "user_id": "user_261",
     "request_date": "2026-07-03",
     "request_type": "housing",
-    "requested_amount": "1830.4",
+    "requested_amount": 1830.4,
     "desired_completion_date": "2026-09-19",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I pay the rental deposit by the requested date? The landlord has asked for a deposit of EUR 1,830.40."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-07-03",
     "lowest_projected_balance": 3608.24,
     "binding_constraint": {
-      "date": "2026-07-10",
-      "flow": "healthcare:debit:*"
+      "summary": "2026-07-03→2026-07-15 pre-payday run, 1,110.72 of bills",
+      "low_point_date": "2026-07-10",
+      "bills_window_start": "2026-07-03",
+      "next_credit": "2026-07-15",
+      "bills_in_window": 1110.72,
+      "last_debit_before_low": "healthcare:debit:*"
     }
   },
   "recurring_series": [
@@ -386,10 +390,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1830.4,
       "schedule": [
         [
@@ -404,6 +410,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_752",
       "total_paid": 2086.74,
@@ -490,6 +497,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_753",
       "total_paid": 1976.82,

@@ -4,9 +4,9 @@
     "user_id": "user_201",
     "request_date": "2026-04-03",
     "request_type": "debt_repayment",
-    "requested_amount": "23997000.0",
+    "requested_amount": 23997000.0,
     "desired_completion_date": "2026-05-16",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Is the full extra repayment safe, or should I pay a smaller amount? The extra repayment I'm considering is IDR 23,997,000."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-04-03",
     "lowest_projected_balance": 46677698.12,
     "binding_constraint": {
-      "date": "2026-06-25",
-      "flow": "groceries:debit:*"
+      "summary": "2026-04-03→end of forecast run to end of forecast with no further income, 31,295,701.88 of bills",
+      "low_point_date": "2026-06-25",
+      "bills_window_start": "2026-04-03",
+      "next_credit": null,
+      "bills_in_window": 31295701.88,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -338,10 +342,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 23997000.0,
       "schedule": [
         [
@@ -356,6 +362,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_577",
       "total_paid": 27356580.0,
@@ -442,6 +449,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_578",
       "total_paid": 25916760.0,

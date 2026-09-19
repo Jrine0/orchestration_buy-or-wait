@@ -4,9 +4,9 @@
     "user_id": "user_203",
     "request_date": "2025-05-07",
     "request_type": "emergency_expense",
-    "requested_amount": "1442.1",
+    "requested_amount": 1442.1,
     "desired_completion_date": "2025-07-08",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I cover the full repair now and still manage my essential expenses? I need to decide by 8 July 2025. I need to cover an urgent repair of EUR 1,442.10."
   },
   "profile": {
@@ -32,12 +32,16 @@
     ]
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 861.02,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 2261.02,
+    "amount_safe_to_pay": 1442.1,
+    "earliest_date_for_full_payment": "2025-05-07",
+    "lowest_projected_balance": 3127.71,
     "binding_constraint": {
-      "date": "2025-08-04",
-      "flow": "rent:debit:*"
+      "summary": "2025-05-07→end of forecast run to end of forecast with no further income, 5,199.67 of bills",
+      "low_point_date": "2025-07-31",
+      "bills_window_start": "2025-05-07",
+      "next_credit": null,
+      "bills_in_window": 5199.67,
+      "last_debit_before_low": "transport:debit:*"
     }
   },
   "recurring_series": [
@@ -436,24 +440,14 @@
       "amount": -53.42,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-08-03",
-      "amount": -65.88,
-      "kind": "recurring",
-      "label": "dining:debit:*"
-    },
-    {
-      "date": "2025-08-04",
-      "amount": -800.8,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1442.1,
       "schedule": [
         [
@@ -462,7 +456,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": [
@@ -470,6 +464,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_583",
       "total_paid": 1499.79,
@@ -488,12 +483,13 @@
         ]
       ],
       "eligible": true,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": true,
       "changes": [],
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_585",
       "total_paid": 1586.25,
@@ -560,7 +556,7 @@
         ]
       ],
       "eligible": false,
-      "safe": false,
+      "safe": true,
       "completes_by_deadline": false,
       "changes": [],
       "notes": [
@@ -570,13 +566,13 @@
   ],
   "output_row": {
     "request_id": "request_203",
-    "amount_safe_to_pay": "861.02",
-    "affordability_status": "not_affordable",
-    "recommended_payment_method": "not_recommended",
-    "payment_plan": "none",
-    "earliest_date_for_full_payment": "",
+    "amount_safe_to_pay": "1442.1",
+    "affordability_status": "affordable_with_plan",
+    "recommended_payment_method": "installments",
+    "payment_plan": "2025-05-10:499.93|2025-06-07:499.93|2025-07-05:499.93",
+    "earliest_date_for_full_payment": "2025-05-07",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not proceed with the EUR 1,442.10 request. Although EUR 861.02 is available today, the full amount cannot be completed safely within 90 days."
+    "decision_explanation": "Use 3 installments of EUR 499.93, starting 10 May 2025. This leaves at least EUR 1,400 available."
   },
   "verification_errors": []
 }

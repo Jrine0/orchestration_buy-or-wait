@@ -4,9 +4,9 @@
     "user_id": "user_65",
     "request_date": "2025-11-06",
     "request_type": "other",
-    "requested_amount": "54340.0",
+    "requested_amount": 54340.0,
     "desired_completion_date": "2025-11-25",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "Can I pay for the annual membership now without affecting my regular expenses? The annual membership costs ZAR 54,340."
   },
   "profile": {
@@ -30,11 +30,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 5886.72,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 21386.72,
     "binding_constraint": {
-      "date": "2025-11-14",
-      "flow": "entertainment:debit:*"
+      "summary": "2025-11-06→2025-11-15 pre-payday run, 7,137.28 of bills",
+      "low_point_date": "2025-11-14",
+      "bills_window_start": "2025-11-06",
+      "next_credit": "2025-11-15",
+      "bills_in_window": 7137.28,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -414,18 +418,38 @@
       "amount": -840.85,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 48453.28,
+      "low_point": "2025-11-14",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-02-03",
-      "amount": -2519.0,
-      "kind": "recurring",
-      "label": "housing:debit:*"
+      "change": "reduce_to:event_6074:369.60",
+      "series": "entertainment:debit:*",
+      "description": "Cinema and events",
+      "freed_before_low_point": 400.75,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1202.26,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_6116:463.10",
+      "series": "dining:debit:*",
+      "description": "Takeaway order",
+      "freed_before_low_point": 0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1591.21,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 54340.0,
       "schedule": [
         [
@@ -442,6 +466,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_181",
       "total_paid": 59773.95,

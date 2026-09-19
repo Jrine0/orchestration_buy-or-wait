@@ -4,9 +4,9 @@
     "user_id": "user_82",
     "request_date": "2024-12-05",
     "request_type": "family_transfer",
-    "requested_amount": "1405.2",
+    "requested_amount": 1405.2,
     "desired_completion_date": "2025-02-15",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I've been asked to transfer USD 1,405.20 to my family. I need to complete it by 15 February 2025. Can I make the full transfer without falling short on my own bills?"
   },
   "profile": {
@@ -31,8 +31,12 @@
     "earliest_date_for_full_payment": "2025-01-15",
     "lowest_projected_balance": 1413.89,
     "binding_constraint": {
-      "date": "2024-12-13",
-      "flow": "shopping:debit:*"
+      "summary": "2024-12-05→2024-12-15 pre-payday run, 788.51 of bills",
+      "low_point_date": "2024-12-13",
+      "bills_window_start": "2024-12-05",
+      "next_credit": "2024-12-15",
+      "bills_in_window": 788.51,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -462,18 +466,14 @@
       "amount": -42.24,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2025-03-03",
-      "amount": -405.6,
-      "kind": "recurring",
-      "label": "rent:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1405.2,
       "schedule": [
         [
@@ -488,6 +488,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_230",
       "total_paid": 1658.16,
@@ -586,6 +587,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_231",
       "total_paid": 1714.32,
@@ -696,8 +698,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1405.2,
       "schedule": [
         [
@@ -719,8 +722,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1405.2,
       "schedule": [
         [

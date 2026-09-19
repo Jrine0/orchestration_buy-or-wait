@@ -4,9 +4,9 @@
     "user_id": "user_133",
     "request_date": "2024-03-07",
     "request_type": "purchase",
-    "requested_amount": "15770000.0",
+    "requested_amount": 15770000.0,
     "desired_completion_date": "2024-03-29",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Is the laptop affordable right now, or should I wait? I've found a laptop for IDR 15,770,000."
   },
   "profile": {
@@ -28,12 +28,16 @@
     "stoppable": []
   },
   "capacity_frozen": {
-    "amount_safe_to_pay": 0.0,
-    "earliest_date_for_full_payment": "None",
-    "lowest_projected_balance": 7989080.69,
+    "amount_safe_to_pay": 2473806.46,
+    "earliest_date_for_full_payment": null,
+    "lowest_projected_balance": 12460006.46,
     "binding_constraint": {
-      "date": "2024-06-04",
-      "flow": "groceries:debit:*"
+      "summary": "2024-03-07→end of forecast run to end of forecast with no further income, 24,364,643.54 of bills",
+      "low_point_date": "2024-05-23",
+      "bills_window_start": "2024-03-07",
+      "next_credit": null,
+      "bills_in_window": 24364643.54,
+      "last_debit_before_low": "dining:debit:*"
     }
   },
   "recurring_series": [
@@ -274,24 +278,29 @@
       "amount": -503822.44,
       "kind": "recurring",
       "label": "dining:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 13296193.54,
+      "low_point": "2024-05-23",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-06-02",
-      "amount": -3895000.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2024-06-04",
-      "amount": -575925.76,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "reduce_to:event_12280:265050",
+      "series": "dining:debit:*",
+      "description": "Neighbourhood restaurant",
+      "freed_before_low_point": 955089.76,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 955089.76,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 15770000.0,
       "schedule": [
         [
@@ -308,6 +317,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_379",
       "total_paid": 18608600.01,
@@ -408,13 +418,13 @@
   ],
   "output_row": {
     "request_id": "request_133",
-    "amount_safe_to_pay": "0",
+    "amount_safe_to_pay": "2473806.46",
     "affordability_status": "not_affordable",
     "recommended_payment_method": "not_recommended",
     "payment_plan": "none",
     "earliest_date_for_full_payment": "",
     "spending_changes_needed": "none",
-    "decision_explanation": "Do not make this payment by 29 March 2024. None of the available options keeps the IDR 9,986,200 minimum protected."
+    "decision_explanation": "Do not proceed with the IDR 15,770,000 request. Although IDR 2,473,806.46 is available today, the full amount cannot be completed safely within 90 days."
   },
   "verification_errors": []
 }

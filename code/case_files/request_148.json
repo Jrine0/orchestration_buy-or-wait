@@ -4,9 +4,9 @@
     "user_id": "user_148",
     "request_date": "2024-06-07",
     "request_type": "purchase",
-    "requested_amount": "22242.0",
+    "requested_amount": 22242.0,
     "desired_completion_date": "2024-08-18",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The laptop I'm looking at is ZAR 22,242. Is the laptop affordable right now, or should I wait?"
   },
   "profile": {
@@ -37,8 +37,12 @@
     "earliest_date_for_full_payment": "2024-08-15",
     "lowest_projected_balance": 27127.02,
     "binding_constraint": {
-      "date": "2024-06-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-06-07→2024-06-15 pre-payday run, 6,054.06 of bills",
+      "low_point_date": "2024-06-13",
+      "bills_window_start": "2024-06-07",
+      "next_credit": "2024-06-15",
+      "bills_in_window": 6054.06,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -455,24 +459,65 @@
       "amount": -11066.0,
       "kind": "recurring",
       "label": "rent:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 15114.98,
+      "low_point": "2024-06-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-09-03",
-      "amount": -1408.04,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "reduce_to:event_13594:576.40",
+      "series": "entertainment:debit:*",
+      "description": "Games and recreation",
+      "freed_before_low_point": 608.75,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1826.26,
+      "chosen": true
     },
     {
-      "date": "2024-09-04",
-      "amount": -880.13,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "stop:event_13591",
+      "series": "music_subscription:debit:*",
+      "description": "Audio streaming plan",
+      "freed_before_low_point": 328.9,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 986.7,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_13592",
+      "series": "delivery_membership:debit:*",
+      "description": "Food delivery membership",
+      "freed_before_low_point": 575.3,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1725.9,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_13593",
+      "series": "gym:debit:*",
+      "description": "Community fitness plan",
+      "freed_before_low_point": 651.2,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 1953.6,
+      "chosen": false
+    },
+    {
+      "change": "reduce_to:event_13661:531.30",
+      "series": "dining:debit:*",
+      "description": "Family dinner",
+      "freed_before_low_point": 494.04,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 2964.23,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 22242.0,
       "schedule": [
         [
@@ -489,6 +534,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_421",
       "total_paid": 23131.68,
@@ -513,6 +559,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_423",
       "total_paid": 26245.59,
@@ -611,8 +658,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 22242.0,
       "schedule": [
         [
@@ -633,8 +681,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 22242.0,
       "schedule": [
         [
@@ -651,6 +700,7 @@
       ]
     },
     {
+      "label": "installments with spending changes",
       "method": "installments",
       "option": "payment_option_421",
       "total_paid": 23131.68,

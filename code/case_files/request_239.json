@@ -4,9 +4,9 @@
     "user_id": "user_239",
     "request_date": "2025-05-04",
     "request_type": "investment",
-    "requested_amount": "642.0",
+    "requested_amount": 642.0,
     "desired_completion_date": "2025-05-24",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would investing this amount leave my upcoming bills covered? I need to decide by 24 May 2025. I have an opportunity to invest USD 642."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2025-05-04",
     "lowest_projected_balance": 1296.44,
     "binding_constraint": {
-      "date": "2025-05-14",
-      "flow": "shopping:debit:*"
+      "summary": "2025-05-04→2025-05-15 pre-payday run, 692.46 of bills",
+      "low_point_date": "2025-05-14",
+      "bills_window_start": "2025-05-04",
+      "next_credit": "2025-05-15",
+      "bills_in_window": 692.46,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -394,10 +398,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 642.0,
       "schedule": [
         [
@@ -412,6 +418,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_690",
       "total_paid": 706.2,
@@ -486,6 +493,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_691",
       "total_paid": 693.36,

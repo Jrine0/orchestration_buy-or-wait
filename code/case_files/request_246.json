@@ -4,9 +4,9 @@
     "user_id": "user_246",
     "request_date": "2026-04-03",
     "request_type": "education",
-    "requested_amount": "64086.0",
+    "requested_amount": 64086.0,
     "desired_completion_date": "2026-06-02",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "I'm considering a professional course priced at ZAR 64,086. I need to complete it by 2 June 2026. Is it safe to cover the full course fee by the deadline?"
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2026-04-03",
     "lowest_projected_balance": 108931.18,
     "binding_constraint": {
-      "date": "2026-06-26",
-      "flow": "groceries:debit:*"
+      "summary": "2026-04-03→end of forecast run to end of forecast with no further income, 92,760.88 of bills",
+      "low_point_date": "2026-06-26",
+      "bills_window_start": "2026-04-03",
+      "next_credit": null,
+      "bills_in_window": 92760.88,
+      "last_debit_before_low": "groceries:debit:*"
     }
   },
   "recurring_series": [
@@ -337,10 +341,12 @@
       "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 64086.0,
       "schedule": [
         [
@@ -357,6 +363,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_710",
       "total_paid": 66649.44,
@@ -381,6 +388,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_712",
       "total_paid": 73058.04,

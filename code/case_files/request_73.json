@@ -4,9 +4,9 @@
     "user_id": "user_73",
     "request_date": "2023-01-20",
     "request_type": "emergency_expense",
-    "requested_amount": "71400.0",
+    "requested_amount": 71400.0,
     "desired_completion_date": "2023-02-13",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Can I cover the full repair now and still manage my essential expenses? The latest estimate for the repair is INR 71,400."
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2023-01-20",
     "lowest_projected_balance": 176625.82,
     "binding_constraint": {
-      "date": "2023-02-12",
-      "flow": "shopping:debit:*"
+      "summary": "2023-01-20→2023-02-15 pre-payday run, 101,916.68 of bills",
+      "low_point_date": "2023-02-12",
+      "bills_window_start": "2023-01-20",
+      "next_credit": "2023-02-15",
+      "bills_in_window": 101916.68,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -466,18 +470,14 @@
       "amount": 132000.0,
       "kind": "recurring",
       "label": "salary:credit:*"
-    },
-    {
-      "date": "2023-04-19",
-      "amount": -5074.65,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 71400.0,
       "schedule": [
         [
@@ -492,6 +492,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_203",
       "total_paid": 84252.0,
@@ -590,6 +591,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_204",
       "total_paid": 77112.0,

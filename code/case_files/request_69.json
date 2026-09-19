@@ -4,9 +4,9 @@
     "user_id": "user_69",
     "request_date": "2026-01-04",
     "request_type": "investment",
-    "requested_amount": "529.1",
+    "requested_amount": 529.1,
     "desired_completion_date": "2026-01-14",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would investing this amount leave my upcoming bills covered? I want to put EUR 529.10 into an investment."
   },
   "profile": {
@@ -36,8 +36,12 @@
     "earliest_date_for_full_payment": "2026-01-04",
     "lowest_projected_balance": 1252.82,
     "binding_constraint": {
-      "date": "2026-01-12",
-      "flow": "shopping:debit:*"
+      "summary": "2026-01-04→2026-01-15 pre-payday run, 386.68 of bills",
+      "low_point_date": "2026-01-12",
+      "bills_window_start": "2026-01-04",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 386.68,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -152,7 +156,7 @@
     "series streaming:debit:*: monthly last=2025-12-09 amount=24.00 n=5 flex=stoppable",
     "series transport:debit:*: every_7_days last=2026-01-03 amount=29.43 n=26 flex=fixed",
     "series utilities:debit:*: monthly last=2025-12-06 amount=77.43 n=5 flex=fixed",
-    "message_51 rent_increase: 3 projected rent payments raised 12.0%"
+    "message_51 rent_increase: 2 projected rent payments raised 12.0%"
   ],
   "projected_flows": [
     {
@@ -454,24 +458,14 @@
       "amount": -29.43,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-02",
-      "amount": -434.9,
-      "kind": "recurring",
-      "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-03",
-      "amount": -42.28,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 529.1,
       "schedule": [
         [
@@ -486,6 +480,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_191",
       "total_paid": 603.18,
@@ -572,6 +567,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_192",
       "total_paid": 571.44,

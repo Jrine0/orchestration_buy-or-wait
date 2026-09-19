@@ -4,9 +4,9 @@
     "user_id": "user_168",
     "request_date": "2026-01-07",
     "request_type": "housing",
-    "requested_amount": "49380.0",
+    "requested_amount": 49380.0,
     "desired_completion_date": "2026-03-16",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "The rental deposit is INR 49,380. Would paying the full deposit leave enough for my other commitments?"
   },
   "profile": {
@@ -35,8 +35,12 @@
     "earliest_date_for_full_payment": "2026-02-15",
     "lowest_projected_balance": 144844.55,
     "binding_constraint": {
-      "date": "2026-01-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2026-01-07→2026-01-15 pre-payday run, 28,998.45 of bills",
+      "low_point_date": "2026-01-13",
+      "bills_window_start": "2026-01-07",
+      "next_credit": "2026-01-15",
+      "bills_in_window": 28998.45,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -523,30 +527,14 @@
       "amount": -38100.0,
       "kind": "recurring",
       "label": "rent:debit:*"
-    },
-    {
-      "date": "2026-04-05",
-      "amount": -3208.42,
-      "kind": "recurring",
-      "label": "transport:debit:*"
-    },
-    {
-      "date": "2026-04-05",
-      "amount": -9516.16,
-      "kind": "recurring",
-      "label": "utilities:debit:*"
-    },
-    {
-      "date": "2026-04-06",
-      "amount": -3810.0,
-      "kind": "recurring",
-      "label": "insurance:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 49380.0,
       "schedule": [
         [
@@ -563,6 +551,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_478",
       "total_paid": 51355.2,
@@ -589,6 +578,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_479",
       "total_paid": 52342.8,
@@ -619,8 +609,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 49380.0,
       "schedule": [
         [
@@ -639,8 +630,9 @@
       "notes": []
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 49380.0,
       "schedule": [
         [

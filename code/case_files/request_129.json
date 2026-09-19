@@ -4,9 +4,9 @@
     "user_id": "user_129",
     "request_date": "2026-04-04",
     "request_type": "education",
-    "requested_amount": "2668.8",
+    "requested_amount": 2668.8,
     "desired_completion_date": "2026-06-18",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Would paying the course fee now leave enough for my regular commitments? The course I want to take is USD 2,668.80."
   },
   "profile": {
@@ -30,11 +30,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 111.57,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 911.57,
     "binding_constraint": {
-      "date": "2026-04-12",
-      "flow": "shopping:debit:*"
+      "summary": "2026-04-04→2026-04-15 pre-payday run, 176.43 of bills",
+      "low_point_date": "2026-04-12",
+      "bills_window_start": "2026-04-04",
+      "next_credit": "2026-04-15",
+      "bills_in_window": 176.43,
+      "last_debit_before_low": "shopping:debit:*"
     }
   },
   "recurring_series": [
@@ -345,18 +349,38 @@
       "amount": -44.9,
       "kind": "recurring",
       "label": "groceries:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 2557.23,
+      "low_point": "2026-04-12",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2026-07-02",
-      "amount": -300.0,
-      "kind": "recurring",
-      "label": "rent:debit:*"
+      "change": "stop:event_11884",
+      "series": "cloud_storage:debit:*",
+      "description": "Cloud storage plan",
+      "freed_before_low_point": 3.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 9.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_11885",
+      "series": "streaming:debit:*",
+      "description": "Family streaming plan",
+      "freed_before_low_point": 27.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 81.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 2668.8,
       "schedule": [
         [
@@ -373,6 +397,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_368",
       "total_paid": 3042.36,

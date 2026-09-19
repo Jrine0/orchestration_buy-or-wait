@@ -4,9 +4,9 @@
     "user_id": "user_76",
     "request_date": "2024-06-03",
     "request_type": "other",
-    "requested_amount": "4455.6",
+    "requested_amount": 4455.6,
     "desired_completion_date": "2024-07-30",
-    "allows_partial_payment": "False",
+    "allows_partial_payment": false,
     "request_text": "Renewing the membership would cost USD 4,455.60. How much can I safely pay toward the membership now?"
   },
   "profile": {
@@ -32,11 +32,15 @@
   },
   "capacity_frozen": {
     "amount_safe_to_pay": 324.32,
-    "earliest_date_for_full_payment": "None",
+    "earliest_date_for_full_payment": null,
     "lowest_projected_balance": 2124.32,
     "binding_constraint": {
-      "date": "2024-08-13",
-      "flow": "entertainment:debit:*"
+      "summary": "2024-07-15→2024-08-15 pre-payday run, 2,012.65 of bills",
+      "low_point_date": "2024-08-13",
+      "bills_window_start": "2024-07-15",
+      "next_credit": "2024-08-15",
+      "bills_in_window": 2012.65,
+      "last_debit_before_low": "entertainment:debit:*"
     }
   },
   "recurring_series": [
@@ -453,24 +457,47 @@
       "amount": -53.93,
       "kind": "recurring",
       "label": "transport:debit:*"
+    }
+  ],
+  "spending_change_review": [
+    {
+      "gap_to_cover_today": 4131.28,
+      "low_point": "2024-08-13",
+      "principle": "R16 ties on every change set; pick the least 90-day cost that makes the plan safe, then fewest changes, then lowest event id"
     },
     {
-      "date": "2024-08-30",
-      "amount": -119.1,
-      "kind": "recurring",
-      "label": "groceries:debit:*"
+      "change": "reduce_to:event_7037:35",
+      "series": "gym:debit:*",
+      "description": "Fitness club membership",
+      "freed_before_low_point": 105.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 105.0,
+      "chosen": false
     },
     {
-      "date": "2024-08-31",
-      "amount": -53.93,
-      "kind": "recurring",
-      "label": "transport:debit:*"
+      "change": "stop:event_7035",
+      "series": "music_subscription:debit:*",
+      "description": "Music subscription",
+      "freed_before_low_point": 126.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 126.0,
+      "chosen": false
+    },
+    {
+      "change": "stop:event_7036",
+      "series": "delivery_membership:debit:*",
+      "description": "Food delivery membership",
+      "freed_before_low_point": 135.0,
+      "covers_gap_alone": false,
+      "cost_over_90_days": 135.0,
+      "chosen": false
     }
   ],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 4455.6,
       "schedule": [
         [
@@ -487,6 +514,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_212",
       "total_paid": 5257.56,
@@ -585,6 +613,7 @@
       ]
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_213",
       "total_paid": 5435.76,

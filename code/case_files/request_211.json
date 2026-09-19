@@ -4,9 +4,9 @@
     "user_id": "user_211",
     "request_date": "2024-09-03",
     "request_type": "other",
-    "requested_amount": "1788.6",
+    "requested_amount": 1788.6,
     "desired_completion_date": "2024-11-15",
-    "allows_partial_payment": "True",
+    "allows_partial_payment": true,
     "request_text": "How much can I safely pay toward the membership now? I need to decide by 15 November 2024. I've been offered the annual membership for EUR 1,788.60."
   },
   "profile": {
@@ -34,8 +34,12 @@
     "earliest_date_for_full_payment": "2024-11-15",
     "lowest_projected_balance": 1752.01,
     "binding_constraint": {
-      "date": "2024-09-13",
-      "flow": "music_subscription:debit:*"
+      "summary": "2024-09-03→2024-09-15 pre-payday run, 975.88 of bills",
+      "low_point_date": "2024-09-13",
+      "bills_window_start": "2024-09-03",
+      "next_credit": "2024-09-15",
+      "bills_in_window": 975.88,
+      "last_debit_before_low": "music_subscription:debit:*"
     }
   },
   "recurring_series": [
@@ -462,18 +466,14 @@
       "amount": -45.96,
       "kind": "recurring",
       "label": "transport:debit:*"
-    },
-    {
-      "date": "2024-11-30",
-      "amount": -73.55,
-      "kind": "recurring",
-      "label": "dining:debit:*"
     }
   ],
+  "spending_change_review": [],
   "candidate_plans": [
     {
+      "label": "full_payment",
       "method": "full_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1788.6,
       "schedule": [
         [
@@ -488,6 +488,7 @@
       "notes": []
     },
     {
+      "label": "installments",
       "method": "installments",
       "option": "payment_option_606",
       "total_paid": 2110.5,
@@ -586,8 +587,9 @@
       ]
     },
     {
+      "label": "partial_payment",
       "method": "partial_payment",
-      "option": "",
+      "option": null,
       "total_paid": 1788.6,
       "schedule": [
         [
@@ -608,8 +610,9 @@
       ]
     },
     {
+      "label": "wait",
       "method": "wait",
-      "option": "",
+      "option": null,
       "total_paid": 1788.6,
       "schedule": [
         [
